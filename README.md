@@ -11,35 +11,47 @@ Rapp développe depuis 2 ans des jeux pour Canal + portant le nom Collecte : l'o
 
 ![Jeu actuel](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensJeu/Home.jpg)
 
+Pour ces jeux, RAPP fait appel à une entreprise marketing, TradeDoubler, dont le rôle est d'amener un maximum de gens sur le jeu via des bannières sur des sites affiliés. 
+
+**La problématique fonctionnelle principale du projet est que Canal+ doit donc rémunérer TradeDoubler pour les inscrits au jeu qu'il n'avait pas encore dans sa base, les "leads validés" mais pas les autres !**
+
 ####Les intervenants du projet
-Le processus de collecte fait intervenir 3 entités différentes : Canal+, RAPP et TradeDoubler. 
+Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ et TradeDoubler. 
 
-RAPP développe le jeu : le site web et les services associés. 
+**RAPP** développe le jeu : le site web et les services associés. Il remplit essentiellement une base de données d'inscrits (table Users).
 
-Canal+, le client n'a comme mission que de dire si une personne est déjà inscrite ou non dans sa base de données.
+**Canal+** n'a comme mission de notre point de vue que de dire si une personne est déjà inscrite ou non dans sa base de données.
 
-TradeDoubler spécialisé dans le marketing internet, est lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
+**TradeDoubler** est une entreprise spécialisée dans le marketing internet. Elle est lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
 
+####Le fonctionnel en bref
+Pendant le jeu, RAPP fournit quotidiennement à Canal+ la liste des inscrits du jour. Canal+ doit comparer ces données avec sa base et retourner la liste complétée indiquant pour chaque inscrit un statut OK ou KO suivant le fait qu'il est validé ou non.
 
-Il faut donc dorénavant fournir quotidiennement à Canal+ la liste des inscrits au jeu du jour, Canal+ doit renvoyer la liste avec un statut OK ou KO suivant le fait que l'abonné était déjà inscrit chez Canal ou non.
-Avec cette liste de retour, on génère une liste d'un autre format pour TradeDoubler contenant les ID et le status "déjà abonné" ou non et on l'envoie à TradeDoubler.
-Tous ces échanges doivent être faits via sftp.
+RAPP transforme cette liste pour TradeDoubler ne gardant que les ID et le status validé ou non et l'envoie à TradeDoubler qui sera capable de retrouver les gens qu'elle a ramenés avec un système de tracker mis en place sur le jeu.
+Concrètement, les listes en question sont des fichiers csv et xml déposés sur les différents serveurs FTP des intervenants. C'est un service Windows, appelé "Moulinette" qui gère chez RAPP l'envoi et la réception de ces fichiers.
 
-Pour le temps 3, la mécanique n'était pas rodée et il y a eu plusieurs problemes d'accès, de services cassés, de démission de chefs de projet...
-Pour le jeu n°4, il a été décidé de mettre en place un système de monitoring de l'ensemble des fichiers reçus et envoyés à l'ensemble des instances dans un format compréhensible par l'ensemble des personnes concernées chez Rapp, pour voir si tout va bien.
+Pour les temps précédents, la mécanique n'était pas rodée et il y a eu plusieurs problemes d'accès, de moulinette cassée, de démission de chefs de projet... Ce qui a posé quelques problèmes de sous.
+Pour le jeu n°4, il a été décidé de mettre en place un système de monitoring de l'ensemble des fichiers reçus et envoyés à l'ensemble des instances dans un format compréhensible par l'ensemble des personnes concernées chez Rapp.
 
-Une journée de service comprend donc théoriquement 3 fichiers de données utilisateurs collectées la veille (J-1):
-- un fichier "in" (généré par Rapp pour canal)
-- un fichier "out" (généré par Canal, modifié avec les status "déjà inscrits")
-- un xml (généré par Rapp pour TradeDoubler)
+Une journée de service comprend donc 3 fichiers de données utilisateurs collectées la veille (J-1):
+- un fichier csv "IN" (généré par Rapp pour Canal)
+- un fichier csv "OUT" (généré par Canal, modifié avec les status "déjà inscrits")
+- un fichier xml (généré par Rapp pour TradeDoubler)
 
-###En bref
+####La technique en bref
+Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. 
 
-Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. Canal est censé retourner cette même liste modifiée (portant les status "déjà inscrits" ) vers midi dans un répertoire ftp, c'est le fichier "OUT". Notre service Moulinette détecte la création d'un fichier dans le répertoire, recoupe les données avec la base de données du jeu, génère un fichier XML avec les id ("lead numbers") et les status Canal+ correspondant et enfin envoie le fichier chez TradeDoubler.
-Le monitoring de cette mécanique est l'objet de cette présentation.
+Canal est censé retourner cette même liste modifiée (portant les status "déjà inscrits" ) vers midi dans un répertoire ftp, c'est le fichier "OUT". La Moulinette détecte la création d'un fichier dans le répertoire, recoupe les données avec la base de données du jeu, génère un fichier XML avec les id ("lead numbers") et les status Canal+ correspondant et enfin envoie le fichier chez TradeDoubler.
 
-Le fonctionnel de l'écran de monitoringL'objectif est de montrer une structure d'arbre représentative de groupes de fichiers et leur metadonnées triés par date décroissante, éventuellement groupés par semaines. On veut pouvoir prévisualiser le contenu de chaque fichier ou le sauvegarder.  Un groupe de fichiers est appelé "Bundle". Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient un status, plusieurs informations sur les données envoyées et reçues et une liste de BundleFile, eux-meme ayant une date de creation.
-La présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
+L'écran de monitoring de cette mécanique, beaucoup plus simple que tout cela, est l'objet de cette présentation.
+
+##L'Ecran de monitoring
+
+L'objectif de cette simple page web est de montrer une structure d'arbre représentative de groupes de fichiers et leur metadonnées triés par date décroissante, groupés par semaines. On veut pouvoir prévisualiser le contenu de chaque fichier ou le sauvegarder.  
+
+Un groupe de fichiers est appelé "Bundle". Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient une énumération d'état, plusieurs informations sur les données envoyées et reçues et une liste de BundleFile (les fameux fichiers IN, OUT et XML), eux-meme ayant une date de creation.
+
+Ma présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
 
 Ce projet est essentiellement à mon initiative et a été pour moi un excellent prétexte pour mettre en place l'ensemble des technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, très spécifique au client RAPP (de type agence) permet de d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
 
