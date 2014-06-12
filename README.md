@@ -26,9 +26,11 @@ Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ 
 
 ####Le fonctionnel en bref
 Pendant le jeu, RAPP fournit quotidiennement à Canal+ la liste des inscrits du jour. Canal+ doit comparer ces données avec sa base et retourner la liste complétée indiquant pour chaque inscrit un statut OK ou KO suivant le fait qu'il est validé ou non.
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Fonctionnel%20Moulinette%20Donn%C3%A9es.png)
 
 RAPP transforme cette liste pour TradeDoubler ne gardant que les ID et le status validé ou non et l'envoie à TradeDoubler qui sera capable de retrouver les gens qu'elle a ramenés avec un système de tracker mis en place sur le jeu.
 Concrètement, les listes en question sont des fichiers csv et xml déposés sur les différents serveurs FTP des intervenants. C'est un service Windows, appelé "Moulinette" qui gère chez RAPP l'envoi et la réception de ces fichiers.
+
 
 Pour les temps précédents, la mécanique n'était pas rodée et il y a eu plusieurs problemes d'accès, de moulinette cassée, de démission de chefs de projet... Ce qui a posé quelques problèmes de sous.
 Pour le jeu n°4, il a été décidé de mettre en place un système de monitoring de l'ensemble des fichiers reçus et envoyés à l'ensemble des instances dans un format compréhensible par l'ensemble des personnes concernées chez Rapp.
@@ -37,6 +39,8 @@ Une journée de service comprend donc 3 fichiers de données utilisateurs collec
 - un fichier csv "IN" (généré par Rapp pour Canal)
 - un fichier csv "OUT" (généré par Canal, modifié avec les status "déjà inscrits")
 - un fichier xml (généré par Rapp pour TradeDoubler)
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Moulinette%20Basique.png)
 
 ####La technique en bref
 Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. 
