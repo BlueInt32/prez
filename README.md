@@ -99,13 +99,19 @@ Pour chaque type que l'ont veut persister dans la base, on doit créer dans notr
 
 ###Utilisation du contexte
 
-Le DbContext s'utilise pratiquement comme
-Montrer comment on crée des POCO, comment on ajoute des entités aux dbsets, comment on sauvegarde. Montrer comment on requete la base (en linq).
+Le DbContext s'utilise comme classiquement dans Entity Framework, voici la creation, update et List pour les bundles : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Create_Bundle.jpg)
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Update_Bundle.jpg)
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/List_Bundle.jpg)
+
 
 
 ###Systeme de migration
-
-Sans rien faire de plus (config), par défaut, EF crée en local une base portant le nom qualifié du contexte que l'on a créé et y ajoute les tables correspondantes aux DbSets quand il en a besoin, c'est à dire lors de la premiere session de debug. Pour ne pas laisser EF faire lui-meme le update-database : voir ici Si l'on veut modifier notre model pendant le developpement, on peut utiliser les migrations.
+EF Code fournit
+Sans préciser de connexionstring, EF utilise LocalDB (instance de BDD sans besoin d'installer SQL en local) et créé une base portant le nom qualifié du contexte que l'on a créé, y ajoute les tables correspondantes aux DbSets quand il en a besoin, c'est à dire lors de la premiere session de debug. Pour ne pas laisser EF faire lui-meme le update-database : voir ici Si l'on veut modifier notre model pendant le developpement, on peut utiliser les migrations.
 
 `Enable-Migrations`
 
