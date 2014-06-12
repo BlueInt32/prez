@@ -55,15 +55,16 @@ Ma présentation se fera logiquement dans le sens de la couche d'accès aux donn
 
 Ce projet est essentiellement à mon initiative et a été pour moi un excellent prétexte pour mettre en place l'ensemble des technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, très spécifique au client RAPP (de type agence) permet de d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
 
-#Code First 
+##Code First 
 
 Code First est une brique d'Entity Framework dont la philosophie est de coder son modèle de données en C# (ou en VB.net), et de laisser Entity Framework gérer la base de données grace à quelques commandes et à un système de migration.
 
 ###Créer les POCO
 
-On commence donc naturellement par la définition des POCO, ou "Entités". Dans la définition de nos POCO, il n'est fait aucune mention du systeme de persistance, aucun héritage particulier n'est nécéssaire. Cela permet de compter sur ces POCO partout dans l'application sans se soucier des références. 
+On commence donc de manière intuitive par la définition des POCO ou "Entités". Dans la définition de nos POCO, il n'est fait aucune mention du systeme de persistance, aucun héritage particulier n'est nécéssaire. Cela permet de compter sur ces POCO partout dans l'application sans se soucier des références. 
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ClassDiagram.png)
+
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg) 
 
@@ -110,33 +111,74 @@ Le DbContext s'utilise comme classiquement dans Entity Framework, voici la creat
 
 
 ###Systeme de migration
-EF Code fournit
-Sans préciser de connexionstring, EF utilise LocalDB (instance de BDD sans besoin d'installer SQL en local) et créé une base portant le nom qualifié du contexte que l'on a créé, y ajoute les tables correspondantes aux DbSets quand il en a besoin, c'est à dire lors de la premiere session de debug. Pour ne pas laisser EF faire lui-meme le update-database : voir ici Si l'on veut modifier notre model pendant le developpement, on peut utiliser les migrations.
+EF Code First fournit un ensemble de commandes permettant d'effectuer la migration du modele (DbContext) vers la base de données de manière incrémentale.
+Après chaque modification du modele, on ajoute une migration décrivant le delta sur la base de données par rapport à l'état précédent détecté en base.
+Ces migrations sont stockées dans la base de données dans une table nommée _Migration_History. Chaque migration référence les modifications effectuées.
+EF stocke également par défaut localement les migrations effectuées dans un répertoire Migrations de l'assembly du DbContext, cela est désactivé si on actionne la migration automatique.
+
+
+###Commandes
+EF est embarqué avec plusieurs commandes saisissables dans Package Manager Console permettant d'effectuer les actions principales du framework. Voici les principales : 
+
 
 `Enable-Migrations`
 
-Ceci fait les choses suivantes :
+Cette commande initialise les migrations en créant un dossier Migrations et en y ajoutant une classe Configuration.cs qui contient les informations necessaires à leur gestion, notemment la valeur de propriété AutomaticMigrationsEnabled par défaut à false. Si cette valeur est à true, la commande `Add-migration` n'a pas à être utilisée et les migrations sont appliquées automatiquement sur la base.
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Enabling%20Migrations.jpg)
 
-- Créer un dossier Migrations et deux classes dans le projet
-- Configuration.cs : elle contient les informations necessaires à la gestion des migrations (dossiers, enregistrement de providers, seed) notemment la valeur de propriété AutomativMigrationsEnabled par défaut à false (cela implique qu'on est obligé de créer les fichiers de mimgration localement pour appliquer les changements sur la base).
-- Un fichier de migration (héritant de DbMigration) horodaté : représente la création effective des tables de la base, au moment où la commande a été lancée.
-- Créer une table migration dans la base, qui référence la derniere migration effectuée et spécifie qu'elle a été appliquée.
-Après la modification du modele (ajout de propriété dans une entité par exemple) :
 
 `Add-migration <Nomchoisi>`
 
 Ceci ajoute un fichier de migration représentant le delta effectué dans la base, mais également l'eventuel rollback. Ceci ne modifie pas la base de données.
 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Migrations%20Directory.jpg)
+
+La classe générée hérite de DbMigration : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/DbMigration%20Generated%20Code.jpg)
+
+
 `Update-Database`
 
+Cette commande compare l'état de la base de données par rapport aux migrations créées en local et passe les modifications si besoin.
+Note : si les migrations automatiques sont activées, cette seule commande suffit pour mettre à jour la base.
+Les options suivantes sont très utiles: 
 
-Ceci regarde dans la table migration de la base de données, constate quelle migration a été appliquée en dernier et applique celles qui ne le sont pas encore.
-Sortir des conventions :
-* Data Annotations (possible aussi avec FluentApi mais j'ai jamais été voir)
-Les conventions Code First attendent que les propriétés de nos poco correspondant aux clefs primaires soient suffixées par "Id". Si on ne veut pas cela, il faut ajouter un attribut de type DataAnnotations nommé Key à la propriété désirée pour qu'EF s'y retrouve.
-* Fluent Api
-Permet de modifier à loisir la persistance par défaut effectuée par code first. Par exemple, il est possible de modifier le nom d'une colonne dans la table en overridant OnModelCreating de notre contexte : modelBuilder.Entity<PocoClass>().Property(poco => poco.propertyName).HasColumnName("salut")
-Web API
+`Update-Database -force -verbose -script`
+
+- `force` : quand la migration fait potentiellement perdre des données (drops), cela peut être utile. Sinon, EF remonte un warning.
+- `verbose` : affiche l'ensemble des actions effectuées. On devrait toujours utiliser cette option.
+- `script` : n'applique aucune modification sur la base, mais ouvre un fichier .sql avec les modifications apportées. Utile quand on n'est pas serein et/ou qu'on n'a pas d'accès à la base de données.
+ 
+### ConnectionString
+Lors de l'application des commandes, c'est dans **le projet de démarrage** qu'est récupérée la ConnectionString : pour appliquer des migrations il faut donc en général mettre le projet contenant le DbContext en projet de démarrage et vérifier la chaine de connexion désirée dans App.config.
+Si EF ne trouve pas de configuration de connection, il créé par défaut une base LocalDB (successeur de SQLExpress) portant le nom qualifié de notre DbContext.
+
+
+###Conventions :
+
+Par défaut, Code First détecte les clefs primaires et étrangères en fonction des noms données aux propriétés du modele : 
+par exemple le champ nommé Id ou ID est la clef primaire. Si plusieurs champs finissent par Id, c'est celui qui porte le nom de la classe qui constituera la clef primaire.
+
+###Modifications du mapping par défaut
+Il existe plusieurs moyens de changer le mapping par défaut effectué par Code First.
+
+####Data Annotations
+Il existe plusieurs attributs qu'on peut appliquer aux propriétés du modèle, en voici quelques unes : 
+- Key : force la clef primaire sur ce champ
+- StringLength(int) : détermine la taille maximale du champ. Attention : sur un string si rien n'est précisé, cela génère un varchar(Max) !
+- Required : rejette les valeurs nulles.
+- NotMapped : ce champ ne sera pas ajouté à la base de données.
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg)
+
+####Fluent Api
+Permet d'effectuer des modifications plus pointues que les dataAnnotations sur la génération de la base de données, ou d'aider EF à s'y retrouver quand on veut mapper une base déjà existante. Je n'ai pas expérimenté beaucoup ces fonctionnalités. On utilise la Fluent Api dans la méthode du DbContext `OnModelCreating` : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20OnModelCreating.jpg)
+ 
+
+##Web API
 La brique WebApi d'ASP.net permet de mettre en place des services "RESTful" accessible dans un format d'échange compris par une large gamme de clients (ici JSON) : le point clef est l'interroperabilité.
 
 Meme si cet aspect n'a pas été exploité dans ce projet, il aurait été relativement facile d'implémenter l'interface d'affichage dans une application desktop, sur iPhone ou n'importe quelle plateforme "Front".
