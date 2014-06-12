@@ -63,25 +63,67 @@ Code First est une brique d'Entity Framework dont la philosophie est de coder so
 
 On commence donc naturellement par la définition des POCO, ou "Entités". Dans la définition de nos POCO, il n'est fait aucune mention du systeme de persistance, aucun héritage particulier n'est nécéssaire. Cela permet de compter sur ces POCO partout dans l'application sans se soucier des références. 
 
-[Screen Shot POCO Bundle et BundleFile]
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ClassDiagram.png)
 
- Dans le POCO, par convention on distingue 2 types de propriétés : les propriétés scalaires et les propriétés de navigation (interactions entre entités).
-On ajoute virtual sur les propriétés de navigation pour permettre le lazy loading. On peut désactiver le lazy-loading. [Définir : Lazy Loading]
-Créer le contexteLe contexte BundleContext: il dérive de DbContext qui est une brique de base d'EF. Il représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés pour être appliqués d'un seul coup. [Définir : Unit Of Work, Repository Pattern] Pour chaque type que l'ont veut persister dans la base, on doit créer dans notre contexte un DbSet correspondant. Le DbSet représente une collection d'entités, reflétant le contenu de la base.
-Utiliser le contexte :Montrer comment on crée des POCO, comment on ajoute des entités aux dbsets, comment on sauvegarde. Montrer comment on requete la base (en linq).
-Systeme de migrationSans rien faire de plus (config), par défaut, EF crée en local une base portant le nom qualifié du contexte que l'on a créé et y ajoute les tables correspondantes aux DbSets quand il en a besoin, c'est à dire lors de la premiere session de debug. Pour ne pas laisser EF faire lui-meme le update-database : voir ici Si l'on veut modifier notre model pendant le developpement, on peut utiliser les migrations.
-Console : Enable-Migrations
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg) 
+
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFile.jpg)
+
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFileType.jpg)
+
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleStatus.jpg)
+
+Dans le POCO, par convention on distingue 2 types de propriétés : les propriétés scalaires et les propriétés de navigation (interactions entre entités).
+
+On ajoute virtual sur les propriétés de navigation pour permettre le lazy loading. 
+
+
+On peut désactiver le lazy-loading. [Définir : Lazy Loading]
+
+
+###Création du contexte
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext.jpg)
+
+C'est une classe qui dérive de DbContext, une brique de base d'EF. 
+
+Le contexte représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés pour être appliqués d'un seul coup. 
+
+[Définir : Unit Of Work, Repository Pattern]
+
+
+Pour chaque type que l'ont veut persister dans la base, on doit créer dans notre contexte un DbSet correspondant. Le DbSet représente une collection d'entités, reflétant une table de la base.
+
+###Utilisation du contexte
+
+Le DbContext s'utilise pratiquement comme
+Montrer comment on crée des POCO, comment on ajoute des entités aux dbsets, comment on sauvegarde. Montrer comment on requete la base (en linq).
+
+
+###Systeme de migration
+
+Sans rien faire de plus (config), par défaut, EF crée en local une base portant le nom qualifié du contexte que l'on a créé et y ajoute les tables correspondantes aux DbSets quand il en a besoin, c'est à dire lors de la premiere session de debug. Pour ne pas laisser EF faire lui-meme le update-database : voir ici Si l'on veut modifier notre model pendant le developpement, on peut utiliser les migrations.
+
+`Enable-Migrations`
+
 Ceci fait les choses suivantes :
-* Créer un dossier Migrations et deux classes dans le projet : 
-* 
-    * Configuration.cs : elle contient les informations necessaires à la gestion des migrations (dossiers, enregistrement de providers, seed) notemment la valeur de propriété AutomativMigrationsEnabled par défaut à false (cela implique qu'on est obligé de créer les fichiers de mimgration localement pour appliquer les changements sur la base).
-    * Un fichier de migration (héritant de DbMigration) horodaté : représente la création effective des tables de la base, au moment où la commande a été lancée.
 
-* Créer une table migration dans la base, qui référence la derniere migration effectuée et spécifie qu'elle a été appliquée.
+- Créer un dossier Migrations et deux classes dans le projet
+- Configuration.cs : elle contient les informations necessaires à la gestion des migrations (dossiers, enregistrement de providers, seed) notemment la valeur de propriété AutomativMigrationsEnabled par défaut à false (cela implique qu'on est obligé de créer les fichiers de mimgration localement pour appliquer les changements sur la base).
+- Un fichier de migration (héritant de DbMigration) horodaté : représente la création effective des tables de la base, au moment où la commande a été lancée.
+- Créer une table migration dans la base, qui référence la derniere migration effectuée et spécifie qu'elle a été appliquée.
 Après la modification du modele (ajout de propriété dans une entité par exemple) :
-Console : Add-migration <Nomchoisi>
+
+`Add-migration <Nomchoisi>`
+
 Ceci ajoute un fichier de migration représentant le delta effectué dans la base, mais également l'eventuel rollback. Ceci ne modifie pas la base de données.
-Console : Update-Database
+
+`Update-Database`
+
+
 Ceci regarde dans la table migration de la base de données, constate quelle migration a été appliquée en dernier et applique celles qui ne le sont pas encore.
 Sortir des conventions :
 * Data Annotations (possible aussi avec FluentApi mais j'ai jamais été voir)
