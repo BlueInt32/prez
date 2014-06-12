@@ -2,20 +2,21 @@
 
 Ce document présente mon expérience technique de création d'un écran de monitoring des fichiers échangés par un service de gestion d'inscriptions de jeu Canal+.
 
-##L'entreprise RAPP
-RAPP est une agence de communication située à Saint-Ouen. Les projets qui y sont développés sont de type vitrine ou tirage au sort.
 
 ##Contexte du projet
 
-Rapp développe depuis 2 ans des jeux pour Canal + portant le nom Collecte : l'objectif est de créer de nouveaux abonnés en faisant gagner des cadeaux. Le jeu collecte en cours est le n°4.
+###L'entreprise RAPP
+RAPP est une agence de communication située à Saint-Ouen. Les projets qui y sont développés sont de type vitrine ou tirage au sort. 
+
+RAPP développe depuis 2 ans des jeux pour Canal + portant le nom Collecte : l'objectif est de créer de nouveaux abonnés en faisant gagner des cadeaux. Le jeu collecte en cours est le n°4.
 
 ![Jeu actuel](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensJeu/Home.jpg)
 
 Pour ces jeux, RAPP fait appel à une entreprise marketing, TradeDoubler, dont le rôle est d'amener un maximum de gens sur le jeu via des bannières sur des sites affiliés. 
 
-**La problématique fonctionnelle principale du projet est que Canal+ doit donc rémunérer TradeDoubler pour les inscrits au jeu qu'il n'avait pas encore dans sa base, les "leads validés" mais pas les autres !**
+**La problématique fonctionnelle principale du projet est que Canal+ doit rémunérer TradeDoubler pour les inscrits au jeu qu'il n'avait pas encore dans sa base, les "leads valides" mais pas les autres !**
 
-####Les intervenants du projet
+###Les intervenants du projet
 Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ et TradeDoubler. 
 
 **RAPP** développe le jeu : le site web et les services associés. Il remplit essentiellement une base de données d'inscrits (table Users).
@@ -24,7 +25,7 @@ Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ 
 
 **TradeDoubler** est une entreprise spécialisée dans le marketing internet. Elle est lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
 
-####Le fonctionnel en bref
+###Le fonctionnel en bref
 Pendant le jeu, RAPP fournit quotidiennement à Canal+ la liste des inscrits du jour. Canal+ doit comparer ces données avec sa base et retourner la liste complétée indiquant pour chaque inscrit un statut OK ou KO suivant le fait qu'il est validé ou non.
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Fonctionnel%20Moulinette%20Donn%C3%A9es.png)
 
@@ -40,24 +41,35 @@ Une journée de service comprend donc 3 fichiers de données utilisateurs collec
 - un fichier csv "OUT" (généré par Canal, modifié avec les status "déjà inscrits")
 - un fichier xml (généré par Rapp pour TradeDoubler)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Moulinette%20Basique.png)
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Fonctionnel%20Moulinette%20Fichiers.png)
 
-####La technique en bref
+
+###La technique en bref
 Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Collecte%20Flowchart%20-%20Apr%C3%A8s%20-%202.png)
 
 Canal est censé retourner cette même liste modifiée (portant les status "déjà inscrits" ) vers midi dans un répertoire ftp, c'est le fichier "OUT". La Moulinette détecte la création d'un fichier dans le répertoire, recoupe les données avec la base de données du jeu, génère un fichier XML avec les id ("lead numbers") et les status Canal+ correspondant et enfin envoie le fichier chez TradeDoubler.
 
 L'écran de monitoring de cette mécanique, beaucoup plus simple que tout cela, est l'objet de cette présentation.
 
-##L'Ecran de monitoring
+##Le vif du sujet : L'écran de monitoring
 
-L'objectif de cette simple page web est de montrer une structure d'arbre représentative de groupes de fichiers et leur metadonnées triés par date décroissante, groupés par semaines. On veut pouvoir prévisualiser le contenu de chaque fichier ou le sauvegarder.  
+L'objectif de cette simple page web est de montrer une structure d'arbre représentative des groupes de fichiers et leur metadonnées triés par date décroissante, groupés par semaines. On veut pouvoir prévisualiser le contenu de chaque fichier ou le sauvegarder.  
 
-Un groupe de fichiers est appelé "Bundle". Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient une énumération d'état, plusieurs informations sur les données envoyées et reçues et une liste de BundleFile (les fameux fichiers IN, OUT et XML), eux-meme ayant une date de creation.
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/Screen.jpg)
 
-Ma présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/ScreenLarge.png)
 
-Ce projet est essentiellement à mon initiative et a été pour moi un excellent prétexte pour mettre en place l'ensemble des technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, très spécifique au client RAPP (de type agence) permet de d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
+Un groupe de fichiers est appelé `Bundle`. Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient une énumération d'état, plusieurs informations sur les données envoyées et reçues et une liste de `BundleFile` représentant les fichiers IN, OUT et XML, eux-meme ayant un type et une date de creation.
+
+----------
+
+Cette présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Monitoring%20-%20Architecture.png)
+
+> Ce projet a été pour moi un excellent prétexte pour mettre en place plusieurs technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, spécifique au client RAPP (de type agence) permet d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
 
 ##Code First 
 
@@ -81,9 +93,9 @@ On commence donc de manière intuitive par la définition des POCO ou "Entités"
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleStatus.jpg)
 
-Dans le POCO, par convention on distingue 2 types de propriétés : les propriétés scalaires et les propriétés de navigation (interactions entre entités).
+Dans le POCO, on distingue 2 types de propriétés : les "propriétés scalaires" propres aux entités et les "propriétés de navigation" spécifiant les relations entre entités.
 
-On ajoute virtual sur les propriétés de navigation pour permettre le lazy loading. 
+Sur les propriétés de navigation, le mot clef virtual permet d'utiliser le Lazy Loading.  
 
 
 On peut désactiver le lazy-loading. [Définir : Lazy Loading]
@@ -91,16 +103,20 @@ On peut désactiver le lazy-loading. [Définir : Lazy Loading]
 
 ###Création du contexte
 
+
+C'est une classe qui dérive de DbContext, la brique de base d'EF Code First. 
+
+Le contexte représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés logiquement pour être appliqués d'un seul coup sous forme de transaction. 
+
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext.jpg)
 
-C'est une classe qui dérive de DbContext, une brique de base d'EF. 
-
-Le contexte représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés pour être appliqués d'un seul coup. 
-
-[Définir : Unit Of Work, Repository Pattern]
+[Définir : [Unit Of Work](http://msdn.microsoft.com/en-us/magazine/dd882510.aspx), Repository Pattern]
 
 
 Pour chaque type que l'ont veut persister dans la base, on doit créer dans notre contexte un DbSet correspondant. Le DbSet représente une collection d'entités, reflétant une table de la base.
+
+
+> Attention : dans le constructeur, on spécifie plusieurs options notemment la manière dont la base est initialisée. Par défaut, Code First initialise une base "au besoin", ceci est à éviter : il **faut** contrôler soi-même les manipulations sur la base de données et spécifier qu'aucun Initializer ne doit être appliqué automatiquement.
 
 ###Utilisation du contexte
 
@@ -183,27 +199,27 @@ Permet d'effectuer des modifications plus pointues que les dataAnnotations sur l
  
 
 ##Web API
-La brique WebApi d'ASP.net permet de mettre en place des services "RESTful" accessible dans un format d'échange compris par une large gamme de clients (ici JSON) : le point clef est l'interroperabilité.
+La brique WebApi d'ASP.net permet de mettre en place des services "RESTful" accessible dans un format d'échange compris par une large gamme de clients (dans mon cas JSON) : le point clef est l'interroperabilité.
 
 Meme si cet aspect n'a pas été exploité dans ce projet, il aurait été relativement facile d'implémenter l'interface d'affichage dans une application desktop, sur iPhone ou n'importe quelle plateforme "Front".
 
 Contrairement à ASP.net MVC, Web Api utilise le verbe HTTP pour déterminer quelle action de controlleur sera effectuée : 
 
-HTTP GET pour récupérer des données (liste ou élément unique)
-HTTP POST : pour enregistrer un nouvel element
-HTTP PUT : pour modifier un element
-HTTP DELETE : pour supprimer un élément
+- GET pour récupérer des données (liste ou élément unique)
+- POST : pour enregistrer un nouvel element
+- PUT : pour modifier un element
+- DELETE : pour supprimer un élément
 
 Ainsi pour le routing, on ne précisera plus l'action de controlleur, car elle sera mappée automatiquement en fonction du paramètres et du verbe HTTP.
 
+Le monitoring n'a besoin que de 2 accès GET : 
+- une liste des bundles, groupés par numéros de semaine
+- le contenu d'un fichier dont le chemin relatif est fourni en paramètre
 
-Le monitoring n'a besoin que de 2 gets : 
-- un get pour les bundles, groupés par numéros de semaine. Concrètement :
-public IEnumerable< KeyValuePair< int, List< Bundle>>> GetAllBundles()
-Cette méthode devra être accessible en GET via la route : api/bundles/
-- un get pour le contenu d'un fichier dont le chemin relatif est fourni en paramètre : 
-public string Get( string path)
+    public IEnumerable< KeyValuePair< int, List< Bundle>>> GetAllBundles(){...}
+et 
 
+    public string Get(string path){...}
 
 
 Cette méthode devra être accessible en GET via les routes api/bundlefiles/[relative/path/to/file/filename.csv]
