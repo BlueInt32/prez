@@ -243,7 +243,7 @@ La seconde est définie en utilisant l'Attribute Routing :
 Par défaut, l'api pourra fournir plusieurs types mime différents : XML et Json. C'est le client de l'API qui décide avec le header HTTP "Accept" le type mime qu'il préfère.
 Web api utilise des "media-type formatters" pour sérialiser/déserialiser des objets CLR.
 
- 
+ Voir : [json and xml serialization](http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization)
 
 ### Authentification : filtre d'action
 
