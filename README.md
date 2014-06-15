@@ -157,6 +157,9 @@ La classe générée hérite de DbMigration :
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/DbMigration%20Generated%20Code.jpg)
 
+Code first refuse d'ajouter une nouvelle migration tant que la dernière migration est en attente ("pending") : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Add%20Migration%20Error.jpg)
 
 `Update-Database`
 
@@ -199,7 +202,7 @@ Permet d'effectuer des modifications plus pointues que les dataAnnotations sur l
  
 
 ##Web API
-La brique WebApi d'ASP.net permet de mettre en place des services "RESTful" accessible dans un format d'échange compris par une large gamme de clients (dans mon cas JSON) : le point clef est l'interroperabilité.
+La brique WebApi d'ASP.net permet de mettre en place des services "RESTful" accessibles dans un format d'échange compris par une large gamme de clients (dans mon cas JSON) : le point clef est l'interroperabilité.
 
 Meme si cet aspect n'a pas été exploité dans ce projet, il aurait été relativement facile d'implémenter l'interface d'affichage dans une application desktop, sur iPhone ou n'importe quelle plateforme "Front".
 
@@ -212,6 +215,8 @@ Contrairement à ASP.net MVC, Web Api utilise le verbe HTTP pour déterminer que
 
 Ainsi pour le routing, on ne précisera plus l'action de controlleur, car elle sera mappée automatiquement en fonction du paramètres et du verbe HTTP.
 
+###Routing
+
 Le monitoring n'a besoin que de 2 accès GET : 
 - une liste des bundles, groupés par numéros de semaine
 - le contenu d'un fichier dont le chemin relatif est fourni en paramètre
@@ -222,14 +227,25 @@ et
     public string Get(string path){...}
 
 
-Cette méthode devra être accessible en GET via les routes api/bundlefiles/[relative/path/to/file/filename.csv]
+Cette méthode devra être accessible en GET via les routes de type `api/bundlefiles/[relative/path/to/file/filename.csv]`
 
 
-La première route est définie par défaut dans la configuration de l'API : 
+La première route est définie par défaut dans la configuration de l'API (App_Start/WebApiConfig.cs par défaut) : 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/api_routing_1%20Default%20Routing.png)
+>On note effectivement que le paramètre "action" n'est pas présent comme dans asp.net MVC : l'action de controlleur d'API est mappé grâce au verbe HTTP.
 
 La seconde est définie en utilisant l'Attribute Routing : 
 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/api_routing_2%20Attribute%20Routing.png)
 
+
+###Formatters
+Par défaut, l'api pourra fournir plusieurs types mime différents : XML et Json. C'est le client de l'API qui décide avec le header HTTP "Accept" le type mime qu'il préfère.
+Web api utilise des "media-type formatters" pour sérialiser/déserialiser des objets CLR.
+
+ 
+
+### Authentification : filtre d'action
 
 Front End Angular JS
 
