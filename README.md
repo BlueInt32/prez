@@ -59,6 +59,8 @@ L'objectif de cette simple page web est de montrer une structure d'arbre représ
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/Screen.jpg)
 
+On peut prévisualiser les fichiers : 
+
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/ScreenLarge.png)
 
 Un groupe de fichiers est appelé `Bundle`. Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient une énumération d'état, plusieurs informations sur les données envoyées et reçues et une liste de `BundleFile` représentant les fichiers IN, OUT et XML, eux-meme ayant un type et une date de creation.
@@ -176,6 +178,9 @@ Les options suivantes sont très utiles:
 ### ConnectionString
 Lors de l'application des commandes, c'est dans **le projet de démarrage** qu'est récupérée la ConnectionString : pour appliquer des migrations il faut donc en général mettre le projet contenant le DbContext en projet de démarrage et vérifier la chaine de connexion désirée dans App.config.
 Si EF ne trouve pas de configuration de connection, il créé par défaut une base LocalDB (successeur de SQLExpress) portant le nom qualifié de notre DbContext.
+Attention : le nom de la connection doit être le même que le contexte : par exemple si le contexte porte le nom 
+CollectContext, la connection string devra être : 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/collectContextConnectionString.png)
 
 
 ###Conventions :
@@ -218,8 +223,10 @@ Ainsi pour le routing, on ne précisera plus l'action de controlleur, car elle s
 ###Routing
 
 Le monitoring n'a besoin que de 2 accès GET : 
-- une liste des bundles, groupés par numéros de semaine
-- le contenu d'un fichier dont le chemin relatif est fourni en paramètre
+
+ - une liste des bundles, groupés par numéros de semaine
+ - le contenu d'un fichier dont le chemin relatif est fourni en paramètre
+
 
     public IEnumerable< KeyValuePair< int, List< Bundle>>> GetAllBundles(){...}
 et 
@@ -257,8 +264,52 @@ Les filtres servent souvent à effectuer des tâches transverses avant ou après
 Il est facile d'appliquer un filtre pour toutes les méthodes de l'api : ceci se fait dans la méthode Application_Start du fichier global.asax : 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Config_auth_filter_add.png)
 
+### Implémentation des actions
 
-Front End Angular JS
+####Liste des bundles groupés par semaine
+
+On utilise la méthode suivante pour grouper les bundles par semaine : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Logic_GroupBundlesByWeeks.png)
+
+Et l'action de controlleur ne fait que rapatrier cela avec comme type de retour un IEnumerable : 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/apiBundlesList2.png)
+
+[ScreenShot de l'attaque JSON]
+TODO : comparer les résultats obtenus avec les réglages de serialisation de l'api.
+
+
+
+##Front End Angular JS
+
+Angular JS est un framework javascript libre maintenu par Google et la communauté permettant de développer des applications riches coté client, ou des Single Page Applications.
+
+Dans l'écran de Monitoring je n'ai pas eu besoin de plusieurs vues, ce qui simplifiera l'exposé.
+
+### Le module
+C'est la brique principale d'une application angularJS. On le déclare de la façon suivante : 
+
+    angular.module('monitoringController', []);
+	angular.module('app', ['myServices', 'monitoringController', 'monitoringDirectives']);
+
+Un module est rattaché à une section du DOM à l'aide d'attributs HTML : 
+
+    <body ng-app="app" ...>
+
+Un module peut être comparé à la notion d'assembly .Net : on peut y ajouter des controleurs, des directives, des services et bien d'autres choses.
+
+
+### Le controleur
+
+### La directive
+
+### Le service
+
+### Injection de dépendances
+
+
+
+
 
 
 
