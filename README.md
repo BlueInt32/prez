@@ -286,26 +286,64 @@ Angular JS est un framework javascript libre maintenu par Google et la communaut
 
 Dans l'écran de Monitoring je n'ai pas eu besoin de plusieurs vues, ce qui simplifiera l'exposé.
 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/files.png)
+
 ### Le module
-C'est la brique principale d'une application angularJS. On le déclare de la façon suivante : 
+C'est la brique principale d'une application angularJS. De façon conventionelle on place le module principal d'une application dans le fichier app.js à la racine du répertoire JS. On déclare un module de la façon suivante : 
 
     angular.module('monitoringController', []);
 	angular.module('app', ['myServices', 'monitoringController', 'monitoringDirectives']);
 
-Un module est rattaché à une section du DOM à l'aide d'attributs HTML : 
+Un module est rattaché à une section du DOM à l'aide d'attributs HTML (qu'on appelle "directive") : 
 
     <body ng-app="app" ...>
 
-Un module peut être comparé à la notion d'assembly .Net : on peut y ajouter des controleurs, des directives, des services et bien d'autres choses.
-
+Un module peut être comparé à la notion d'assembly .Net : on peut y ajouter des controleurs, des directives, des services et d'autres objets angular.
 
 ### Le controleur
+
+Le controleur est, comme le module application, rattaché à une section du DOM à l'aide d'une directive ng-controller. 
+	<body ng-app="app" ng-controller="mainCtrl">
+
+> Note : on aurait pu placer la directive ng-controller sur n'importe quel sous élément de app.
+
+A chaque portion de DOM sur laquelle un controleur a la main est associé un modele nommé $scope. $scope est relié par le moteur Angular à son controleur.
+
+Suivant le pattern MVC, le controleur AngularJS modifie ce modele et le passe à la vue (fichier html modifié). Le data-binding peut alors se faire dans les deux sens.
+
+
+
+### Quelques directives prédefinies 
+
+Lorsque l'on charge en Ajax les bundles de l'API, comme la connexion à la base de donnée peut être longue on voudrait afficher une zone de chargement. Pour cela, deux div et l'utilisation de deux directives angular, `ng-show` et `ng-hide` : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/index.zoomLoader.html.png)
+
+Dans le controller, on déclare simplement une propriété de modele comme ceci dans la déclaration du controleur : 
+	$scope.showLoaderTree = true;
+
+Et lorsque l'appel http se termine, 
+	$scope.showLoaderTree = false;
+##### ng-repeat
+
+Cette directive
+
+
+### Les dépendances
+Pour attaquer une api an ajax, on va avoir besoin de charger un module externe : $http.
+Les modules prédéfinis dans AngularJS sont préfixés d'un $.
+
+Chaque module ou sous-élément AngularJS (controleur, service, directive) peut dépendre d'un module. On l'injecte en le sépcifiant dans la déclaration de l'objet.
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/Controller.png)
+
+Il existe une notation moins redondante pour charger les dépendances, mais elle ne résiste pas à la minification JS : en effet les noms des modules injectés dans les functions de déclaration sont reconnus
+par AngularJS, or la minification peut les détruire. 
+
 
 ### La directive
 
 ### Le service
-
-### Injection de dépendances
 
 
 
