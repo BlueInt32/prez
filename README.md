@@ -315,18 +315,69 @@ Suivant le pattern MVC, le controleur AngularJS modifie ce modele et le passe à
 
 ### Quelques directives prédefinies 
 
-Lorsque l'on charge en Ajax les bundles de l'API, comme la connexion à la base de donnée peut être longue on voudrait afficher une zone de chargement. Pour cela, deux div et l'utilisation de deux directives angular, `ng-show` et `ng-hide` : 
+##### ng-show et ng-hide
+Lorsque l'on charge en Ajax les bundles de l'API, comme la connexion à la base de donnée peut être longue on voudrait afficher une zone de chargement. Pour cela, deux div et l'utilisation de deux directives angular, `ng-show` et `ng-hide` qui vont paramétrer la visibilité de chaque div : 
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/index.zoomLoader.html.png)
 
-Dans le controller, on déclare simplement une propriété de modele comme ceci dans la déclaration du controleur : 
+Dans la déclaration du controller, on initialise à false un booléen dans le $scope : 
 	$scope.showLoaderTree = true;
 
 Et lorsque l'appel http se termine, 
 	$scope.showLoaderTree = false;
+
 ##### ng-repeat
 
-Cette directive
+Cette directive permet de refléter un tableau javascript du $scope dans le DOM :
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/index.zoomng-repeat.html.png)
+
+On retrouve dans la déclaration du ng-repeat l'objet week rempli dans le callback http du controleur. L'objet week reflétant directement la list de KeyValuePair générée coté serveur, on voit qu'on peut utiliser la notation "moustache" pour afficher directement une propriété du sous-modele (en l'occurence une instance de keyValuePair
+, soit une semaine de bundles) : 
+
+	{{week.Key}}
+
+### Directive custom
+
+Il est bien sûr possible de déclarer ses propres directives. J'ai créé dans ce projet deux directives:  `bundle` qui encapsule un bundle, et `previewLink` dont l'objectif est de paramétrer les liens d'accès aux BundleFiles.
+
+La déclaration d'une directive se fait de façon assez proche d'un controleur : 
+
+	angular.module('monitoringDirectives', ['monitoringController'])
+		.directive('bundle', [ function ()
+		{
+			return {
+				restrict: 'E',
+				templateUrl: 'bundle.partial.html',
+				scope: {
+					bundle: '=which'
+				}			
+			};
+		}]);
+
+Coté HTML :
+
+	<bundle ng-repeat="bundle in week.Value | filter:mainFilter" which="bundle" />
+
+Partial :
+
+	<li>
+		<span class="{{bundle.displayClass}}">{{bundle.Date}} &ndash; {{bundle.displayStatus}} </span>
+		<ul>
+			<li ng-if='bundle.NbInscriptions > 0'>
+				<span>
+					<span ng-if='bundle.NbInscriptions > 0'>Inscrits : {{bundle.NbInscriptions}}</span>
+					<span ng-if='bundle.NbRetoursCanal > 0'>De Canal : {{bundle.NbRetoursCanal}}</span>
+					<span ng-if='bundle.NbOk > 0'>Ok :  {{bundle.NbOk}}</span>
+					<span ng-if='bundle.NbKo > 0'>Ko :  {{bundle.NbKo}}</span>
+				</span>
+			</li>
+			<li ng-repeat="bundleFile in bundle.BundleFiles">
+				<span><i class="icon-time"></i> {{bundleFile.CreationDate}}</span>
+				<previewlink file="bundleFile">{{bundleFile.FileName}}</previewlink>
+			</li>
+		</ul>
+	</li>
+
 
 
 ### Les dépendances
