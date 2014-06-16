@@ -241,11 +241,22 @@ La seconde est définie en utilisant l'Attribute Routing :
 
 ###Formatters
 Par défaut, l'api pourra fournir plusieurs types mime différents : XML et Json. C'est le client de l'API qui décide avec le header HTTP "Accept" le type mime qu'il préfère.
-Web api utilise des "media-type formatters" pour sérialiser/déserialiser des objets CLR.
+Web api utilise des "media-type formatters" pour sérialiser/déserialiser des objets CLR : il est possible de définie ses propres formatters : csvFormatter par exemple.
 
  Voir : [json and xml serialization](http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization)
 
+Il est possible de supprimer un formatter avec l'appel suivant dans la configuration de l'api : 
+
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/config_api_remove_formatter.png)
+
 ### Authentification : filtre d'action
+Les filtres d'action fonctionnent comme dans asp.net MVC : on peut les appliquer par action, par controlleur ou dans l'application toute entière. 
+Les filtres servent souvent à effectuer des tâches transverses avant ou après l'action. J'ai protégé l'écran de monitoring de manière sommaire en dérivant `BasicAuthenticationFilter`, héritant lui-même de `AuthorizationFilterAttribute` : 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Config_auth_filter_class.png)
+
+Il est facile d'appliquer un filtre pour toutes les méthodes de l'api : ceci se fait dans la méthode Application_Start du fichier global.asax : 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Config_auth_filter_add.png)
+
 
 Front End Angular JS
 
