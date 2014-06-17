@@ -2,7 +2,7 @@
 
 Ce document présente mon expérience technique de création d'un écran de monitoring des fichiers échangés par un service de gestion d'inscriptions de jeu Canal+.
 
-
+		
 ##Contexte du projet
 
 ###L'entreprise RAPP
@@ -21,9 +21,9 @@ Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ 
 
 **RAPP** développe le jeu : le site web et les services associés. Il remplit essentiellement une base de données d'inscrits (table Users).
 
-**Canal+** n'a comme mission de notre point de vue que de dire si une personne est déjà inscrite ou non dans sa base de données.
+**Canal+** n'a comme mission de notre point de vue que de dire si une personne est déjà inscrite ou non dans sa base de données.;
 
-**TradeDoubler** est une entreprise spécialisée dans le marketing internet. Elle est lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
+**TradeDoubler** est une entreprise spécialisée dans le marke	 lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
 
 ###Le fonctionnel en bref
 Pendant le jeu, RAPP fournit quotidiennement à Canal+ la liste des inscrits du jour. Canal+ doit comparer ces données avec sa base et retourner la liste complétée indiquant pour chaque inscrit un statut OK ou KO suivant le fait qu'il est validé ou non.
