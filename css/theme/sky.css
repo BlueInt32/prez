@@ -87,7 +87,15 @@ body {
   -ms-transition: all .2s linear;
   -o-transition: all .2s linear;
   transition: all .2s linear; }
-
+.reveal section img.noborder
+{
+  border: 0px;
+}
+.reveal section img.nobordernoshadow
+{
+  border: 0px;
+  box-shadow: 0 0 0 0;
+}
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
   border-color: #3b759e;
