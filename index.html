@@ -75,11 +75,17 @@
 				</aside>
 			</section>
 			<section>
-				<h2>Canal + <small>Collecte</small></h2>
-				<p><span class="fragment fade-in">Cadeaux à gagner</span> <span class="fragment fade-in">= nouveaux abonnés</span></p>
-				<a href="http://legrandjeudesheroscanalplus.fr">
-					<img class="fragment fade-in" src="/img/ScreensJeu/Home.jpg" />
-				</a>
+				<section>
+					<h2>Jeu Canal + Collecte</h2>
+					<p>Objectif pour Canal+ : remplir sa base de données d'emails</p>
+				</section>
+				
+				<section>
+					<a href="http://legrandjeudesheroscanalplus.fr">
+						<img src="/img/ScreensJeu/Home.jpg" />
+					</a>
+				</section>
+				
 					<aside class="notes">
 						<ul>
 							<li>Le jeu en cours est le n°4.</li>
@@ -88,38 +94,63 @@
 </section>
 			<section>
 				<h2>Intervenants du projet</h2>
-				<ul>
-					<li class="fragment fade-in">RAPP - Développe le jeu et la BDD associée </li>
-					<li class="fragment fade-in">CANAL+ - Récupère les prospects, détermine s'ils sont nouveaux pour lui</li>
-					<li class="fragment fade-in">TradeDoubler - Amène des joueurs sur le jeu</li>
-				</ul>
-				<br/><br /><br />
+					<h3 class="subs">CANAL+ </h3><p class="fragment fade-in">Récupère les prospects, peut déterminer si un prospect est valide</p>
+					<h3 class="subs">RAPP </h3><p class="fragment fade-in">Développe le jeu et les services associés</p>
+					<h3 class="subs">TradeDoubler </h3><p class="fragment fade-in">Amène des joueurs sur le jeu grâce à des sites affiliés</p>
+			</section>
+			<section>
+				<h3>Problématique principale du projet :</h3>
+				<br/>
 				<p class="fragment fade-in">CANAL+ doit rémunérer TradeDoubler pour les inscrits au jeu qu'il ne connaissait pas déjà.</p>
 			</section>
 			<section style="position:relative;">
 				<h2>La Moulinette</h2>
-				<p>Service Windows tournant sur le serveur du jeu Collecte<br/><br />Période : une journée</p><br />
+				<p>Service Windows tournant chez RAPP sur le serveur du jeu</p>
 				<img src="img/fonctionnel_moulinette_donnees_0.png">
 				<p class="fragment fade-in">3 actions quotidiennes principales : </p>
 				<ol>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_1.png" style="width:15%;position:absolute; top:42%;left:23%;" />génère la liste des inscrits du jour et l'envoie à Canal+</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_2.png" style="width:15%;position:absolute; top:49%;left:23%;" />récupère la liste transformée par Canal+ (statuts "déjà inscrit Canal+")</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_3.png" style="width:15%;position:absolute; top:45%;left:60%;" />génère une liste pour TradeDoubler (ID et status) et lui envoie</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_1.png" style="width:20%;position:absolute; top:33%;left:21%;" />génère la liste des inscrits du jour et l'envoie à Canal+</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_2.png" style="width:20%;position:absolute; top:42%;left:21%;" />récupère la liste transformée par Canal+ (statuts "déjà inscrit Canal+")</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_3.png" style="width:20%;position:absolute; top:37%;left:57%;" />génère une liste pour TradeDoubler (leads valides) et lui envoie</li>
 				</ol>
 			</section>
 			<section ><!--data-background="#007777"-->
 				<h2>En pratique...</h2>
-				<img src="img/Fonctionnel%20Moulinette%20Fichiers.png">
+				<p>Les fichiers envoyés sont des fichiers csv et xml sur des serveurs ftp</p>
+				<img src="img/Fonctionnel-Moulinette-Fichiers_0.png">
 				<p>Fichiers envoyés sur des FTP</p>
 				<ol>
-					<li class="fragment fade-in">CSV "IN" généré et envoyé à Minuit</li>
-					<li class="fragment fade-in">CSV "OUT" reçu vers 12h10</li>
-					<li class="fragment fade-in">XML généré à la volée (jointure entre csv "OUT" et base locale)</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_1.png" style="width:20%;position:absolute; top:36%;left:21%;" />CSV "IN" généré et envoyé à Minuit</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_2.png" style="width:20%;position:absolute; top:45%;left:21%;" />CSV "OUT" reçu vers 12h10</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_3.png" style="width:20%;position:absolute; top:40%;left:57%;" />XML généré à la volée (jointure entre csv "OUT" et base locale)</li>
 				</ol>
 			</section>
 			<!-- Example of nested vertical slides -->
 			<section>
+				<h3>Mécanique de la moulinette</h3>
+			<img class="nobordernoshadow" src="img/flowchart.png" alt="Alternate Text" /></section>
+			<section>
 				<section>
+					<code data-trim>
+						public class BundleFilesController : ApiController
+						{
+							[Route("api/bundlefiles/{*path}")]
+							public object Get(string path)
+							{
+								string fileContent = "";
+								if(path.EndsWith(".csv"))
+								{
+									fileContent = path.ReadFile().PrepareCsv();
+								}
+								else if(path.EndsWith(".xml"))
+								{
+									fileContent = path.ReadFile().PrepareXml();
+								}
+								return new { fileContent = fileContent};
+							}
+						}
+
+					</code>
 					<h2>Vertical Slides</h2>
 					<p>
 						Slides can be nested inside of other slides,

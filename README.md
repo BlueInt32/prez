@@ -47,7 +47,7 @@ Une journée de service comprend donc 3 fichiers de données utilisateurs collec
 ###La technique en bref
 Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Collecte%20Flowchart%20-%20Apr%C3%A8s%20-%202.png)
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/flowchart.png)
 
 Canal est censé retourner cette même liste modifiée (portant les status "déjà inscrits" ) vers midi dans un répertoire ftp, c'est le fichier "OUT". La Moulinette détecte la création d'un fichier dans le répertoire, recoupe les données avec la base de données du jeu, génère un fichier XML avec les id ("lead numbers") et les status Canal+ correspondant et enfin envoie le fichier chez TradeDoubler.
 
