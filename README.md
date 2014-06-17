@@ -287,7 +287,7 @@ TODO : comparer les résultats obtenus avec les réglages de serialisation de l'
 
 [Voir tuto](https://github.com/mjhea0/thinkful-angular)
 
-Angular JS est un framework javascript libre maintenu par Google et la communauté permettant de développer des applications riches coté client. La philosophie d'Angular est d'étendre HTML pour le rendre davantage dynamique et accélérer le développement.
+Angular JS est un framework javascript maintenu par Google et la communauté permettant de développer des applications riches coté client. La philosophie d'AngularJS est d'étendre HTML pour le rendre davantage dynamique et accélérer le développement.
 Angular JS est basé sur le pattern MVVM ce qui nous permet en pratique de ne jamais manipuler le DOM : c'est le $scope qu'on va modifier.
 
 
