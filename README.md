@@ -252,6 +252,8 @@ Web api utilise des "media-type formatters" pour sérialiser/déserialiser des o
 
  Voir : [json and xml serialization](http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization)
 
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/xml.jpg)
+
 Il est possible de supprimer un formatter avec l'appel suivant dans la configuration de l'api : 
 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/config_api_remove_formatter.png)
@@ -275,12 +277,15 @@ On utilise la méthode suivante pour grouper les bundles par semaine :
 Et l'action de controlleur ne fait que rapatrier cela avec comme type de retour un IEnumerable : 
 ![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/apiBundlesList2.png)
 
-[ScreenShot de l'attaque JSON]
+![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/json.jpg)
+
 TODO : comparer les résultats obtenus avec les réglages de serialisation de l'api.
 
 
 
 ##Front End Angular JS
+
+[Voir tuto](https://github.com/mjhea0/thinkful-angular)
 
 Angular JS est un framework javascript libre maintenu par Google et la communauté permettant de développer des applications riches coté client, ou des Single Page Applications.
 
