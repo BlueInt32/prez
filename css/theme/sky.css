@@ -102,6 +102,7 @@ body {
   border: 0px;
   box-shadow: 0 0 0 0;
 }
+
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
   border-color: #3b759e;
