@@ -2,7 +2,7 @@
 
 Ce document présente mon expérience technique de création d'un écran de monitoring des fichiers échangés par un service de gestion d'inscriptions de jeu Canal+.
 
-		
+        
 ##Contexte du projet
 
 ###L'entreprise RAPP
@@ -10,7 +10,7 @@ RAPP est une agence de communication située à Saint-Ouen. Les projets qui y so
 
 RAPP développe depuis 2 ans des jeux pour Canal + portant le nom Collecte : l'objectif est de créer de nouveaux abonnés en faisant gagner des cadeaux. Le jeu collecte en cours est le n°4.
 
-![Jeu actuel](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensJeu/Home.jpg)
+![Jeu actuel](/img/ScreensJeu/Home.jpg)
 
 Pour ces jeux, RAPP fait appel à une entreprise marketing, TradeDoubler, dont le rôle est d'amener un maximum de gens sur le jeu via des bannières sur des sites affiliés. 
 
@@ -23,11 +23,11 @@ Le processus de collecte fait intervenir 3 entités différentes : RAPP, Canal+ 
 
 **Canal+** n'a comme mission de notre point de vue que de dire si une personne est déjà inscrite ou non dans sa base de données.;
 
-**TradeDoubler** est une entreprise spécialisée dans le marke	 lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
+**TradeDoubler** est une entreprise spécialisée dans le marke    lié à un grand nombre de sites dits "affiliés" acceptant de diffuser de la publicité pour les clients de TradeDoubler (en l'occurence Canal+), et dans ce cas pour amener les gens sur le jeu Collecte. Canal+ doit rémunérer TradeDoubler pour cela, en fonction du nombre d'inscrits au jeu provenant des affiliés TradeDoubler.
 
 ###Le fonctionnel en bref
 Pendant le jeu, RAPP fournit quotidiennement à Canal+ la liste des inscrits du jour. Canal+ doit comparer ces données avec sa base et retourner la liste complétée indiquant pour chaque inscrit un statut OK ou KO suivant le fait qu'il est validé ou non.
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Fonctionnel%20Moulinette%20Donn%C3%A9es.png)
+![](/img/fonctionnel_moulinette_donnees.png)
 
 RAPP transforme cette liste pour TradeDoubler ne gardant que les ID et le status validé ou non et l'envoie à TradeDoubler qui sera capable de retrouver les gens qu'elle a ramenés avec un système de tracker mis en place sur le jeu.
 Concrètement, les listes en question sont des fichiers csv et xml déposés sur les différents serveurs FTP des intervenants. C'est un service Windows, appelé "Moulinette" qui gère chez RAPP l'envoi et la réception de ces fichiers.
@@ -41,13 +41,13 @@ Une journée de service comprend donc 3 fichiers de données utilisateurs collec
 - un fichier csv "OUT" (généré par Canal, modifié avec les status "déjà inscrits")
 - un fichier xml (généré par Rapp pour TradeDoubler)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Fonctionnel%20Moulinette%20Fichiers.png)
+![](/img/Fonctionnel_Moulinette_Fichiers.png)
 
 
 ###La technique en bref
 Le service Moulinette tourne en permanence sur le serveur web pendant toute la phase de jeu. Tous les jours à minuit, il récupère la liste de tous les inscrits de la journée, les insère dans un csv (fichier "IN") et les envoie en ftp à Canal+. 
 
-![](/img/flowchart.png)
+![](/img/flowchart_1.png)
 
 Canal est censé retourner cette même liste modifiée (portant les status "déjà inscrits" ) vers midi dans un répertoire ftp, c'est le fichier "OUT". La Moulinette détecte la création d'un fichier dans le répertoire, recoupe les données avec la base de données du jeu, génère un fichier XML avec les id ("lead numbers") et les status Canal+ correspondant et enfin envoie le fichier chez TradeDoubler.
 
@@ -57,11 +57,11 @@ L'écran de monitoring de cette mécanique, beaucoup plus simple que tout cela, 
 
 L'objectif de cette simple page web est de montrer une structure d'arbre représentative des groupes de fichiers et leur metadonnées triés par date décroissante, groupés par semaines. On veut pouvoir prévisualiser le contenu de chaque fichier ou le sauvegarder.  
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/Screen.jpg)
+![](/img/ScreensMonitoring/Screen.jpg)
 
 On peut prévisualiser les fichiers : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Screens%20Monitoring/ScreenLarge.png)
+![](/img/ScreensMonitoring/ScreenLarge.png)
 
 Un groupe de fichiers est appelé `Bundle`. Il est fondamentalement lié à une date (car le service tourne une fois par jour) contient une énumération d'état, plusieurs informations sur les données envoyées et reçues et une liste de `BundleFile` représentant les fichiers IN, OUT et XML, eux-meme ayant un type et une date de creation.
 
@@ -69,7 +69,7 @@ Un groupe de fichiers est appelé `Bundle`. Il est fondamentalement lié à une 
 
 Cette présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/Monitoring%20-%20Architecture.png)
+![](/img/Monitoring%20-%20Architecture.png)
 
 > Ce projet a été pour moi un excellent prétexte pour mettre en place plusieurs technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, spécifique au client RAPP (de type agence) permet d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
 
@@ -81,19 +81,19 @@ Code First est une brique d'Entity Framework dont la philosophie est de coder so
 
 On commence donc de manière intuitive par la définition des POCO ou "Entités". Dans la définition de nos POCO, il n'est fait aucune mention du systeme de persistance, aucun héritage particulier n'est nécéssaire. Cela permet de compter sur ces POCO partout dans l'application sans se soucier des références. 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ClassDiagram.png)
+![](/img/ClassDiagram.png)
 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg) 
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg) 
 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFile.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFile.jpg)
 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFileType.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFileType.jpg)
 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleStatus.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleStatus.jpg)
 
 Dans le POCO, on distingue 2 types de propriétés : les "propriétés scalaires" propres aux entités et les "propriétés de navigation" spécifiant les relations entre entités.
 
@@ -110,7 +110,7 @@ C'est une classe qui dérive de DbContext, la brique de base d'EF Code First.
 
 Le contexte représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés logiquement pour être appliqués d'un seul coup sous forme de transaction. 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext.jpg)
 
 [Définir : [Unit Of Work](http://msdn.microsoft.com/en-us/magazine/dd882510.aspx), Repository Pattern]
 
@@ -124,11 +124,11 @@ Pour chaque type que l'ont veut persister dans la base, on doit créer dans notr
 
 Le DbContext s'utilise comme classiquement dans Entity Framework, voici la creation, update et List pour les bundles : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Create_Bundle.jpg)
+![](/img/ScreensCode/Code%20First/Create_Bundle.jpg)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Update_Bundle.jpg)
+![](/img/ScreensCode/Code%20First/Update_Bundle.jpg)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/List_Bundle.jpg)
+![](/img/ScreensCode/Code%20First/List_Bundle.jpg)
 
 
 
@@ -146,22 +146,22 @@ EF est embarqué avec plusieurs commandes saisissables dans Package Manager Cons
 `Enable-Migrations`
 
 Cette commande initialise les migrations en créant un dossier Migrations et en y ajoutant une classe Configuration.cs qui contient les informations necessaires à leur gestion, notemment la valeur de propriété AutomaticMigrationsEnabled par défaut à false. Si cette valeur est à true, la commande `Add-migration` n'a pas à être utilisée et les migrations sont appliquées automatiquement sur la base.
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Enabling%20Migrations.jpg)
+![](/img/ScreensCode/Code%20First/Enabling%20Migrations.jpg)
 
 
 `Add-migration <Nomchoisi>`
 
 Ceci ajoute un fichier de migration représentant le delta effectué dans la base, mais également l'eventuel rollback. Ceci ne modifie pas la base de données.
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Migrations%20Directory.jpg)
+![](/img/ScreensCode/Code%20First/Migrations%20Directory.jpg)
 
 La classe générée hérite de DbMigration : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/DbMigration%20Generated%20Code.jpg)
+![](/img/ScreensCode/Code%20First/DbMigration%20Generated%20Code.jpg)
 
 Code first refuse d'ajouter une nouvelle migration tant que la dernière migration est en attente ("pending") : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/Add%20Migration%20Error.jpg)
+![](/img/ScreensCode/Code%20First/Add%20Migration%20Error.jpg)
 
 `Update-Database`
 
@@ -180,7 +180,7 @@ Lors de l'application des commandes, c'est dans **le projet de démarrage** qu'e
 Si EF ne trouve pas de configuration de connection, il créé par défaut une base LocalDB (successeur de SQLExpress) portant le nom qualifié de notre DbContext.
 Attention : le nom de la connection doit être le même que le contexte : par exemple si le contexte porte le nom 
 CollectContext, la connection string devra être : 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/collectContextConnectionString.png)
+![](/img/ScreensCode/Code%20First/collectContextConnectionString.png)
 
 
 ###Conventions :
@@ -198,12 +198,12 @@ Il existe plusieurs attributs qu'on peut appliquer aux propriétés du modèle, 
 - Required : rejette les valeurs nulles.
 - NotMapped : ce champ ne sera pas ajouté à la base de données.
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg)
 
 ####Fluent Api
 Permet d'effectuer des modifications plus pointues que les dataAnnotations sur la génération de la base de données, ou d'aider EF à s'y retrouver quand on veut mapper une base déjà existante. Je n'ai pas expérimenté beaucoup ces fonctionnalités. On utilise la Fluent Api dans la méthode du DbContext `OnModelCreating` : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Code%20First/CollecteContext%20-%20OnModelCreating.jpg)
+![](/img/ScreensCode/Code%20First/CollecteContext%20-%20OnModelCreating.jpg)
  
 
 ##Web API
@@ -238,12 +238,12 @@ Cette méthode devra être accessible en GET via les routes de type `api/bundlef
 
 
 La première route est définie par défaut dans la configuration de l'API (App_Start/WebApiConfig.cs par défaut) : 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/api_routing_1%20Default%20Routing.png)
+![](/img/ScreensCode/Web%20API/api_routing_1%20Default%20Routing.png)
 >On note effectivement que le paramètre "action" n'est pas présent comme dans asp.net MVC : l'action de controlleur d'API est mappé grâce au verbe HTTP.
 
 La seconde est définie en utilisant l'Attribute Routing : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/api_routing_2%20Attribute%20Routing.png)
+![](/img/ScreensCode/Web%20API/api_routing_2%20Attribute%20Routing.png)
 
 
 ###Formatters
@@ -252,19 +252,19 @@ Web api utilise des "media-type formatters" pour sérialiser/déserialiser des o
 
  Voir : [json and xml serialization](http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/xml.jpg)
+![](/img/ScreensCode/Web%20API/xml.jpg)
 
 Il est possible de supprimer un formatter avec l'appel suivant dans la configuration de l'api : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/config_api_remove_formatter.png)
+![](/img/ScreensCode/Web%20API/config_api_remove_formatter.png)
 
 ### Authentification : filtre d'action
 Les filtres d'action fonctionnent comme dans asp.net MVC : on peut les appliquer par action, par controlleur ou dans l'application toute entière. 
 Les filtres servent souvent à effectuer des tâches transverses avant ou après l'action. J'ai protégé l'écran de monitoring de manière sommaire en dérivant `BasicAuthenticationFilter`, héritant lui-même de `AuthorizationFilterAttribute` : 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Config_auth_filter_class.png)
+![](/img/ScreensCode/Web%20API/Config_auth_filter_class.png)
 
 Il est facile d'appliquer un filtre pour toutes les méthodes de l'api : ceci se fait dans la méthode Application_Start du fichier global.asax : 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Config_auth_filter_add.png)
+![](/img/ScreensCode/Web%20API/Config_auth_filter_add.png)
 
 ### Implémentation des actions
 
@@ -272,12 +272,12 @@ Il est facile d'appliquer un filtre pour toutes les méthodes de l'api : ceci se
 
 On utilise la méthode suivante pour grouper les bundles par semaine : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/Logic_GroupBundlesByWeeks.png)
+![](/img/ScreensCode/Web%20API/Logic_GroupBundlesByWeeks.png)
 
 Et l'action de controlleur ne fait que rapatrier cela avec comme type de retour un IEnumerable : 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/apiBundlesList2.png)
+![](/img/ScreensCode/Web%20API/apiBundlesList2.png)
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/Web%20API/json.jpg)
+![](/img/ScreensCode/Web%20API/json.jpg)
 
 TODO : comparer les résultats obtenus avec les réglages de serialisation de l'api.
 
@@ -291,13 +291,13 @@ Angular JS est un framework javascript maintenu par Google et la communauté per
 Angular JS est basé sur le pattern MVVM ce qui nous permet en pratique de ne jamais manipuler le DOM : c'est le $scope qu'on va modifier.
 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/files.png)
+![](/img/ScreensCode/AngularJS/files.png)
 
 ### Le module
 C'est la brique principale d'une application angularJS. De façon conventionelle on place le module principal d'une application dans le fichier app.js à la racine du répertoire JS. On déclare un module de la façon suivante : 
 
     angular.module('monitoringController', []);
-	angular.module('app', ['myServices', 'monitoringController', 'monitoringDirectives']);
+    angular.module('app', ['myServices', 'monitoringController', 'monitoringDirectives']);
 
 Un module est rattaché à une section du DOM à l'aide d'attributs HTML (qu'on appelle "directive") : 
 
@@ -308,7 +308,7 @@ Un module peut être comparé à la notion d'assembly .Net : on peut y ajouter d
 ### Le controleur
 
 Le controleur est, comme le module application, rattaché à une section du DOM à l'aide d'une directive ng-controller. 
-	<body ng-app="app" ng-controller="mainCtrl">
+    <body ng-app="app" ng-controller="mainCtrl">
 
 > Note : on aurait pu placer la directive ng-controller sur n'importe quel sous élément de app.
 
@@ -323,23 +323,23 @@ Suivant le pattern MVC, le controleur AngularJS modifie ce modele et le passe à
 ##### ng-show et ng-hide
 Lorsque l'on charge en Ajax les bundles de l'API, comme la connexion à la base de donnée peut être longue on voudrait afficher une zone de chargement. Pour cela, deux div et l'utilisation de deux directives angular, `ng-show` et `ng-hide` qui vont paramétrer la visibilité de chaque div : 
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/index.zoomLoader.html.png)
+![](/img/ScreensCode/AngularJS/index.zoomLoader.html.png)
 
 Dans la déclaration du controller, on initialise à false un booléen dans le $scope : 
-	$scope.showLoaderTree = true;
+    $scope.showLoaderTree = true;
 
 Et lorsque l'appel http se termine, 
-	$scope.showLoaderTree = false;
+    $scope.showLoaderTree = false;
 
 ##### ng-repeat
 
 Cette directive permet de refléter un tableau javascript du $scope dans le DOM :
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/index.zoomng-repeat.html.png)
+![](/img/ScreensCode/AngularJS/index.zoomng-repeat.html.png)
 
 On retrouve dans la déclaration du ng-repeat l'objet week rempli dans le callback http du controleur. L'objet week reflétant directement la list de KeyValuePair générée coté serveur, on voit qu'on peut utiliser la notation "moustache" pour afficher directement une propriété du sous-modele (en l'occurence une instance de keyValuePair
 , soit une semaine de bundles) : 
 
-	{{week.Key}}
+    {{week.Key}}
 
 ### Directive custom
 
@@ -347,41 +347,41 @@ Il est bien sûr possible de déclarer ses propres directives. J'ai créé dans 
 
 La déclaration d'une directive se fait de façon assez proche d'un controleur : 
 
-	angular.module('monitoringDirectives', ['monitoringController'])
-		.directive('bundle', [ function ()
-		{
-			return {
-				restrict: 'E',
-				templateUrl: 'bundle.partial.html',
-				scope: {
-					bundle: '=which'
-				}			
-			};
-		}]);
+    angular.module('monitoringDirectives', ['monitoringController'])
+        .directive('bundle', [ function ()
+        {
+            return {
+                restrict: 'E',
+                templateUrl: 'bundle.partial.html',
+                scope: {
+                    bundle: '=which'
+                }           
+            };
+        }]);
 
 Coté HTML :
 
-	<bundle ng-repeat="bundle in week.Value | filter:mainFilter" which="bundle" />
+    <bundle ng-repeat="bundle in week.Value | filter:mainFilter" which="bundle" />
 
 Partial :
 
-	<li>
-		<span class="{{bundle.displayClass}}">{{bundle.Date}} &ndash; {{bundle.displayStatus}} </span>
-		<ul>
-			<li ng-if='bundle.NbInscriptions > 0'>
-				<span>
-					<span ng-if='bundle.NbInscriptions > 0'>Inscrits : {{bundle.NbInscriptions}}</span>
-					<span ng-if='bundle.NbRetoursCanal > 0'>De Canal : {{bundle.NbRetoursCanal}}</span>
-					<span ng-if='bundle.NbOk > 0'>Ok :  {{bundle.NbOk}}</span>
-					<span ng-if='bundle.NbKo > 0'>Ko :  {{bundle.NbKo}}</span>
-				</span>
-			</li>
-			<li ng-repeat="bundleFile in bundle.BundleFiles">
-				<span><i class="icon-time"></i> {{bundleFile.CreationDate}}</span>
-				<previewlink file="bundleFile">{{bundleFile.FileName}}</previewlink>
-			</li>
-		</ul>
-	</li>
+    <li>
+        <span class="{{bundle.displayClass}}">{{bundle.Date}} &ndash; {{bundle.displayStatus}} </span>
+        <ul>
+            <li ng-if='bundle.NbInscriptions > 0'>
+                <span>
+                    <span ng-if='bundle.NbInscriptions > 0'>Inscrits : {{bundle.NbInscriptions}}</span>
+                    <span ng-if='bundle.NbRetoursCanal > 0'>De Canal : {{bundle.NbRetoursCanal}}</span>
+                    <span ng-if='bundle.NbOk > 0'>Ok :  {{bundle.NbOk}}</span>
+                    <span ng-if='bundle.NbKo > 0'>Ko :  {{bundle.NbKo}}</span>
+                </span>
+            </li>
+            <li ng-repeat="bundleFile in bundle.BundleFiles">
+                <span><i class="icon-time"></i> {{bundleFile.CreationDate}}</span>
+                <previewlink file="bundleFile">{{bundleFile.FileName}}</previewlink>
+            </li>
+        </ul>
+    </li>
 
 
 
@@ -391,7 +391,7 @@ Les modules prédéfinis dans AngularJS sont préfixés d'un $.
 
 Chaque module ou sous-élément AngularJS (controleur, service, directive) peut dépendre d'un module. On l'injecte en le sépcifiant dans la déclaration de l'objet.
 
-![](https://raw.githubusercontent.com/BlueInt32/prez/master/img/ScreensCode/AngularJS/Controller.png)
+![](/img/ScreensCode/AngularJS/Controller.png)
 
 Il existe une notation moins redondante pour charger les dépendances, mais elle ne résiste pas à la minification JS : en effet les noms des modules injectés dans les functions de déclaration sont reconnus
 par AngularJS, or la minification peut les détruire. 

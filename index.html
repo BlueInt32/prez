@@ -43,7 +43,7 @@
 			</section>
 			<section>
 				<p>RAPP est une agence de marketing et communication digitale basée à Saint-Ouen</p>
-				<img src="https://raw.githubusercontent.com/BlueInt32/prez/master/img/rapp_saint_ouen.png" />
+				<img src="img/illustrations/rapp_saint_ouen.png" />
 				<aside class="notes">
 					<p>Travaux</p>
 					<ul>
@@ -79,7 +79,7 @@
 					<h2>Jeu Canal + Collecte</h2>
 					<p>Objectif pour Canal+ : remplir sa base de données d'emails</p>
 				</section>
-				
+
 				<section>
 					<a href="http://legrandjeudesheroscanalplus.fr">
 						<img src="/img/ScreensJeu/Home.jpg" />
@@ -94,70 +94,126 @@
 				<section><img src="/img/ScreensJeu/q4.png" /></section>
 				<section><img src="/img/ScreensJeu/q5_form.png" /></section>
 				<section><img src="/img/ScreensJeu/result.png" /></section>
-				
-					<aside class="notes">
-						<ul>
-							<li>Le jeu en cours est le n°4.</li>
-						</ul>
-					</aside>
-</section>
+
+				<aside class="notes">
+					<ul>
+						<li>Le jeu en cours est le n°4.</li>
+					</ul>
+				</aside>
+			</section>
 			<section>
 				<h2>Intervenants du projet</h2>
-					<h3 class="subs">CANAL+ </h3><p class="fragment fade-in">Récupère les prospects, peut déterminer si un prospect est valide</p>
-					<h3 class="subs">RAPP </h3><p class="fragment fade-in">Développe le jeu et les services associés</p>
-					<h3 class="subs">TradeDoubler </h3><p class="fragment fade-in">Amène des joueurs sur le jeu grâce à des sites affiliés</p>
+				<h3 class="subs">CANAL+ </h3><p class="fragment fade-in">Récupère les prospects, peut déterminer si un prospect est valide</p>
+				<h3 class="subs">RAPP </h3><p class="fragment fade-in">Développe le jeu et les services associés</p>
+				<h3 class="subs">TradeDoubler </h3><p class="fragment fade-in">Amène des joueurs sur le jeu grâce à des sites affiliés</p>
 			</section>
 			<section>
 				<h3>Problématique principale du projet :</h3>
-				<br/>
+				<br />
 				<p class="fragment fade-in">CANAL+ doit rémunérer TradeDoubler pour les inscrits au jeu qu'il ne connaissait pas déjà.</p>
 			</section>
 			<section style="position:relative;">
 				<h2>La Moulinette</h2>
 				<p>Service Windows tournant chez RAPP sur le serveur du jeu</p>
-				<img src="img/fonctionnel_moulinette_donnees_0.png">
+				<img src="img/diagrammes/fonctionnel_moulinette_donnees_0.png">
 				<p class="fragment fade-in">3 actions quotidiennes principales : </p>
 				<ol>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_1.png" style="width:20%;position:absolute; top:33%;left:21%;" />génère la liste des inscrits du jour et l'envoie à Canal+</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_2.png" style="width:20%;position:absolute; top:42%;left:21%;" />récupère la liste transformée par Canal+ (statuts "déjà inscrit Canal+")</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/fonctionnel_moulinette_donnees_3.png" style="width:20%;position:absolute; top:37%;left:57%;" />génère une liste pour TradeDoubler (leads valides) et lui envoie</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_donnees_1.png" style="width:20%;position:absolute; top:33%;left:21%;" />génère la liste des inscrits du jour et l'envoie à Canal+</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_donnees_2.png" style="width:20%;position:absolute; top:42%;left:21%;" />récupère la liste transformée par Canal+ (statuts "déjà inscrit Canal+")</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_donnees_3.png" style="width:20%;position:absolute; top:37%;left:57%;" />génère une liste pour TradeDoubler (leads valides) et lui envoie</li>
 				</ol>
 			</section>
-			<section ><!--data-background="#007777"-->
+			<section>
+				<!--data-background="#007777"-->
 				<h2>En pratique...</h2>
 				<p>Les fichiers envoyés sont des fichiers csv et xml sur des serveurs ftp</p>
-				<img src="img/Fonctionnel-Moulinette-Fichiers_0.png">
+				<img src="img/diagrammes/fonctionnel_moulinette_fichiers_0.png">
 				<p>Fichiers envoyés sur des FTP</p>
 				<ol>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_1.png" style="width:20%;position:absolute; top:38%;left:21%;" />CSV "IN" généré et envoyé à Minuit</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_2.png" style="width:20%;position:absolute; top:47%;left:21%;" />CSV "OUT" reçu vers 12h10</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/Fonctionnel-Moulinette-Fichiers_3.png" style="width:20%;position:absolute; top:42%;left:57%;" />XML généré à la volée (jointure entre csv "OUT" et base locale)</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_fichiers_1.png" style="width:20%;position:absolute; top:38%;left:21%;" />CSV "IN" généré et envoyé à Minuit</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_fichiers_2.png" style="width:20%;position:absolute; top:47%;left:21%;" />CSV "OUT" reçu vers 12h10</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/fonctionnel_moulinette_fichiers_3.png" style="width:20%;position:absolute; top:42%;left:57%;" />XML généré à la volée (jointure entre csv "OUT" et base locale)</li>
 				</ol>
 			</section>
 			<!-- Example of nested vertical slides -->
 			<section>
 				<h3>Mécanique de la moulinette</h3>
-			<img class="nobordernoshadow" src="img/flowchart.png" alt="Alternate Text" /></section>
+				<img class="nobordernoshadow" src="img/diagrammes/flowchart_0.png" alt="Alternate Text" />
+				<img class="nobordernoshadow fragment fade-in" src="img/diagrammes/flowchart_1_diff.png" style="width:41%;position:absolute; top:32%;left:38%;" />
+			</section>
+			<section>
+				<h2>L'écran de monitoring</h2>
+
+				<h3 class="subs fragment fade-in">Objectif</h3><p class="fragment fade-in">Contrôler la création et les échanges de fichiers</p>
+				<h3 class="subs fragment fade-in">Comment</h3><p class="fragment fade-in">En maintenant à jour une liste de "Bundles" et de "BundleFiles"</p>
+				<h3 class="subs fragment fade-in">Bundle</h3><p class="fragment fade-in">
+					Groupe de 3 fichiers quotidiens<br />Csv "IN", Csv "OUT" et Xml
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>L'écran de monitoring</h2>
+					<ul>
+						<li>Bundles triés par semaine</li>
+						<li>Chaque Bundle a une date, un statut et des métadonnées</li>
+						<li>Fichiers Horodatés avec lien de prévisualisation</li>
+					</ul>
+					<img class="noborder" src="/img/ScreensMonitoring/Screen.jpg" alt="" />
+				</section>
+				<section>
+					<h2>Prévisualisation</h2>
+					<img class="noborder" src="/img/ScreensMonitoring/ScreenLarge.png" alt="" />
+				</section>
+			</section>
+			<section>
+				<h2>Comment c'est fait ?</h2>
+				<img src="img/illustrations/cambouis.jpg" alt="" />
+			</section>
+			<section>
+				<h2>Architecture</h2>
+				<img src="img/diagrammes/archi.png" alt="" />
+				<ol>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+				</ol>
+			</section>
+			<section>
+				<h1>EF Code first</h1>
+				<img class="nobordernoshadow" src="img/illustrations/csharptodb.png" alt="" />
+			</section>
+			<section>
+				<h1>ASP.NET<br/>Web Api 2</h1>
+				<img class="nobordernoshadow" src="img/illustrations/dbtojson.png" alt="" />
+			</section>
+			<section>
+				<h1>AngularJS</h1>
+			</section>
+			<section>
+				<h3>Bibliographie</h3>
+				<h4>Code First</h4>
+				<p><a target="_blank" href="http://msdn.microsoft.com/en-us/data/jj193542.aspx">Code first to new Database @ Msdn.com</a></p>
+			</section>
+			<section>
+				<h2>Pretty Code</h2>
+				<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+    var nodes = document.querySelectorAll( selector );
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+				<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+			</section>
 			<section>
 				<section>
 					<code data-trim>
-						public class BundleFilesController : ApiController
-						{
-							[Route("api/bundlefiles/{*path}")]
-							public object Get(string path)
-							{
-								string fileContent = "";
-								if(path.EndsWith(".csv"))
-								{
-									fileContent = path.ReadFile().PrepareCsv();
-								}
-								else if(path.EndsWith(".xml"))
-								{
-									fileContent = path.ReadFile().PrepareXml();
-								}
-								return new { fileContent = fileContent};
-							}
-						}
 
 					</code>
 					<h2>Vertical Slides</h2>
@@ -337,23 +393,7 @@ Reveal.addEventListener( 'customevent', function() {
 					reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
 				</blockquote>
 			</section>
-			<section>
-				<h2>Pretty Code</h2>
-				<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-    var nodes = document.querySelectorAll( selector );
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-				<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-			</section>
+
 			<section>
 				<h2>Intergalactic Interconnections</h2>
 				<p>
