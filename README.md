@@ -397,9 +397,6 @@ Chaque module ou sous-élément AngularJS (controleur, service, directive) peut 
 Il existe une notation moins redondante pour charger les dépendances, mais elle ne résiste pas à la minification JS : en effet les noms des modules injectés dans les functions de déclaration sont reconnus
 par AngularJS, or la minification peut les détruire. 
 
-
-### La directive
-
 ### Le service
 
 

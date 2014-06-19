@@ -42,26 +42,39 @@
 	|______/|__/  |__/   \___/  |__/       \______/
 -->
 			<section>
-				<h2>Retour d'expérience</h2>
+				<h1>Retour d'expérience</h1>
 				<h3>RAPP</h3><h4>Ecran de Monitoring Collecte Canal+</h4>
 				<p>
 					<small><a href="http://hakim.se">Simon BUDIN</a> / <a href="http://github.com/BlueInt32">GitHub</a></small>
 				</p>
 			</section>
 			<section>
-				<h2>Contexte du projet</h2>
+				<h2>Sommaire</h2>
+				<h3 class="fragment fade-in">Contexte du projet <img src="/img/illustrations/logo_rapp.png" style="position: absolute;max-width: 11%;top: 7%;right: 10%;"></h3>
+				<h3 class="fragment fade-in">Code First <img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 42%;right: 67%;"></h3>
+				<h3 class="fragment fade-in">Web Api <img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 59%;right: 18%;"></h3>
+				<h3 class="fragment fade-in">Angular JS <img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 8%;top: 73%;right: 67%;"></h3>
 			</section>
 			<section>
-				<p>RAPP est une agence de marketing et communication digitale basée à Saint-Ouen</p>
-				<img src="img/illustrations/rapp_saint_ouen.png" />
-				<aside class="notes">
-					<p>Travaux</p>
-					<ul>
-						<li>Projets de type vitrine</li>
-						<li>Sites de fidelisation</li>
-						<li>Jeux de tirages au sort</li>
-					</ul>
-				</aside>
+				<h1>Contexte du projet</h1>
+			</section>
+			<section>
+				<section>
+					<img src="/img/illustrations/logo_rapp.png">
+					<p>RAPP est une agence de marketing et communication digitale basée à Saint-Ouen</p>
+					<img src="img/illustrations/rapp_saint_ouen.png" />
+				</section>
+				<section>
+				<img src="/img/illustrations/rapp.png">
+					<aside class="notes">
+						<p>Travaux</p>
+						<ul>
+							<li>Projets de type vitrine</li>
+							<li>Sites de fidelisation</li>
+							<li>Jeux de tirages au sort</li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section>
 				<h2>Clients de RAPP</h2>
@@ -89,7 +102,7 @@
 					<h2>Jeu Canal + Collecte</h2>
 					<p>Objectif pour Canal+ : remplir sa base de données d'emails</p>
 					<p><br/></p>
-					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
+					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif">
 				</section>
 
 				<section>
@@ -170,20 +183,20 @@
 						<li>Chaque Bundle a une date, un statut et des métadonnées</li>
 						<li>Fichiers Horodatés avec lien de prévisualisation</li>
 					</ul>
-					<img class="noborder" src="/img/ScreensMonitoring/Screen.jpg" alt="" />
+					<img class="noborder" src="/img/ScreensMonitoring/Screen.jpg" />
 				</section>
 				<section>
 					<h3>Panel de prévisualisation</h3>
-					<img class="noborder" src="/img/ScreensMonitoring/ScreenLarge.png" alt="" />
+					<img class="noborder" src="/img/ScreensMonitoring/ScreenLarge.png" />
 				</section>
 			</section>
 			<section>
 				<h2>Comment c'est fait ?</h2>
-				<img src="img/illustrations/cambouis_s.png" alt="" />
+				<img src="img/illustrations/cambouis_s.png" />
 			</section>
 			<section>
 				<h2>Architecture</h2>
-				<img src="img/diagrammes/archi.png" alt="" />
+				<img src="img/diagrammes/archi.png" />
 				<ol>
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
@@ -212,7 +225,7 @@
 			<section>
 				<h1>EF Code first</h1>
 
-				<img class="nobordernoshadow fragment fade-in" src="img/illustrations/csharptodb.png" alt="" />
+				<img class="nobordernoshadow fragment fade-in" src="img/illustrations/csharptodb.png" />
 				<p class="fragment fade-in">POCO</p>
 				<p class="fragment fade-in">DbContext</p>
 				<p class="fragment fade-in">Workflow</p>
@@ -226,7 +239,7 @@
 					<h2>POCO</h2>
 					<p><u>P</u>lain <u>O</u>ld <u>C</u>LR <u>O</u>bject</p>
 					<p>Aucune référence à l'ORM</p>
-					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
+					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif">
 					<aside class="notes">
 						<ul>
 							<li>Distinguer Propriétés Scalaires / Propriétés de navigation</li>
@@ -236,19 +249,19 @@
 				</section>
 				<section>
 				<h3>Diagramme de classes</h3>
-					<img class="nobordernoshadow" src="img/diagrammes/ClassDiagram.png" alt="">
+					<img class="nobordernoshadow" src="img/diagrammes/ClassDiagram.png">
 				</section>
 				<section>
 					<h2>Bundle</h2>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg">
 					</section>
 					<section>
 						<h2>BundleFile</h2>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
 					</section>
 					<section>
 					<h2>Enums</h2>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_Enums.jpg" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Enums.jpg">
 					</section>
 			</section>
 			<section>
@@ -267,23 +280,23 @@
 				</section>
 				<section>
 				<h3>CollectContext</h3>
-					<img class="nobordernoshadow"  src="img/screenscode/codefirst/CollecteContext_DbSets.jpg" alt="">
+					<img class="nobordernoshadow"  src="img/screenscode/codefirst/CollecteContext_DbSets.jpg">
 
 					<p class="fragment fade-in">On hérite de DbContext</p>
 					<p class="fragment fade-in">Un DbSet par table</p>
 				</section>
 				<section>
 					Utilisation : Create Bundle
-					<img class="nobordernoshadow" src="img/screenscode/codefirst/Create_Bundle.jpg" alt="">
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/Create_Bundle.jpg">
 				</section>
 				<section>
 					Utilisation : Get &amp; List Bundles
-					<img class="nobordernoshadow" src="img/screenscode/codefirst/Get_Bundle.jpg" alt="">
-					<img class="nobordernoshadow" src="img/screenscode/codefirst/List_Bundle.jpg" alt="">
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/Get_Bundle.jpg">
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/List_Bundle.jpg">
 				</section>
 				<section>
 					Utilisation : Create Bundle Files
-					<img class="nobordernoshadow" src="/img/ScreensCode/CodeFirst/Create_BundleFile.jpg" alt="">
+					<img class="nobordernoshadow" src="/img/ScreensCode/CodeFirst/Create_BundleFile.jpg">
 				</section>
 			</section>
 			<section>
@@ -296,36 +309,36 @@
 					<p>Une migration décrit le différentiel dans la base de données par rapport à la migration précédente.</p>
 					<br/>
 					<p class="fragment fade-in">Modification du modèle = Migration
-					<img class="nobordernoshadow" src="img/diagrammes/migration.png" alt=""></p>
+					<img class="nobordernoshadow" src="img/diagrammes/migration.png"></p>
 				</section>
 				<section>
 					<h3>En pratique...</h3>
-					<img class="stretch"  src="img/diagrammes/MigrationsWorflows.png" alt="">
+					<img class="stretch"  src="img/diagrammes/MigrationsWorflows.png">
 				</section>
 				<section>
 					<p>On utilise Package Manager Console</p>
-					<img src="img/screenscode/codefirst/package_manager_console.jpg" alt="">
+					<img src="img/screenscode/codefirst/package_manager_console.jpg">
 				</section>
-				<section><h3>Enable-Migrations</h3><img src="img/screenscode/codefirst/Enabling_Migrations_small.png" alt="">
-				<p><img src="img/screenscode/codefirst/Enable_migratoins.png" alt=""></p>
+				<section><h3>Enable-Migrations</h3><img src="img/screenscode/codefirst/Enabling_Migrations_small.png">
+				<p><img src="img/screenscode/codefirst/Enable_migratoins.png"></p>
 				<p class="fragment fade-in">A ne faire qu'une fois</p>
 				</section>
 				<section>
 					<h4>Fichier Configuration.cs</h4>
-					<img src="img/screenscode/codefirst/Configuration - Not Automatic Migration.jpg" alt="">
+					<img src="img/screenscode/codefirst/Configuration - Not Automatic Migration.jpg">
 					<p>La méthode Seed peut être utilisée en dev pour préremplir des données</p>
 				</section>
 
 				<section><h3>Add-migration</h3>
-				<img src="img/screenscode/codefirst/add_migration.png" alt="">
-				<p><img src="img/screenscode/codefirst/add_migration_files.png" alt="" class="fragment"></p>
+				<img src="img/screenscode/codefirst/add_migration.png">
+				<p><img src="img/screenscode/codefirst/add_migration_files.png" class="fragment"></p>
 				</section>
 				<section>
 					<h4>Fichier de migration</h4>
-					<img src="img/screenscode/codefirst/DbMigrationGeneratedCode.jpg" alt="">
+					<img src="img/screenscode/codefirst/DbMigrationGeneratedCode.jpg">
 				</section>
 				<section><h3>Update-Database</h3>
-					<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%" alt="">
+					<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%">
 					<div class="fragment fade-in">
 						<p>Paramètres utiles
 						<ul>
@@ -339,28 +352,28 @@
 			</section>
 			<section>
 				<section>
-					<img src="img/illustrations/warning.png" alt=""><h3>Connection Strings</h3>
+					<img src="img/illustrations/warning.png"><h3>Connection Strings</h3>
 					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
-					<img src="img/screenscode/codefirst/collectContextConnectionString.png" alt=""></p>
+					<img src="img/screenscode/codefirst/collectContextConnectionString.png"></p>
 					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
-					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg" alt=""></p>
+					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg"></p>
 				</section>
 				<section>
-					<img src="img/illustrations/warning.png" alt=""><h3>Connection Strings</h3>
+					<img src="img/illustrations/warning.png"><h3>Connection Strings</h3>
 					<p class="fragment fade-in">
 						Pour éxécuter les commandes</p>
 						<p class="fragment fade-in">1. Projet de démarrage = celui contenant la connection string
 						<p class="fragment fade-in">2. 'Défault project' dans PMC
-						<img src="img/screenscode/codefirst/defaultproject.jpg" alt=""></p>
+						<img src="img/screenscode/codefirst/defaultproject.jpg"></p>
 					</p>
 				</section>
 				<section>
-					<img src="img/illustrations/warning.png" alt=""><h2>Pièges : Initializers</h2>
+					<img src="img/illustrations/warning.png"><h2>Pièges : Initializers</h2>
 					<p class="fragment fade-in">
 						Désactiver l'initializer par défaut (sinon danger)
 					</p>
 					</p>
-					<img class="fragment fade-in" src="img/screenscode/codefirst/CollecteContext_Config_init.png" alt="">
+					<img class="fragment fade-in" src="img/screenscode/codefirst/CollecteContext_Config_init.png">
 				</section>
 			</section>
 			<section>
@@ -368,13 +381,13 @@
 				<h3>Conventions &amp; Ajustements</h3></section>
 				<section>
 					<h3>Convention de clef primaire</h3>
-					<img src="img/screenscode/codefirst/bundleFileZoom.png" alt="">
+					<img src="img/screenscode/codefirst/bundleFileZoom.png">
 					<p>Propriété Int ou Guid terminant par Id ou ID, ou avec l'attribut Key</p>
 				</section>
 				<section>
 					<h3>Convention de relations</h3>
 					<p>Il est conseillé de fournir la clef de l'entité liée en plus de la collection</p>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
 					<p><a href="http://msdn.microsoft.com/en-us/data/jj679962.aspx">Source msdn</a></p>
 				</section>
 				<section>
@@ -384,12 +397,12 @@
 				</section>
 				<section>
 					<p>Les attributs : Key, StringLength, NotMapped, Required</p>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg">
 					<p>Il en existe d'autres</p>
 				</section>
 				<section>
 					<p>La fluent API : contraintes définies en redéfinissant OnModelCreating dans le contexte</p>
-					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png" alt="">
+					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png">
 					<p>Permet des modifications plus poussées</p>
 				</section>
 
@@ -411,7 +424,7 @@
 -->
 			<section>
 				<h1>ASP.NET<br/>Web Api 2</h1>
-				<img class="fragment fade-in" class="nobordernoshadow" src="img/illustrations/dbtojson.png" alt="" />
+				<img class="fragment fade-in" class="nobordernoshadow" src="img/illustrations/dbtojson.png" />
 				<p class="fragment fade-in">Routing</p>
 				<p class="fragment fade-in">Formatters</p>
 				<p class="fragment fade-in">Filtres d'action</p>
@@ -433,32 +446,32 @@
 				</section>
 				<section>
 					<p>Mapping HTTP to Action (<a href="http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api">msdn</a>)</p>
-					<img src="/img/ScreensCode/WebAPI/routing_mapping.jpg" alt="">
+					<img src="/img/ScreensCode/WebAPI/routing_mapping.jpg">
 				</section>
 				<section>
 					<h3>Deux méthodes de routing</h3>
 				</section>
 				<section>
 					<p>1. Dans WebApiConfig (similaire à ASP.NET MVC)</p>
-					<img src="/img/ScreensCode/WebAPI/api_routing_1_default_routing.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_routing_1_default_routing.png">
 					<p>On ne spécifie pas l'action, qui est déduite par le moteur grâce au verbe HTTP</p>
 				</section>
 				<section>
 					<h3>Action GetAllBundles</h3>
-					<img src="/img/ScreensCode/WebAPI/api_action_getallbundles.jpg" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_action_getallbundles.jpg">
 					<p>Appelée avec <code>/api/bundles/</code></p>
 					<p>GET + pas de paramètre = action retournant un IEnumerable</p>
 				</section>
 				<section>
 					<p>2. Par attribut</p>
-					<img src="/img/ScreensCode/WebAPI/api_action_gebundlefilecontent.jpg" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_action_gebundlefilecontent.jpg">
 					<p>Appelée avec <code>/api/bundlefiles/[path/to/file.ext]</code></p>
 					<p>GET + Paramètre "path" = type de retour object</p>
 					<p>Paramètre path de type "catch-all" mappant le filepath</p>
 				</section>
 				<section>
 					<p>Exemple</p>
-					<img src="/img/ScreensCode/WebAPI/api_filecontent.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_filecontent.png">
 				</section>
 			</section>
 			<section>
@@ -473,26 +486,26 @@
 				</section>
 				<section>
 					<p>Accept: application/xml</p>
-					<img src="/img/ScreensCode/WebAPI/xml_small.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/xml_small.png">
 				</section>
 				<section>
 					<p>Accept: application/json = JSON</p>
-					<img src="/img/ScreensCode/WebAPI/json_smal_2l.png" alt="" />
-					<img src="/img/ScreensCode/WebAPI/json_smal_3l.png" alt="" />
+					<img src="/img/ScreensCode/WebAPI/json_smal_2l.png" />
+					<img src="/img/ScreensCode/WebAPI/json_smal_3l.png" />
 				</section>
 				<section>
 					<p>On peut supprimer un Formatter</p>
-					<img src="/img/ScreensCode/WebAPI/api_remove_formater.jpg" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_remove_formater.jpg">
 				</section>
 				<section>
 					<p>On peut indenter le JSON (pas par défaut)</p>
-					<img src="/img/ScreensCode/WebAPI/api_config_indent.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/api_config_indent.png">
 				</section>
 				<section>
 					<p>On passe de</p>
-					<img src="/img/ScreensCode/WebAPI/json_unformat.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/json_unformat.png">
 					<p>à </p>
-					<img src="/img/ScreensCode/WebAPI/json_small.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/json_small.png">
 				</section>
 			</section>
 			<section>
@@ -510,11 +523,11 @@
 				</section>
 				<section>
 					<p>Filtre Global d'authentification</p>
-					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png">
 				</section>
 				<section>
 					<p>Installation</p>
-					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_add.png" alt="">
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_add.png">
 					<p><a href="http://monitoring.collecte.canalplus.clients.rappfrance.com">Test</a></p>
 					<aside class="notes">
 						rappMonitor / rBIu435E1aC581
@@ -536,7 +549,7 @@
 -->
 			<section>
 				<h1>AngularJS</h1>
-				<img src="/img/illustrations/angular_transp.png" alt="">
+				<img src="/img/illustrations/angular_transp.png">
 				<p class="fragment fade-in">Un exemple simple</p>
 				<p class="fragment fade-in">Mise en application</p>
 				<p class="fragment fade-in">Les Services</p>
@@ -547,7 +560,7 @@
 					<h2>Un exemple simple</h2>
 				</section>
 				<section>
-					<img src="/img/diagrammes/angular_ctrl_scope_view.png" alt="">
+					<img src="/img/diagrammes/angular_ctrl_scope_view.png">
 					<p class="fragment fade-in">Le controleur alimente le $scope à l'aide de services</p>
 					<p class="fragment fade-in">Le $scope représente le ViewModel</p>
 					<p class="fragment fade-in">La vue reflète le $scope de façon bi-directionnelle</p>
@@ -555,13 +568,13 @@
 			</section>
 			<section>
 				<section><h2>Mise en application</h2>
-				<img src="/img/ScreensCode/AngularJS/files.png" alt=""></section>
+				<img src="/img/ScreensCode/AngularJS/files.png"></section>
 				<section>
 					<h3>Module et Contrôleur</h3>
 					<p class="fragment fade-in">Le fichier app.js : définition du module principal<br/>
-					<img src="/img/ScreensCode/AngularJS/app.js.png" alt=""></p>
+					<img src="/img/ScreensCode/AngularJS/app.js.png"></p>
 					<p class="fragment fade-in">Le controleur<br/>
-					<img src="/img/ScreensCode/AngularJS/controller.js.png" alt=""></p>
+					<img src="/img/ScreensCode/AngularJS/controller.js.png"></p>
 					<p class="fragment fade-in">On injecte ses dépendances dans le controleur</p>
 					<p class="fragment fade-in">Cette méthode d'injection résiste à la minification</p>
 					<p class="fragment fade-in">Variable showLoaderTree utilisée pour gérer le chargement</p>
@@ -569,14 +582,14 @@
 				<section>
 					<h3>Côté HTML</h3>
 					<p class="fragment fade-in">On charge les scripts<br/>
-					<img src="/img/ScreensCode/AngularJS/index_scripts.html.png" alt=""></p>
+					<img src="/img/ScreensCode/AngularJS/index_scripts.html.png"></p>
 					<p class="fragment fade-in">On définit la zone d'influence d'Angular<br/>
-					<img src="/img/ScreensCode/AngularJS/index_body.html.png" alt=""></p>
+					<img src="/img/ScreensCode/AngularJS/index_body.html.png"></p>
 
 				</section>
 				<section>
 					<p>On utilise le $scope dans la vue<br/>
-					<img src="/img/ScreensCode/AngularJS/index.html.png" alt=""></p>
+					<img src="/img/ScreensCode/AngularJS/index.html.png"></p>
 					<p class="fragment fade-in">Directives ng-show et ng-hide gérant la visibilité</p>
 					<p class="fragment fade-in">Directive ng-repeat répétant les éléments d'une liste</p>
 					<p class="fragment fade-in">Filtre sur les bundles défini 'inline'</p>
@@ -591,7 +604,7 @@
 				</section>
 				<section>
 					<p>Le bundle service</p>
-					<img src="/img/ScreensCode/AngularJS/bundleService.js.png" alt="">
+					<img src="/img/ScreensCode/AngularJS/bundleService.js.png">
 					<p class="fragment fade-in">On injecte le module $http pour l'Ajax</p>
 					<p class="fragment fade-in">L'objet "promise" du module $q permet une gestion asynchrone élégante</p>
 					<p class="fragment fade-in">Le module $rootScope fournit une référence au $scope principal de l'application</p>
