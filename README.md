@@ -69,7 +69,7 @@ Un groupe de fichiers est appelé `Bundle`. Il est fondamentalement lié à une 
 
 Cette présentation se fera logiquement dans le sens de la couche d'accès aux données en EF 6 Code First jusqu'au front-end en AngularJS, en passant par Web API 2.
 
-![](/img/Monitoring%20-%20Architecture.png)
+![](/img/diagrammes/archi.png)
 
 > Ce projet a été pour moi un excellent prétexte pour mettre en place plusieurs technologies sur lesquelles je me suis penché récemment. La possibilité d'autogérer un projet de bout en bout, spécifique au client RAPP (de type agence) permet d'avoir un bon recul sur l'ensemble des problématiques techniques d'un projet.
 
@@ -81,19 +81,18 @@ Code First est une brique d'Entity Framework dont la philosophie est de coder so
 
 On commence donc de manière intuitive par la définition des POCO ou "Entités". Dans la définition de nos POCO, il n'est fait aucune mention du systeme de persistance, aucun héritage particulier n'est nécéssaire. Cela permet de compter sur ces POCO partout dans l'application sans se soucier des références. 
 
-![](/img/ClassDiagram.png)
+![](/img/diagrammes/ClassDiagram.png)
+
+![](/img/ScreensCode/CodeFirst/CollecteContext_POCO_Bundle.jpg) 
 
 
-![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20Bundle.jpg) 
+![](/img/ScreensCode/CodeFirst/CollecteContext_POCO_BundleFile.jpg)
 
 
-![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFile.jpg)
+![](/img/ScreensCode/CodeFirst/CollecteContext_POCO_BundleFileType.jpg)
 
 
-![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleFileType.jpg)
-
-
-![](/img/ScreensCode/Code%20First/CollecteContext%20-%20POCO%20-%20BundleStatus.jpg)
+![](/img/ScreensCode/CodeFirst/CollecteContext_POCO_BundleStatus.jpg)
 
 Dans le POCO, on distingue 2 types de propriétés : les "propriétés scalaires" propres aux entités et les "propriétés de navigation" spécifiant les relations entre entités.
 
@@ -110,7 +109,7 @@ C'est une classe qui dérive de DbContext, la brique de base d'EF Code First.
 
 Le contexte représente une session d'accès à la base de donnée, et permet de requeter et de sauvegarder des données. DbContext applique les patterns Unit Of Work et Repository Pattern, de sorte que les changements qu'on effectue sur celui-ci sont regroupés logiquement pour être appliqués d'un seul coup sous forme de transaction. 
 
-![](/img/ScreensCode/Code%20First/CollecteContext.jpg)
+![](/img/ScreensCode/CodeFirst/CollecteContext.jpg)
 
 [Définir : [Unit Of Work](http://msdn.microsoft.com/en-us/magazine/dd882510.aspx), Repository Pattern]
 
@@ -124,11 +123,13 @@ Pour chaque type que l'ont veut persister dans la base, on doit créer dans notr
 
 Le DbContext s'utilise comme classiquement dans Entity Framework, voici la creation, update et List pour les bundles : 
 
-![](/img/ScreensCode/Code%20First/Create_Bundle.jpg)
+![](/img/ScreensCode/CodeFirst/Create_Bundle.jpg)
 
-![](/img/ScreensCode/Code%20First/Update_Bundle.jpg)
+![](/img/ScreensCode/CodeFirst/Update_Bundle.jpg)
 
-![](/img/ScreensCode/Code%20First/List_Bundle.jpg)
+![](/img/ScreensCode/CodeFirst/List_Bundle.jpg)
+
+![](/img/ScreensCode/CodeFirst/Create_BundleFile.jpg)
 
 
 

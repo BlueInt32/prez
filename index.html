@@ -173,13 +173,13 @@
 					<img class="noborder" src="/img/ScreensMonitoring/Screen.jpg" alt="" />
 				</section>
 				<section>
-					<h2>Prévisualisation</h2>
+					<h3>Panel de prévisualisation</h3>
 					<img class="noborder" src="/img/ScreensMonitoring/ScreenLarge.png" alt="" />
 				</section>
 			</section>
 			<section>
 				<h2>Comment c'est fait ?</h2>
-				<img src="img/illustrations/cambouis.jpg" alt="" />
+				<img src="img/illustrations/cambouis_s.png" alt="" />
 			</section>
 			<section>
 				<h2>Architecture</h2>
@@ -189,6 +189,14 @@
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
 				</ol>
+				<aside class="notes">
+					On ne détaillera pas beaucoup la partie qui remplit les bundles : on considérera les bundles essentiellement en lecture.
+				</aside>
+			</section>
+			<section>
+				<h3>Fonctionnel simple</h3>
+				<br/>
+				<p class="fragment fade-in">Un bon prétexte pour tester des technos !</p>
 			</section>
 <!--
 	  /$$$$$$                  /$$                  /$$$$$$  /$$                       /$$
@@ -203,11 +211,36 @@
 
 			<section>
 				<h1>EF Code first</h1>
-				<img class="nobordernoshadow" src="img/illustrations/csharptodb.png" alt="" />
+
+				<img class="nobordernoshadow fragment fade-in" src="img/illustrations/csharptodb.png" alt="" />
+				<div class="fragment fade-in">
+					<p>Code C# ou VB.NET</p>
+					<p>Migrations</p>
+				</div>
+				<aside class="notes">
+					Par opposition à "Database first" et "Model first"
+				</aside>
 			</section>
 			<section>
-				<h2>POCO</h2>
-				<pre><code>public class Bundle
+				<section>
+					<h2>POCO</h2>
+					<p><u>P</u>lain <u>O</u>ld <u>C</u>LR <u>O</u>bject</p>
+
+					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
+					<aside class="notes">
+						<ul>
+							<li>Distinguer Propriétés Scalaires / Propriétés de navigation</li>
+							<li>mot clef Virtual sur prop navigation permet d'utiliser le lazy loading.</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+				<h3>Diagramme de classes</h3>
+					<img class="nobordernoshadow" src="img/diagrammes/ClassDiagram.png" alt="">
+				</section>
+				<section>
+					<h2>Bundle</h2>
+					<pre><code>public class Bundle
 {
 	[Key]
 	public int BundleId { get; set; }
@@ -219,10 +252,150 @@
 	public int? NbOk { get; set; }
 	public int? NbKo { get; set; }
 
-	public virtual List&lt;bundlefile&gt; BundleFiles { get; set; }
+	public virtual List&lt;BundleFile&gt; BundleFiles { get; set; }
 }
 					</code></pre>
+					</section>
+					<section>
+						<h2>BundleFile</h2>
+<pre><code>public class BundleFile
+{
+	public int BundleFileId { get; set; }
+
+	public BundleFileType Type { get; set; }
+
+	[StringLength(255)]
+	public string FileName { get; set; }
+
+	public DateTime CreationDate { get; set; }
+
+	public int BundleId { get; set; }
+
+	[JsonIgnore]
+	[IgnoreDataMember]
+	public virtual Bundle Bundle { get; set; }
+}</code></pre>
+					</section>
+					<section>
+					<h2>Enums</h2>
+						<pre><code>public enum BundleFileType
+{
+	CsvIn,
+	CsvOut,
+	XmlTrade
+}</code></pre>
+						<pre><code>public enum BundleStatus
+{
+	NoFileCreated,
+	CsvInCreated,
+	CsvInSentToCanal,
+	CsvOutReceived,
+	CsvOutParsed,
+	XmlCreated,
+	XmlSentToTrade
+}</code></pre>
+					</section>
 			</section>
+			<section>
+			<section>
+				<h2>DbContext</h2>
+				<p>Brique de base d'EF</p>
+				<p>Représente une session d'accès à la base de données</p>
+
+				<aside class="notes">
+					<ul>
+						<li>Brique de base d'EF code first</li>
+						<li>Représente une session d'accès à la base de données</li>
+						<li></li>
+					</ul>
+				</aside>
+				</section>
+				<section>
+				<h2>CollectContext</h2>
+					<img class="nobordernoshadow"  src="img/screenscode/codefirst/CollecteContext_DbSets.jpg" alt="">
+
+					<p class="fragment fade-in">On hérite de DbContext</p>
+					<p class="fragment fade-in">Un DbSet par table</p>
+					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
+				</section>
+				<section>
+					Utilisation : Create Bundle
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/Create_Bundle.jpg" alt="">
+				</section>
+				<section>
+					Utilisation : Get &amp; List Bundles
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/Get_Bundle.jpg" alt="">
+					<img class="nobordernoshadow" src="img/screenscode/codefirst/List_Bundle.jpg" alt="">
+				</section>
+				<section>
+					Utilisation : Create Bundle Files
+					<img class="nobordernoshadow" src="/img/ScreensCode/CodeFirst/Create_BundleFile.jpg" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Comment créer/modifier la base de données ?</h3>
+					<br/>
+					<h3 class="fragment fade-in">On créé des migrations</h3>
+				</section>
+				<section>
+					<p>Une migration décrit le différentiel dans la base de données par rapport à la migration précédente.</p>
+					<br/>
+					<p class="fragment fade-in">Modification du modèle = Migration
+					<img class="nobordernoshadow" src="img/diagrammes/migration.png" alt=""></p>
+				</section>
+			</section>
+			<section>
+				<section><h3>Workflow</h3>
+				<img style="margin-top:-20px;"  src="img/diagrammes/MigrationsWorflows.png" alt="">
+				</section>
+				<section>
+					<h2>En pratique...</h2>
+					<p>On utilise Package Manager Console</p>
+					<img src="img/screenscode/codefirst/package_manager_console.jpg" alt="">
+				</section>
+				<section><h2>Enable-Migrations</h2><img src="img/screenscode/codefirst/Enabling_Migrations_small.png" alt="">
+				<p><img src="img/screenscode/codefirst/Enable_migratoins.png" alt=""></p>
+				<p class="fragment fade-in">A ne faire qu'une fois</p>
+				</section>
+				<section><h2>Add-migration</h2>
+				<img src="img/screenscode/codefirst/add_migration.png" alt="">
+				<p><img src="img/screenscode/codefirst/add_migration_files.png" alt="" class="fragment"></p>
+				</section>
+				<section>
+					<h4>Fichier de migration</h4>
+					<img src="img/screenscode/codefirst/DbMigrationGeneratedCode.jpg" alt="">
+				</section>
+				<section><h2>Update-Database</h2>
+				<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%" alt="">
+				<div class="fragment fade-in">
+				<p>Paramètres utiles
+				<ul>
+					<li>verbose - précisions sur actions effectuées</li>
+					<li>force - en cas de perte potentielle de données</li>
+					<li>script - prévisualisation du script généré</li>
+				</ul>
+				</p></div>
+
+				</section>
+				<section>
+					<img src="img/illustrations/warning.png" alt=""><h2>Connection Strings</h2>
+					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
+					<img src="img/screenscode/codefirst/collectContextConnectionString.png" alt=""></p>
+					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
+					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg" alt=""></p>
+				</section>
+				<section>
+					<img src="img/illustrations/warning.png" alt=""><h2>Connection Strings</h2>
+					<p class="fragment fade-in">
+						Pour éxécuter les commandes</p>
+						<p class="fragment fade-in">Projet de démarrage = celui contenant la connection string
+						<p class="fragment fade-in">'Défault project' dans PMC
+						<img src="img/screenscode/codefirst/defaultproject.jpg" alt=""></p>
+					</p>
+				</section>
+			</section>
+			<section><h2>Conventions / Ajustements</h2></section>
 <!--
 	 /$$      /$$           /$$              /$$$$$$            /$$
 	| $$  /$ | $$          | $$             /$$__  $$          |__/

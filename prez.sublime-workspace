@@ -1,0 +1,890 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"custom",
+				"customProperties"
+			],
+			[
+				"resourc",
+				"resourceLoadingIndex"
+			],
+			[
+				"loadin",
+				"loadingIndex"
+			],
+			[
+				"cars",
+				"carsInWorld"
+			],
+			[
+				"iaCar",
+				"iaCars"
+			],
+			[
+				"star",
+				"startPositions"
+			],
+			[
+				"contact",
+				"contactManager"
+			],
+			[
+				"play",
+				"playerCarSet"
+			],
+			[
+				"firs",
+				"firstCarLoaded"
+			],
+			[
+				"_ref",
+				"_ref2"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"js",
+				"jsonsToLoad"
+			],
+			[
+				"b2",
+				"b2Body"
+			],
+			[
+				"car",
+				"carSprite"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"json",
+				"parsedJson"
+			],
+			[
+				"joint",
+				"jointDef"
+			],
+			[
+				"start",
+				"startLap"
+			],
+			[
+				"conta",
+				"contactInfo"
+			],
+			[
+				"CheckPoint",
+				"checkpointIndex"
+			],
+			[
+				"fix",
+				"fixDef"
+			],
+			[
+				"body",
+				"bodyDef"
+			],
+			[
+				"set",
+				"SetAsArray"
+			],
+			[
+				"tarck",
+				"trackIndex"
+			],
+			[
+				"rever",
+				"reverseFilter"
+			],
+			[
+				"border",
+				"borderradius"
+			],
+			[
+				"text",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/Prog/Git/angular-phonecat/scripts/test.sh",
+			"settings":
+			{
+				"buffer_size": 266,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 24230,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/theme/sky.css",
+			"settings":
+			{
+				"buffer_size": 4619,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: function"
+			],
+			[
+				"comment",
+				"DocBlockr: Decorate line comment"
+			],
+			[
+				"commen",
+				"Toggle Comment"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 392.0,
+		"history":
+		[
+			"prettify_json.py",
+			"prettify_json",
+			"view.run_command('alttabr')",
+			"view.run_command('test')",
+			"view.run_command('alttabr')",
+			"view.run_command('example')",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/Prog/Git/prez/index.html",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Prog/Git/bundle-report/Collecte.Monitoring/Files/xml/pending_1772736_2.xml",
+		"/D/Prog/Git/prez/css/reveal.css",
+		"/D/Prog/Git/SuperSprint/app/js/libs/loadrube.js",
+		"/D/Prog/Git/SuperSprint/app/js/iaCar.coffee",
+		"/D/Prog/Git/SuperSprint/app/gruntfile.js",
+		"/D/Prog/Git/SuperSprint/app/js/playerCar.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/car.coffee",
+		"/D/Prog/Git/SuperSprint/app/assets/cars/probeSystem0.json",
+		"/D/Prog/Git/SuperSprint/app/js/worldSetup.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/game.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/universe.coffee",
+		"/D/Prog/Git/bundle-report/.gitignore",
+		"/D/Prog/Git/bundle-report/Collecte.Monitoring/Files/csvin/FC_RAP_IN_CIBLE_20140511_1.csv",
+		"/D/Prog/Git/bundle-report/Collecte.Monitoring/Files/csvout/FC_RAP_OUT_CIBLE_20140511_0.csv",
+		"/D/Prog/Git/SuperSprint/app/js/conf/carsConfig.coffee",
+		"/D/Prog/Git/SuperSprint/app/css/style.less",
+		"/D/Prog/Git/SuperSprint/app/js/iaSensor.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/game.js",
+		"/D/Prog/Git/SuperSprint/app/js/Main.js",
+		"/D/Prog/Git/SuperSprint/app/index.html",
+		"/D/Prog/Git/SuperSprint/app/assets/cars/car0.json",
+		"/C/Users/Simon/AppData/Local/Temp/Rar$DI51.480/PASSWORD - READ ME.txt",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/prettify_json.py",
+		"/D/Prog/Git/SuperSprint/app/js/keyboardHandler.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/car.js",
+		"/G/_TUTOS/The Structure of Man/HumanBeingHD089.txt",
+		"/D/Prog/Git/SuperSprint/app/js/contactManager.coffee",
+		"/D/Prog/Git/gokeyboard/.gitignore",
+		"/G/_TUTOS/The Structure of Man/HumanBeingHD0100.txt",
+		"/D/Prog/Git/SuperSprint/app/package.json",
+		"/D/Prog/Git/SuperSprint/app/bower.json",
+		"/D/Prog/Git/SuperSprint/app/testLoadJson.html",
+		"/E/Vidz/_arrivee/21Naturals 14.04.18 Lia Taylor Horizon XXX 1080p MP4-KTR/21Naturals.14.04.18.Lia.Taylor.Horizon.XXX.1080p.MP4-KTR/If_you_get_error.txt",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/playerCar.js",
+		"/D/Prog/Git/SuperSprint/app/js/Car.js",
+		"/D/Prog/Git/SuperSprint/app/js/ContactManager.js",
+		"/D/Prog/Git/SuperSprint/app/js/conf/tracksConfig.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/tracksConfig.js",
+		"/D/prog/git/SuperSprint/app/index.html",
+		"/D/prog/git/SuperSprint/app/gruntfile.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/carsConfig.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/b2Helpers.js",
+		"/D/Prog/Git/SuperSprint/app/js/checkpointManager.coffee",
+		"/D/Prog/Git/SuperSprint/app/css/mixin.css",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/keyboardHandler.js",
+		"/D/Prog/Git/SuperSprint/app/js/utils/b2Helpers.coffee",
+		"/D/Prog/Git/SuperSprint/app/assets/tracks/track1.rube",
+		"/D/Prog/Git/SuperSprint/app/assets/tracks/track1.json",
+		"/D/Prog/Git/SuperSprint/app/assets/tracks/track0.rube",
+		"/D/Prog/Git/SuperSprint/app/assets/tracks/track0.json",
+		"/D/Dropbox/Mel&Simon/S2 - 2 - Doc 2 - Pelicula Volver.srt",
+		"/D/Prog/Git/SuperSprint/app/js/libs/box2dweb/Box2dWeb-2.1.a.3.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/consts.js",
+		"/D/Prog/Git/SuperSprint/app/js/conf/consts.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/KeyboardHandler.js",
+		"/D/Prog/Git/SuperSprint/app/karma.conf.js",
+		"/D/Prog/Git/SuperSprint/app/js/WorldSetup.js",
+		"/D/Prog/Git/SuperSprint/app/js/conf/Cars.js",
+		"/D/Prog/Git/SuperSprint/app/js/utils/LinkedList.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/linkedList.js",
+		"/D/Prog/Git/SuperSprint/app/js/conf/Tracks.js",
+		"/D/Prog/Git/SuperSprint/app/js/utils/linkedList.coffee",
+		"/D/Prog/Git/SuperSprint/app/js/utils/b2.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/worldSetup.js",
+		"/D/Prog/Git/SuperSprint/app/js/KeyboardHandler.js",
+		"/D/Prog/Git/SuperSprint/app/js/conf/Consts.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/contactManager.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/universe.js",
+		"/D/Prog/Git/SuperSprint/app/js/CheckpointManager.js",
+		"/D/Prog/Git/SuperSprint/app/js/compiled/checkpointManager.js",
+		"/D/Prog/Git/SuperSprint/app/js/b2Universe.js",
+		"/D/Prog/Git/SuperSprint/app/js/coffee/compiled/car.js",
+		"/D/Prog/Git/SuperSprint/app/js/coffee/car.coffee",
+		"/C/Users/Simon/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/deleteLightroomCache.bat",
+		"/C/Users/Simon/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/deletePremiereCache.bat",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/Colorsublime-Themes/FireCode_Simon.tmTheme",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/Colorsublime-Themes/SolarSooty.tmTheme",
+		"/G/_TUTOS/The Structure of Man/HumanBeingHD080.txt",
+		"/D/Prog/Git/SuperSprint/app/js/coffee/compiled/another.js",
+		"/D/Prog/Git/SuperSprint/app/js/MainPhaser.js",
+		"/C/Users/Simon/AppData/Roaming/Microsoft/VisualStudio/12.0/ActivityLog.xml",
+		"/C/Program Files (x86)/Git/bin/echo",
+		"/D/prog/git/TS_Hello/TypeScriptHTMLApp1/app.ts",
+		"/C/Users/Simon/AppData/Roaming/npm/tsc.cmd",
+		"/D/Prog/Git/SuperSprint/.gitignore",
+		"/D/Dropbox/__CONFIGS/SublimeSync/User/function.sublime-snippet",
+		"/D/Prog/Git/SuperSprint/app/.bowerrc",
+		"/D/Prog/Git/SuperSprint/app/js/libs/dat.gui.min.js",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/G/BigSetups/QuarkXPress/QuarkXPress 10 Final Multilanguage (keygen X-Force) [ChingLiu]/How To Open Nfo Files.txt",
+		"/G/BigSetups/QuarkXPress/QuarkXPress 10 Final Multilanguage (keygen X-Force) [ChingLiu]/ChingLiu.Install.Notes.nfo",
+		"/G/BigSetups/Adobe.InDesign.CS5.5.v7.5.European.Incl.Keymaker-CORE/core.1.nfo",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/for.sublime-snippet",
+		"/D/Dropbox/__CONFIGS/SpeedDialConfig/speeddialconfig.js",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/Soda Dark.sublime-theme",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/Colorsublime-Themes/FireCode.tmTheme",
+		"/D/Prog/Git/phaser-examples/examples/basics/01 - load an image.js",
+		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/D/Prog/Git/SuperSprint/app/js/ContactManager.cs",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/DotScreenFilter.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/NormalMapFilter.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 14 - Masking/Copy of index.html",
+		"/D/Prog/Git/SuperSprint/app/js/RubeFilesLoader.js",
+		"/C/Users/Simon/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+		"/D/Prog/Git/SuperSprint/app/build/text/min.js",
+		"/D/prog/git/SuperSprint/app/package.json",
+		"/D/prog/git/NodeJs/videoexplorer/bin/www",
+		"/D/Prog/Git/SuperSprint/app/assets/README.md",
+		"/D/prog/git/SuperSprint/.gitignore",
+		"/D/prog/git/SuperSprint/app/node_server.js",
+		"/D/prog/git/NodeJs/videoexplorer/app.js",
+		"/C/Users/Simon/AppData/Local/Temp/fz3temp-1/index.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/files/src_pixi_filters_InvertFilter.js.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 2 - SpriteSheet/fighter.json",
+		"/D/Prog/Git/SuperSprint/app/publish/js/min.js",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/CanvasMaskManager.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/src/pixi/renderers/canvas/utils/CanvasMaskManager.js",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/assets/vendor/prettify/COPYING",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/files/src_pixi_filters_AbstractFilter.js.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/pixi.js",
+		"/D/Prog/Git/SuperSprint/app/assets/cars/rube1.json",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 14 - Masking/index nested masks.html",
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/JsonLoader.html",
+		"/D/Prog/Git/SuperSprint/app/js/utils/jsonB2Loader.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 157.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"preview",
+			"noborderno",
+			"theme",
+			"max-width",
+			"mac-width",
+			"mdf",
+			"@linearVelocities",
+			"positionCar",
+			"getLinearVelocity(i)",
+			"console.log",
+			"console.log(@pixiStage);",
+			"console.log(this.pixiStage);",
+			"console.log(urlParams);",
+			"WorldSetup",
+			"sensor",
+			"@pixiStage",
+			"carId",
+			"Univer",
+			"worldVec",
+			"b2DistanceJointDef",
+			"console.log(",
+			"console.log",
+			"bodies",
+			"inputBodies",
+			"getBodiesByCustomProperty",
+			"loadJointCommonProperties",
+			"customPro",
+			"loadJointFromRUBE",
+			"loadSceneIntoWorld",
+			";\n",
+			"loadSceneIntoWorld",
+			"loadBodyFromRUBE",
+			"defaultValue",
+			"world",
+			"loadSceneIntoWorld",
+			"loadWorldFromRUBE",
+			"loadingIndex",
+			"load",
+			"loadin",
+			"handleKeyDown",
+			"loadJointFromRUBE",
+			"loadJointCommonProperties",
+			"vCurrentRightNormals",
+			"updateFri",
+			"updateFriction",
+			"@cars[0]",
+			"gameCallBack",
+			"domEle",
+			"addCar",
+			"@cars",
+			"@tires",
+			"debugDraw",
+			"carConfigPointer",
+			"init",
+			"loader",
+			"Loader",
+			"loader",
+			"Loader",
+			"loader",
+			"'accelerate'",
+			"coucou",
+			"update",
+			"getForwardVelocity",
+			"keyboardData",
+			"stats",
+			"return",
+			"@drifting",
+			"this.drifting",
+			"trackscon",
+			"\"",
+			"this.",
+			"\"",
+			"this.",
+			"Car0Config",
+			"carConfigPointer",
+			"new WorldSetup",
+			"\"go\"",
+			"go",
+			"@Consts",
+			"stats",
+			"Stats",
+			"stats",
+			"universe",
+			"Universe",
+			"universe",
+			"Consts",
+			"carConfigPointer",
+			"pixiSprite",
+			"pixiStage",
+			"pixiRenderer",
+			"@",
+			"pixiRenderer",
+			"stats",
+			"//",
+			"var ",
+			"init",
+			"#",
+			"resourceNode",
+			"currentResourceNode",
+			"resourceNode",
+			"loadJSON",
+			"console",
+			"loadResource",
+			"launchMultiLoad",
+			"loadResource",
+			"loadJSON",
+			"setup",
+			"loadres",
+			"[];\n",
+			"me.",
+			"this.",
+			"me",
+			"rawJson",
+			"===",
+			"//",
+			"Step",
+			"keyboardHandler",
+			"NbCheckPoints",
+			"nbCheckPoints",
+			"NbCheckPoints",
+			"nbCheckPoints",
+			"return",
+			"this.",
+			"var ",
+			"this.",
+			"b2Universe",
+			"Universe",
+			"universe"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"# ",
+			"this.consts.STAGE_HEIGHT_B2",
+			"this.consts.STAGE_WIDTH_B2",
+			"wallFixtureDef",
+			"puddle",
+			"wallFixture",
+			"@linkColor",
+			"@globalColor",
+			"@contentTextColor",
+			"@contentBgColor",
+			"./images/"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/Prog/Git/angular-phonecat/scripts/test.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 24230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/theme/sky.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2783,
+								2799
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1188.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 207.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"project": "prez.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"load",
+				"js\\libs\\loadrube.js"
+			],
+			[
+				"grunt",
+				"gruntfile.js"
+			],
+			[
+				"grun",
+				"gruntfile.js"
+			],
+			[
+				"car.f",
+				"js\\car.coffee"
+			],
+			[
+				"car.js",
+				"js\\compiled\\car.js"
+			],
+			[
+				"loadru",
+				"js\\libs\\loadrube.js"
+			],
+			[
+				"json",
+				"assets\\cars\\car0.json"
+			],
+			[
+				"iac",
+				"js\\iaCar.coffee"
+			],
+			[
+				"player",
+				"js\\playerCar.coffee"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"contac",
+				"js\\contactManager.coffee"
+			],
+			[
+				"game",
+				"js\\compiled\\game.js"
+			],
+			[
+				"uni",
+				"js\\universe.coffee"
+			],
+			[
+				"game.",
+				"js\\game.coffee"
+			],
+			[
+				"world",
+				"js\\worldSetup.coffee"
+			],
+			[
+				"conf",
+				"js\\conf\\tracksConfig.coffee"
+			],
+			[
+				"univer",
+				"js\\universe.coffee"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"car",
+				"js\\compiled\\car.js"
+			],
+			[
+				"track",
+				"js\\conf\\tracksConfig.coffee"
+			],
+			[
+				"b2",
+				"js\\utils\\b2Helpers.coffee"
+			],
+			[
+				"b2help",
+				"js\\compiled\\b2Helpers.js"
+			],
+			[
+				"keybo",
+				"js\\keyboardHandler.coffee"
+			],
+			[
+				"car.",
+				"js\\car.coffee"
+			],
+			[
+				"conta",
+				"js\\contactManager.coffee"
+			],
+			[
+				"main",
+				"js\\Main.js"
+			],
+			[
+				"check",
+				"js\\checkpointManager.coffee"
+			],
+			[
+				"consts",
+				"js\\conf\\Consts.js"
+			],
+			[
+				"contact",
+				"js\\ContactManager.js"
+			],
+			[
+				"const",
+				"js\\conf\\Consts.js"
+			],
+			[
+				"less",
+				"css\\style.less"
+			],
+			[
+				"box2",
+				"js\\libs\\box2dweb\\Box2dWeb-2.1.a.3.js"
+			],
+			[
+				"file",
+				"js\\RubeFilesLoader.js"
+			],
+			[
+				"cars",
+				"js\\conf\\Cars.js"
+			],
+			[
+				"rubl",
+				"js\\RubeFilesLoader.js"
+			],
+			[
+				"unier",
+				"js\\b2Universe.js"
+			],
+			[
+				"car0j",
+				"assets\\cars\\car0.js"
+			],
+			[
+				"cons",
+				"js\\utils\\Consts.js"
+			],
+			[
+				"loader",
+				"js\\utils\\jsonB2Loader.js"
+			],
+			[
+				"b2un",
+				"js\\b2Universe.js"
+			],
+			[
+				"b2l",
+				"js\\utils\\jsonB2Loader.js"
+			],
+			[
+				"tracks",
+				"js\\conf\\Tracks.js"
+			],
+			[
+				"main.js",
+				"js\\Main.js"
+			],
+			[
+				"b2hel",
+				"js\\b2Helper.js"
+			],
+			[
+				"index.",
+				"index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Prog\\Git\\SuperSprint\\app\\supersprint.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 368.0,
+		"selected_items":
+		[
+			[
+				"createwall",
+				"CreateWalls"
+			]
+		],
+		"width": 640.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 178.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
