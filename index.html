@@ -213,10 +213,10 @@
 				<h1>EF Code first</h1>
 
 				<img class="nobordernoshadow fragment fade-in" src="img/illustrations/csharptodb.png" alt="" />
-				<div class="fragment fade-in">
-					<p>Code C# ou VB.NET</p>
-					<p>Migrations</p>
-				</div>
+				<p class="fragment fade-in">POCO</p>
+				<p class="fragment fade-in">DbContext</p>
+				<p class="fragment fade-in">Workflow</p>
+				<p class="fragment fade-in">Conventions &amp; Ajustements</p>
 				<aside class="notes">
 					Par opposition à "Database first" et "Model first"
 				</aside>
@@ -225,7 +225,7 @@
 				<section>
 					<h2>POCO</h2>
 					<p><u>P</u>lain <u>O</u>ld <u>C</u>LR <u>O</u>bject</p>
-
+					<p>Aucune référence à l'ORM</p>
 					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
 					<aside class="notes">
 						<ul>
@@ -240,65 +240,20 @@
 				</section>
 				<section>
 					<h2>Bundle</h2>
-					<pre><code>public class Bundle
-{
-	[Key]
-	public int BundleId { get; set; }
-	[Required]
-	public DateTime Date { get; set; }
-	public BundleStatus Status { get; set; }
-	public int? NbInscriptions { get; set; }
-	public int? NbRetoursCanal { get; set; }
-	public int? NbOk { get; set; }
-	public int? NbKo { get; set; }
-
-	public virtual List&lt;BundleFile&gt; BundleFiles { get; set; }
-}
-					</code></pre>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg" alt="">
 					</section>
 					<section>
 						<h2>BundleFile</h2>
-<pre><code>public class BundleFile
-{
-	public int BundleFileId { get; set; }
-
-	public BundleFileType Type { get; set; }
-
-	[StringLength(255)]
-	public string FileName { get; set; }
-
-	public DateTime CreationDate { get; set; }
-
-	public int BundleId { get; set; }
-
-	[JsonIgnore]
-	[IgnoreDataMember]
-	public virtual Bundle Bundle { get; set; }
-}</code></pre>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg" alt="">
 					</section>
 					<section>
 					<h2>Enums</h2>
-						<pre><code>public enum BundleFileType
-{
-	CsvIn,
-	CsvOut,
-	XmlTrade
-}</code></pre>
-						<pre><code>public enum BundleStatus
-{
-	NoFileCreated,
-	CsvInCreated,
-	CsvInSentToCanal,
-	CsvOutReceived,
-	CsvOutParsed,
-	XmlCreated,
-	XmlSentToTrade
-}</code></pre>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Enums.jpg" alt="">
 					</section>
 			</section>
 			<section>
 			<section>
-				<h2>DbContext</h2>
+				<h3>DbContext</h3>
 				<p>Brique de base d'EF</p>
 				<p>Représente une session d'accès à la base de données</p>
 
@@ -311,12 +266,11 @@
 				</aside>
 				</section>
 				<section>
-				<h2>CollectContext</h2>
+				<h3>CollectContext</h3>
 					<img class="nobordernoshadow"  src="img/screenscode/codefirst/CollecteContext_DbSets.jpg" alt="">
 
 					<p class="fragment fade-in">On hérite de DbContext</p>
 					<p class="fragment fade-in">Un DbSet par table</p>
-					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif" alt="">
 				</section>
 				<section>
 					Utilisation : Create Bundle
@@ -333,10 +287,10 @@
 				</section>
 			</section>
 			<section>
+				<section><h3>Workflow</h3></section>
 				<section>
-					<h3>Comment créer/modifier la base de données ?</h3>
-					<br/>
-					<h3 class="fragment fade-in">On créé des migrations</h3>
+					<h3>Pour créer/modifier la base</h3>
+					<h3>On créé des migrations</h3>
 				</section>
 				<section>
 					<p>Une migration décrit le différentiel dans la base de données par rapport à la migration précédente.</p>
@@ -344,21 +298,25 @@
 					<p class="fragment fade-in">Modification du modèle = Migration
 					<img class="nobordernoshadow" src="img/diagrammes/migration.png" alt=""></p>
 				</section>
-			</section>
-			<section>
-				<section><h3>Workflow</h3>
-				<img style="margin-top:-20px;"  src="img/diagrammes/MigrationsWorflows.png" alt="">
+				<section>
+					<h3>En pratique...</h3>
+					<img class="stretch"  src="img/diagrammes/MigrationsWorflows.png" alt="">
 				</section>
 				<section>
-					<h2>En pratique...</h2>
 					<p>On utilise Package Manager Console</p>
 					<img src="img/screenscode/codefirst/package_manager_console.jpg" alt="">
 				</section>
-				<section><h2>Enable-Migrations</h2><img src="img/screenscode/codefirst/Enabling_Migrations_small.png" alt="">
+				<section><h3>Enable-Migrations</h3><img src="img/screenscode/codefirst/Enabling_Migrations_small.png" alt="">
 				<p><img src="img/screenscode/codefirst/Enable_migratoins.png" alt=""></p>
 				<p class="fragment fade-in">A ne faire qu'une fois</p>
 				</section>
-				<section><h2>Add-migration</h2>
+				<section>
+					<h4>Fichier Configuration.cs</h4>
+					<img src="img/screenscode/codefirst/Configuration - Not Automatic Migration.jpg" alt="">
+					<p>La méthode Seed peut être utilisée en dev pour préremplir des données</p>
+				</section>
+
+				<section><h3>Add-migration</h3>
 				<img src="img/screenscode/codefirst/add_migration.png" alt="">
 				<p><img src="img/screenscode/codefirst/add_migration_files.png" alt="" class="fragment"></p>
 				</section>
@@ -366,36 +324,78 @@
 					<h4>Fichier de migration</h4>
 					<img src="img/screenscode/codefirst/DbMigrationGeneratedCode.jpg" alt="">
 				</section>
-				<section><h2>Update-Database</h2>
-				<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%" alt="">
-				<div class="fragment fade-in">
-				<p>Paramètres utiles
-				<ul>
-					<li>verbose - précisions sur actions effectuées</li>
-					<li>force - en cas de perte potentielle de données</li>
-					<li>script - prévisualisation du script généré</li>
-				</ul>
-				</p></div>
-
+				<section><h3>Update-Database</h3>
+					<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%" alt="">
+					<div class="fragment fade-in">
+						<p>Paramètres utiles
+						<ul>
+							<li>verbose - précisions sur actions effectuées</li>
+							<li>force - en cas de perte potentielle de données</li>
+							<li>script - prévisualisation du script généré</li>
+						</ul>
+						</p>
+					</div>
 				</section>
+			</section>
+			<section>
 				<section>
-					<img src="img/illustrations/warning.png" alt=""><h2>Connection Strings</h2>
+					<img src="img/illustrations/warning.png" alt=""><h3>Connection Strings</h3>
 					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
 					<img src="img/screenscode/codefirst/collectContextConnectionString.png" alt=""></p>
 					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
 					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg" alt=""></p>
 				</section>
 				<section>
-					<img src="img/illustrations/warning.png" alt=""><h2>Connection Strings</h2>
+					<img src="img/illustrations/warning.png" alt=""><h3>Connection Strings</h3>
 					<p class="fragment fade-in">
 						Pour éxécuter les commandes</p>
-						<p class="fragment fade-in">Projet de démarrage = celui contenant la connection string
-						<p class="fragment fade-in">'Défault project' dans PMC
+						<p class="fragment fade-in">1. Projet de démarrage = celui contenant la connection string
+						<p class="fragment fade-in">2. 'Défault project' dans PMC
 						<img src="img/screenscode/codefirst/defaultproject.jpg" alt=""></p>
 					</p>
 				</section>
+				<section>
+					<img src="img/illustrations/warning.png" alt=""><h2>Pièges : Initializers</h2>
+					<p class="fragment fade-in">
+						Désactiver l'initializer par défaut (sinon danger)
+					</p>
+					</p>
+					<img class="fragment fade-in" src="img/screenscode/codefirst/CollecteContext_Config_init.png" alt="">
+				</section>
 			</section>
-			<section><h2>Conventions / Ajustements</h2></section>
+			<section>
+				<section>
+				<h3>Conventions &amp; Ajustements</h3></section>
+				<section>
+					<h3>Convention de clef primaire</h3>
+					<img src="img/screenscode/codefirst/bundleFileZoom.png" alt="">
+					<p>Propriété Int ou Guid terminant par Id ou ID, ou avec l'attribut Key</p>
+				</section>
+				<section>
+					<h3>Convention de relations</h3>
+					<p>Il est conseillé de fournir la clef de l'entité liée en plus de la collection</p>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg" alt="">
+					<p><a href="http://msdn.microsoft.com/en-us/data/jj679962.aspx">Source msdn</a></p>
+				</section>
+				<section>
+					<h3>Deux moyens d'ajuster les propriétés du modele</h3>
+					<p class="fragment fade-in">Dans les POCO directement avec des attributs</p>
+					<p class="fragment fade-in">Dans la définition du contexte, Fluent API</p>
+				</section>
+				<section>
+					<p>Les attributs : Key, StringLength, NotMapped, Required</p>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg" alt="">
+					<p>Il en existe d'autres</p>
+				</section>
+				<section>
+					<p>La fluent API : contraintes définies en redéfinissant OnModelCreating dans le contexte</p>
+					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png" alt="">
+					<p>Permet des modifications plus poussées</p>
+				</section>
+
+
+			</section>
+
 <!--
 	 /$$      /$$           /$$              /$$$$$$            /$$
 	| $$  /$ | $$          | $$             /$$__  $$          |__/
@@ -411,7 +411,115 @@
 -->
 			<section>
 				<h1>ASP.NET<br/>Web Api 2</h1>
-				<img class="nobordernoshadow" src="img/illustrations/dbtojson.png" alt="" />
+				<img class="fragment fade-in" class="nobordernoshadow" src="img/illustrations/dbtojson.png" alt="" />
+				<p class="fragment fade-in">Routing</p>
+				<p class="fragment fade-in">Formatters</p>
+				<p class="fragment fade-in">Filtres d'action</p>
+			</section>
+			<section>
+				<section>
+					<h2>Routing</h2>
+				</section>
+				<section>
+					<h3>Fondé sur le verbe HTTP</h3>
+					<ul>
+						<li>GET pour récupérer des données (liste ou élément)</li>
+						<li>POST : pour enregistrer un nouvel element</li>
+						<li>PUT : pour modifier un element</li>
+						<li>DELETE : pour supprimer un élément</li>
+					</ul>
+					<br/><br/>
+					<p>Il dicte quelle action effectuer dans le contrôleur</p>
+				</section>
+				<section>
+					<p>Mapping HTTP to Action (<a href="http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api">msdn</a>)</p>
+					<img src="/img/ScreensCode/WebAPI/routing_mapping.jpg" alt="">
+				</section>
+				<section>
+					<h3>Deux méthodes de routing</h3>
+				</section>
+				<section>
+					<p>1. Dans WebApiConfig (similaire à ASP.NET MVC)</p>
+					<img src="/img/ScreensCode/WebAPI/api_routing_1_default_routing.png" alt="">
+					<p>On ne spécifie pas l'action, qui est déduite par le moteur grâce au verbe HTTP</p>
+				</section>
+				<section>
+					<h3>Action GetAllBundles</h3>
+					<img src="/img/ScreensCode/WebAPI/api_action_getallbundles.jpg" alt="">
+					<p>Appelée avec <code>/api/bundles/</code></p>
+					<p>GET + pas de paramètre = action retournant un IEnumerable</p>
+				</section>
+				<section>
+					<p>2. Par attribut</p>
+					<img src="/img/ScreensCode/WebAPI/api_action_gebundlefilecontent.jpg" alt="">
+					<p>Appelée avec <code>/api/bundlefiles/[path/to/file.ext]</code></p>
+					<p>GET + Paramètre "path" = type de retour object</p>
+					<p>Paramètre path de type "catch-all" mappant le filepath</p>
+				</section>
+				<section>
+					<p>Exemple</p>
+					<img src="/img/ScreensCode/WebAPI/api_filecontent.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+				<h2>Formatters</h2>
+				<p>Paramétrage des types Mime</p>
+				</section>
+				<section>
+					<h3>XML ou Json ?</h3>
+					<p>C'est le client qui choisit, avec le header HTTP 'Accept'</p>
+					<p>(AngularJS permet de modifier ce header)</p>
+				</section>
+				<section>
+					<p>Accept: application/xml</p>
+					<img src="/img/ScreensCode/WebAPI/xml_small.png" alt="">
+				</section>
+				<section>
+					<p>Accept: application/json = JSON</p>
+					<img src="/img/ScreensCode/WebAPI/json_smal_2l.png" alt="" />
+					<img src="/img/ScreensCode/WebAPI/json_smal_3l.png" alt="" />
+				</section>
+				<section>
+					<p>On peut supprimer un Formatter</p>
+					<img src="/img/ScreensCode/WebAPI/api_remove_formater.jpg" alt="">
+				</section>
+				<section>
+					<p>On peut indenter le JSON (pas par défaut)</p>
+					<img src="/img/ScreensCode/WebAPI/api_config_indent.png" alt="">
+				</section>
+				<section>
+					<p>On passe de</p>
+					<img src="/img/ScreensCode/WebAPI/json_unformat.png" alt="">
+					<p>à </p>
+					<img src="/img/ScreensCode/WebAPI/json_small.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+				<h2>Filtres d'action</h2>
+				<p>Code transverse</p>
+				</section>
+				<section>
+					<p>On peut appliquer des filtres comme dans ASP.NET MVC à plusieurs niveaux</p>
+					<ul>
+						<li class="fragment fade-in">Action - attribut au dessus de la méthode</li>
+						<li class="fragment fade-in">Controleur - attribut au dessus de la classe</li>
+						<li class="fragment fade-in">Application - à l'aide du singleton GlobalConfiguration</li>
+					</ul>
+				</section>
+				<section>
+					<p>Filtre Global d'authentification</p>
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png" alt="">
+				</section>
+				<section>
+					<p>Installation</p>
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_add.png" alt="">
+					<p><a href="http://monitoring.collecte.canalplus.clients.rappfrance.com">Test</a></p>
+					<aside class="notes">
+						rappMonitor / rBIu435E1aC581
+					</aside>
+				</section>
 			</section>
 <!--
   /$$$$$$                                /$$                       /$$$$$  /$$$$$$
@@ -428,7 +536,68 @@
 -->
 			<section>
 				<h1>AngularJS</h1>
+				<img src="/img/illustrations/angular_transp.png" alt="">
+				<p class="fragment fade-in">Un exemple simple</p>
+				<p class="fragment fade-in">Mise en application</p>
+				<p class="fragment fade-in">Les Services</p>
+				<p class="fragment fade-in">Les directives custom</p>
 			</section>
+			<section>
+				<section>
+					<h2>Un exemple simple</h2>
+				</section>
+				<section>
+					<img src="/img/diagrammes/angular_ctrl_scope_view.png" alt="">
+					<p class="fragment fade-in">Le controleur alimente le $scope à l'aide de services</p>
+					<p class="fragment fade-in">Le $scope représente le ViewModel</p>
+					<p class="fragment fade-in">La vue reflète le $scope de façon bi-directionnelle</p>
+				</section>
+			</section>
+			<section>
+				<section><h2>Mise en application</h2>
+				<img src="/img/ScreensCode/AngularJS/files.png" alt=""></section>
+				<section>
+					<h3>Module et Contrôleur</h3>
+					<p class="fragment fade-in">Le fichier app.js : définition du module principal<br/>
+					<img src="/img/ScreensCode/AngularJS/app.js.png" alt=""></p>
+					<p class="fragment fade-in">Le controleur<br/>
+					<img src="/img/ScreensCode/AngularJS/controller.js.png" alt=""></p>
+					<p class="fragment fade-in">On injecte ses dépendances dans le controleur</p>
+					<p class="fragment fade-in">Cette méthode d'injection résiste à la minification</p>
+					<p class="fragment fade-in">Variable showLoaderTree utilisée pour gérer le chargement</p>
+				</section>
+				<section>
+					<h3>Côté HTML</h3>
+					<p class="fragment fade-in">On charge les scripts<br/>
+					<img src="/img/ScreensCode/AngularJS/index_scripts.html.png" alt=""></p>
+					<p class="fragment fade-in">On définit la zone d'influence d'Angular<br/>
+					<img src="/img/ScreensCode/AngularJS/index_body.html.png" alt=""></p>
+
+				</section>
+				<section>
+					<p>On utilise le $scope dans la vue<br/>
+					<img src="/img/ScreensCode/AngularJS/index.html.png" alt=""></p>
+					<p class="fragment fade-in">Directives ng-show et ng-hide gérant la visibilité</p>
+					<p class="fragment fade-in">Directive ng-repeat répétant les éléments d'une liste</p>
+					<p class="fragment fade-in">Filtre sur les bundles défini 'inline'</p>
+					<p class="fragment fade-in">Directive custom 'bundle' décrite plus loin</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Les Services</h2>
+					<p class="fragment fade-in">Ils permettent d'encapsuler l'API</p>
+					<p class="fragment fade-in">Ils fournissent une bibliothèque réutilisable</p>
+				</section>
+				<section>
+					<p>Le bundle service</p>
+					<img src="/img/ScreensCode/AngularJS/bundleService.js.png" alt="">
+					<p class="fragment fade-in">On injecte le module $http pour l'Ajax</p>
+					<p class="fragment fade-in">L'objet "promise" du module $q permet une gestion asynchrone élégante</p>
+					<p class="fragment fade-in">Le module $rootScope fournit une référence au $scope principal de l'application</p>
+				</section>
+			</section>
+
 			<section>
 				<h3>Bibliographie</h3>
 				<h4>Code First</h4>
@@ -725,12 +894,12 @@ Reveal.addEventListener( 'customevent', function() {
 			controls: true,
 			progress: true,
 			history: true,
-			center: true,
+			center: false,
 			slideNumber: true,
 			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+			transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
 			transitionSpeed: 'fast',
-			previewLinks: false,
+			previewLinks: true,
 			viewDistance: 3,
 			// Parallax scrolling
 			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
