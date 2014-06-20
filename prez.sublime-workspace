@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"H3",
+				"h3"
+			],
+			[
 				"custom",
 				"customProperties"
 			],
@@ -116,18 +120,18 @@
 	"buffers":
 	[
 		{
-			"file": "/D/Prog/Git/angular-phonecat/scripts/test.sh",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 266,
+				"buffer_size": 38761,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "index.html",
+			"file": "/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/asidenode.sublime-snippet",
 			"settings":
 			{
-				"buffer_size": 24230,
+				"buffer_size": 311,
 				"line_ending": "Windows"
 			}
 		},
@@ -135,7 +139,7 @@
 			"file": "css/theme/sky.css",
 			"settings":
 			{
-				"buffer_size": 4619,
+				"buffer_size": 4631,
 				"line_ending": "Windows"
 			}
 		}
@@ -195,7 +199,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 386.0
+		"width": 498.0
 	},
 	"console":
 	{
@@ -222,6 +226,16 @@
 	},
 	"file_history":
 	[
+		"/D/Prog/Git/prez/img/ScreensCode/WebAPI/api_remove_formater.jpg",
+		"/D/AutoIt Scripts/GoTv.au3",
+		"/D/Prog/Git/InitGitSSH.au3",
+		"/D/Prog/Git/angular-phonecat/scripts/test.sh",
+		"/D/Prog/Git/angular-phonecat/scripts/test.bat",
+		"/D/Prog/Git/prez/goNode.bat",
+		"/D/Prog/Git/prez/GoConsole.au3",
+		"/D/Prog/Git/GoConsole.au3",
+		"/D/Prog/Git/GoTv.au3",
+		"/D/Prog/Git/angular-phonecat/scripts/e2e-test.bat",
 		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/D/Prog/Git/prez/index.html",
@@ -339,17 +353,7 @@
 		"/D/prog/git/NodeJs/videoexplorer/app.js",
 		"/C/Users/Simon/AppData/Local/Temp/fz3temp-1/index.html",
 		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/files/src_pixi_filters_InvertFilter.js.html",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 2 - SpriteSheet/fighter.json",
-		"/D/Prog/Git/SuperSprint/app/publish/js/min.js",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/CanvasMaskManager.html",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/src/pixi/renderers/canvas/utils/CanvasMaskManager.js",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/assets/vendor/prettify/COPYING",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/files/src_pixi_filters_AbstractFilter.js.html",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/pixi.js",
-		"/D/Prog/Git/SuperSprint/app/assets/cars/rube1.json",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 14 - Masking/index nested masks.html",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/classes/JsonLoader.html",
-		"/D/Prog/Git/SuperSprint/app/js/utils/jsonB2Loader.js"
+		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/examples/example 2 - SpriteSheet/fighter.json"
 	],
 	"find":
 	{
@@ -368,6 +372,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" alt=\"\"",
+			"élégante",
+			"margin-top:-",
+			"margin-top: -",
+			"margin: -",
+			"margin:-",
+			"enable",
+			"\">",
+			"%20-%20",
+			"<",
+			">",
+			"arrow",
 			"preview",
 			"noborderno",
 			"theme",
@@ -483,19 +499,7 @@
 			"rawJson",
 			"===",
 			"//",
-			"Step",
-			"keyboardHandler",
-			"NbCheckPoints",
-			"nbCheckPoints",
-			"NbCheckPoints",
-			"nbCheckPoints",
-			"return",
-			"this.",
-			"var ",
-			"this.",
-			"b2Universe",
-			"Universe",
-			"universe"
+			"Step"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -503,6 +507,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"_",
 			"'",
 			"# ",
 			"this.consts.STAGE_HEIGHT_B2",
@@ -525,52 +531,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/Prog/Git/angular-phonecat/scripts/test.sh",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 266,
+						"buffer_size": 38761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11,
-								11
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "index.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 24230,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								1674,
+								1674
 							]
 						],
 						"settings":
@@ -579,10 +557,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 669.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/asidenode.sublime-snippet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								180,
+								178
+							]
+						],
+						"settings":
+						{
+							"default_extension": "sublime-snippet",
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -591,15 +598,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4619,
+						"buffer_size": 4631,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2783,
-								2799
+								2473,
+								2473
 							]
 						],
 						"settings":
@@ -609,10 +616,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1188.0,
+						"translation.y": 1296.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -660,7 +667,7 @@
 	"project": "prez.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -857,6 +864,10 @@
 		"selected_items":
 		[
 			[
+				"prez",
+				"D:\\Prog\\Git\\prez\\prez.sublime-project"
+			],
+			[
 				"",
 				"D:\\Prog\\Git\\SuperSprint\\app\\supersprint.sublime-project"
 			]
@@ -882,7 +893,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 178.0,
+	"side_bar_width": 284.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>Jquery page</title>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var name = $('#name');
+            var greeting = $('#greeting>span');
+            name.keyup(function() {
+                greeting.text(name.val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="name" type="text">
+    <h2 id="greeting">Hello <span></span> !</h2>
+</body>
+</html>

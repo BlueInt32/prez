@@ -84,7 +84,7 @@ var Reveal = (function(){
 			hideAddressBar: true,
 
 			// Opens links in an iframe preview overlay
-			previewLinks: false,
+			previewLinks: true,
 
 			// Focuses body when page changes visiblity to ensure keyboard shortcuts work
 			focusBodyOnPageVisiblityChange: true,
@@ -318,7 +318,6 @@ var Reveal = (function(){
 
 		// Resets all vertical slides so that only the first is visible
 		resetVerticalSlides();
-
 		// Updates the presentation to match the current configuration values
 		configure();
 
@@ -531,7 +530,6 @@ var Reveal = (function(){
 	 * object. May be called multiple times.
 	 */
 	function configure( options ) {
-
 		var numberOfSlides = document.querySelectorAll( SLIDES_SELECTOR ).length;
 
 		dom.wrapper.classList.remove( config.transition );
@@ -941,11 +939,12 @@ var Reveal = (function(){
 	function enablePreviewLinks( selector ) {
 
 		var anchors = toArray( document.querySelectorAll( selector ? selector : 'a' ) );
-
+		console.log(anchors);
 		anchors.forEach( function( element ) {
-			if( /^(http|www)/gi.test( element.getAttribute( 'href' ) ) ) {
+			//if( /^(http|www)/gi.test( element.getAttribute( 'href' ) ) ) {
+				console.log("coucou");
 				element.addEventListener( 'click', onPreviewLinkClicked, false );
-			}
+			//}
 		} );
 
 	}
