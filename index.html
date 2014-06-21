@@ -51,18 +51,19 @@
 			</section>
 			<section>
 				<h2>Sommaire</h2>
-				<h3 class="fragment fade-in">Contexte du projet <img class="fragment roll-in" src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 27%;right: 30%;"></h3>
-				<h3 class="fragment fade-in">Code First <img class="fragment roll-in" src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 42%;right: 67%;"></h3>
-				<h3 class="fragment fade-in">Web Api <img class="fragment roll-in" src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 59%;right: 18%;"></h3>
-				<h3 class="fragment fade-in">Angular JS <img class="fragment roll-in" src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 8%;top: 73%;right: 67%;"></h3>
+				<p><br/></p>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 34%;left:8.5%;">Contexte du projet</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 49%;left:2%;">Code First </h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 65%;left:0%;"/>Web Api</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 6%;top: 78%;left:7%;">Angular JS </h3>
 			</section>
 			<section>
 				<h1>Contexte du projet</h1>
 			</section>
 			<section>
 				<section>
-					<img src="/img/illustrations/logo_rapp.png">
-					<p>RAPP est une agence de marketing et communication digitale basée à Saint-Ouen</p>
+					<img src="/img/illustrations/logo_rapp.png" style="margin:0px;">
+					<p>Agence de marketing et communication digitale</p>
 					<img src="img/illustrations/rapp_saint_ouen.png" />
 				</section>
 				<section>
@@ -171,27 +172,32 @@
 			<section>
 				<h2>L'écran de monitoring</h2>
 
-				<h3 class="subs fragment fade-in">Objectif</h3><p class="fragment fade-in">Contrôler la création et les échanges de fichiers</p>
-				<h3 class="subs fragment fade-in">Comment</h3><p class="fragment fade-in">En maintenant à jour une liste de "Bundles" et de "BundleFiles"</p>
-				<h3 class="subs fragment fade-in">Bundle</h3><p class="fragment fade-in">
-					Groupe de 3 fichiers quotidiens<br />Csv "IN", Csv "OUT" et Xml
+				<h3 class="subs fragment fade-in">Objectif</h3>
+				<p class="fragment fade-in">Contrôler la création et les échanges de fichiers</p>
+				<h3 class="subs fragment fade-in">Comment</h3>
+				<p class="fragment fade-in">En maintenant à jour une liste de "Bundles" et de "BundleFiles"</p>
+				<h3 class="subs fragment fade-in">Bundle</h3>
+				<p class="fragment fade-in">Groupe de 3 fichiers quotidiens<br />Csv "IN", Csv "OUT" et Xml
 				</p>
 			</section>
 			<section>
 				<section>
 					<h2>L'écran de monitoring</h2>
-					<ul>
-						<li>Bundles triés par semaine</li>
-						<li>Chaque Bundle a une date, un statut et des métadonnées</li>
-						<li>Fichiers Horodatés avec lien de prévisualisation</li>
-					</ul>
+					<p><br/></p>
+					<ol>
+						<li class="fragment fade-in">Bundles regroupés par n° de semaine</li>
+						<li class="fragment fade-in">Chaque Bundle a une date, un statut et des métadonnées</li>
+						<li class="fragment fade-in">Chaque bundle contient une liste de BundleFiles</li>
+					</ol>
+				</section>
+				<section>
 					<img class="noborder" src="/img/ScreensMonitoring/Screen.jpg" />
 				</section>
 				<section>
 					<h3>Panel de prévisualisation</h3>
 					<img class="noborder" src="/img/ScreensMonitoring/ScreenLarge.png" />
 					<br/>
-					<a href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com" data-preview-link>Voir en vrai</a>
+					<a target="_blank" href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com">Voir en vrai</a>
 				</section>
 			</section>
 			<section>
@@ -204,7 +210,7 @@
 				<ol>
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
 					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
 				</ol>
 				<aside class="notes">
 					On ne détaillera pas beaucoup la partie qui remplit les bundles : on considérera les bundles essentiellement en lecture.
@@ -228,15 +234,15 @@
 
 			<section>
 				<h1>EF Code first</h1>
-
-				<img class="nobordernoshadow fragment fade-in" src="img/illustrations/csharptodb.png" />
-				<p class="fragment fade-in">POCO</p>
-				<p class="fragment fade-in">DbContext</p>
-				<p class="fragment fade-in">Workflow</p>
-				<p class="fragment fade-in">Conventions &amp; Ajustements</p>
-				<aside class="notes">
-					Par opposition à "Database first" et "Model first"
-				</aside>
+				<p class="fragment fade-in"><img src="img/illustrations/csharptodb.png" /><br/>
+				Par opposition à "Model First" et "Database First"<br/>Méthodologie fondée sur le code</p>
+				<p><br/></p>
+				<ol>
+					<li class="fragment fade-in">POCO</li>
+					<li class="fragment fade-in">DbContext</li>
+					<li class="fragment fade-in">Workflow</li>
+					<li class="fragment fade-in">Conventions &amp; Ajustements</li>
+				</ol>
 			</section>
 			<section>
 				<section>
@@ -409,8 +415,16 @@
 					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png">
 					<p>Permet des modifications plus poussées</p>
 				</section>
+			</section>
 
-
+			<section>
+				<h2>Architecture</h2>
+				<img src="img/diagrammes/archi.png" />
+				<ol>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+				</ol>
 			</section>
 
 <!--
@@ -427,11 +441,15 @@
 	                                                 |__/
 -->
 			<section>
-				<h1>ASP.NET<br/>Web Api 2</h1>
-				<img class="fragment fade-in" class="nobordernoshadow" src="img/illustrations/dbtojson.png" />
-				<p class="fragment fade-in">Routing</p>
-				<p class="fragment fade-in">Formatters</p>
-				<p class="fragment fade-in">Filtres d'action</p>
+				<h3>ASP.NET</h3><h1>Web Api 2</h1>
+				<p class="fragment fade-in"><img class="nobordernoshadow" src="img/illustrations/dbtojson.png" /><br/>
+				Api RESTFul en .NET</p>
+				<p><br/></p>
+				<ol>
+					<li class="fragment fade-in">Routing</li>
+					<li class="fragment fade-in">Formatters</li>
+					<li class="fragment fade-in">Filtres d'action</li>
+				</ol>
 			</section>
 			<section>
 				<section>
@@ -538,6 +556,15 @@
 					</aside>
 				</section>
 			</section>
+			<section>
+				<h2>Architecture</h2>
+				<img src="img/diagrammes/archi.png" />
+				<ol>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
+					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
+					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+				</ol>
+			</section>
 <!--
   /$$$$$$                                /$$                       /$$$$$  /$$$$$$
  /$$__  $$                              | $$                      |__  $$ /$$__  $$
@@ -552,21 +579,18 @@
                      \______/
 -->
 			<section>
-				<h1>AngularJS</h1>
-				<img src="/img/illustrations/angular_transp.png">
-				<blockquote class="fragment current-visible">
-					AngularJS is what HTML would have been, had it been designed for building web-apps.
-					Declarative templates with <u>data-binding, MVW, MVVM, MVC</u>, dependency injection and great testability story all implemented with pure client-side JavaScript!
+				<img src="/img/illustrations/logoangularjs.jpg">
+				<blockquote class="fragment fade-in">
+					HTML enhanced for web apps!
 				</blockquote>
-			</section>
-			<section>
-				<h1>AngularJS</h1>
-				<img src="/img/illustrations/angular_transp.png">
-				<p class="fragment fade-in">Hello World</p>
-				<p class="fragment fade-in">Structure simplifiée</p>
-				<p class="fragment fade-in">Mise en application</p>
-				<p class="fragment fade-in">Le service Angular</p>
-				<p class="fragment fade-in">Les directives</p>
+				<p><br></p>
+				<ol>
+					<li class="fragment fade-in">Hello World</li>
+					<li class="fragment fade-in">Structure simplifiée</li>
+					<li class="fragment fade-in">Mise en application</li>
+					<li class="fragment fade-in">Le service Angular</li>
+					<li class="fragment fade-in">Les directives</li>
+				</ol>
 			</section>
 			<section>
 				<section>
@@ -585,7 +609,36 @@
 			</section>
 			<section>
 				<section>
-					<h2>Structure simplifiée</h2>
+					<h3>Un peu de vocabulaire</h3>
+					<ol>
+						<li class="fragment fade-in">Modules : équivalents des assemblies .NET</li>
+						<li class="fragment fade-in">Views : pages html contenant de la syntaxe AngularJS</li>
+						<li class="fragment fade-in">Controllers : établissent le lien entre le "modele" et les Views</li>
+						<li class="fragment fade-in">Scopes : contexte de données d'une ou plusieurs Views ayant des propriétés de data-binding bidirectionnel</li>
+						<li class="fragment fade-in">Directives : templates HTML (ou "partials") pouvant posséder leur propre scope.</li>
+						<li class="fragment fade-in">Services : encapsulent des fonctionnalités, typiquement une API</li>
+					</ol>
+				</section>
+				<section>
+					<img src="/img/diagrammes/angular_basic_structure.png" alt="">
+				</section>
+				<section>
+					<h3>Précision</h3>
+					<p>Les éléments Controllers, Services, Directives sont des fonctions javascript qu'on ajoute à un module</p>
+					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.controller.png" alt=""></p>
+					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.service.png" alt=""></p>
+					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.directive.png" alt=""></p>
+					<p class="fragment fade-in">Le scope est associé "sous le capot" par Angular.</p>
+				</section>
+				<section>
+					<h3>Revenons à nos bundles</h3>
+					<p>Nous allons avoir besoin de définir :</p>
+					<ul>
+						<li class="fragment fade-in">Un module contenant toute l'application</li>
+						<li class="fragment fade-in">Un service se chargeant des appels à l'API et de la gestion asynchrone</li>
+						<li class="fragment fade-in">Un controlleur permettant de rapatrier les données du service et de remplir le scope</li>
+						<li class="fragment fade-in">Une vue affichant notre arbre de bundles à l'aide de directives</li>
+					</ul>
 				</section>
 				<section>
 					<img src="/img/diagrammes/angular_simplifed2_nude.png">
@@ -596,23 +649,21 @@
 							<li>Il notifie la vue et le controleur : binding bi-directionnel</li>
 						</ul>
 					</aside>
-					<p class="fragment fade-in">MVC ?</p>
-					<p class="fragment fade-in">MVVM ?</p>
-					<p class="fragment fade-in">MVW !</p>
+					<p><span class="fragment fade-in">MVC ?</span>
+					<span  class="fragment fade-in">MVVM ?</span>
+					<span  class="fragment fade-in">MVW !</span></p>
 				</section>
 			</section>
 			<section>
 				<section><h2>Mise en application</h2>
 					<img src="/img/ScreensCode/AngularJS/files.png">
-					<p class="fragment fade-in"><small>Note : écran unique = pas de gestion de routes</small></p>
 				</section>
 				<section>
 					<h3>Module et Contrôleur</h3>
-					<p class="fragment fade-in">Le module principal<br/>
-					<img src="/img/ScreensCode/AngularJS/app.js.png"><br/><small>C'est la brique principale, un peu comme un assembly en .NET</small></p>
+					<p class="fragment fade-in">Le module principal dans app.js<br/>
+					<img src="/img/ScreensCode/AngularJS/app.js.png"></p>
 					<p class="fragment fade-in">Le controleur<br/>
 					<img src="/img/ScreensCode/AngularJS/controller.js.png"></p>
-					<p class="fragment fade-in">Le contrôleur n'est qu'une fonction JS !</p>
 					<p class="fragment fade-in">Dépendances à $scope et bundleService injectées</p>
 					<p class="fragment fade-in">Utilisation d'un objet "Promise"</p>
 					<aside class="notes">
@@ -629,15 +680,77 @@
 					<img src="/img/ScreensCode/AngularJS/index_scripts.html.png"></p>
 					<p class="fragment fade-in">On définit la zone d'influence d'Angular<br/>
 					<img src="/img/ScreensCode/AngularJS/index_body.html.png"></p>
-					<p class="fragment fade-in"><small>le $scope ne pourra être bindé que dans cette section du DOM</small></p>
+					<p class="fragment fade-in">Le $scope ne pourra être bindé que dans cette section du DOM</p>
 				</section>
 				<section>
 					<p>Utilisation du scope dans la vue<br/>
-					<img src="/img/ScreensCode/AngularJS/index.html.png"></p>
-					<p class="fragment fade-in">Directives ng-show et ng-hide gérant un preloader</p>
-					<p class="fragment fade-in">Directives ng-repeat répétant les éléments d'une liste</p>
-					<p class="fragment fade-in">Filtre sur les bundles défini 'inline'</p>
-					<p class="fragment fade-in">Directive custom 'bundle' décrite plus loin</p>
+					<img src="/img/ScreensCode/AngularJS/index.html.full.png"></p>
+					<p class="fragment fade-in">Que de directives !</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Directives</h2>
+					<p class="fragment fade-in">Les directives permettent d'étendre HTML</p>
+					<p class="fragment fade-in">Elles peuvent représenter de simples fonctionnalités css</p>
+					<p class="fragment fade-in">Ou permettre de boucler et filtrer une liste</p>
+					<p class="fragment fade-in">Enfin elles peuvent servir de vue partielle</p>
+				</section>
+				<section>
+					<h3>ng-show et ng-hide</h3>
+					<p>Elles permettent de paramétrer l'affichage d'éléments en fonction d'une valeur booléenne du $scope<br/>
+					<img src="/img/ScreensCode/AngularJS/index.zoomLoader.html.png" alt=""></p>
+				</section>
+
+				<section>
+					<h3>ng-model</h3>
+					<p>ng-model permet de binder la valeur d'un champ input dans le $scope<br/>
+					<img src="/img/ScreensCode/AngularJS/index.html.zoom.ngmodel.png" alt=""></p>
+					<p class="fragment fade-in">Pas besoin de déclarer cette valeur dans le controleur</p>
+				</section>
+				<section>
+					<h3>ng-repeat + filtre</h3>
+					<p>ng-repeat repète les éléments d'un tableau du $scope<br/>
+					<img src="/img/ScreensCode/AngularJS/directive.ngrepeat_3.png" alt=""></p>
+					<p class="fragment fade-in">On peut imbriquer les boucles</p>
+					<p class="fragment fade-in">On peut filtrer les valeurs sur un modèle à la volée</p>
+				</section>
+				<section>
+					<h3>Et beaucoup d'autres !</h3>
+					<p>
+						<img src="/img/ScreensCode/AngularJS/directives_1.png" alt="">
+						<img src="/img/ScreensCode/AngularJS/directives_2.png" alt="">
+						<img src="/img/ScreensCode/AngularJS/directives_3.png" alt="">
+						<img src="/img/ScreensCode/AngularJS/directives_4.png" alt="">
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Directive Custom</h3><p>Vue partielle pour un Bundle</p>
+					<img src="/img/ScreensCode/AngularJS/index.html.zoom_bundle.png" alt="">
+					<p class="fragment fade-in">Le code est rendu très lisible</p>
+					<p class="fragment fade-in">On peut combiner les directives entre elles</p>
+					<p class="fragment fade-in">On passe l'objet bundle dans l'attribut "which"</p>
+				</section>
+				<section>
+					<p>Définition de la directive</p>
+					<img src="/img/ScreensCode/AngularJS/directive.bundle.js.png" alt="">
+					<p class="fragment fade-in">L'attribut restrict 'E' définit le type Element</p>
+					<p class="fragment fade-in">TemplateUrl permet de définir le chemin de la vue partielle</p>
+					<p class="fragment fade-in">Cette directive encapsule son propre scope</p>
+					<p class="fragment fade-in">La notation "=which" retrouve l'objet du scope parent</p>
+					<aside class="notes">
+						<p>Par défaut une directive utilise le scope du template parent...</p>
+						<p>sauf si on en définit un comme ici</p>
+						<p>le '=which' lie la valeur 'bundle' de ce scope à la valeur 'bundle' du scope parent</p>
+					</aside>
+				</section>
+				<section>
+					<p>Fichier bundle.partial.html</p>
+					<img src="/img/ScreensCode/AngularJS/directive.bundle.template.html.jpg" alt="">
+					<p class="fragment fade-in">{{value}} affiche directement une valeur du scope local</p>
+					<p class="fragment fade-in">On peut charger d'autres directives dans le template</p>
 				</section>
 			</section>
 			<section>
@@ -649,56 +762,16 @@
 				<section>
 					<p>Le bundleService</p>
 					<img src="/img/ScreensCode/AngularJS/bundleService.js.png">
-					<p class="fragment fade-in">Le service n'est qu'une fonction JS !</p>
+					<p class="fragment fade-in">Le service expose 3 fonctions</p>
 					<p class="fragment fade-in">On injecte le module $http pour l'Ajax</p>
-					<p class="fragment fade-in">L'objet "promise" du module $q permet une gestion asynchrone élégante</p>
+					<p class="fragment fade-in">Le module $q permet une gestion asynchrone élégante</p>
+				</section>
+				<section>
+					<p>Fonction GetBundles en détails</p>
+					<img src="/img/ScreensCode/AngularJS/%24http.apibundles.png">
 				</section>
 			</section>
-			<section>
-				<section>
-					<h2>Directives</h2>
-					<p class="fragment fade-in">Les directives permettent d'étendre HTML</p>
-					<p class="fragment fade-in">Ce sont des templates</p>
-				</section>
-				<section>
-					<h3>Types de directives</h3>
-					<p>Angular gère 3 types de directives</p>
-					<ol>
-						<li class="fragment fade-in">Attributs html (comme ng-show, ng-repeat, ng-app)
-						<br/><img src="/img/ScreensCode/AngularJS/directive.zoom.attribute.png" alt=""></li>
-						<li class="fragment fade-in">Nom d'élément<br/>
-						<img src="/img/ScreensCode/AngularJS/directive.zoom.element.png" alt=""></li>
-						<li class="fragment fade-in">Classe CSS</li>
-					</ol>
-				</section>
-				<section>
-					<p>Directive custom 'bundle'</p>
-					<p><small>De type Element, encapsule un objet Bundle</small></p>
-					<img src="/img/ScreensCode/AngularJS/index.html.zoom_bundle.png" alt="">
-					<p class="fragment fade-in">Le code est rendu très lisible</p>
-					<p class="fragment fade-in">On peut combiner les directives et les filtres</p>
-				</section>
-				<section>
-					<p>Définition de la directive</p>
-					<p><small>La directive s'ajoute au module principal comme les autres types d'objets Angular</small></p>
-					<img src="/img/ScreensCode/AngularJS/directive.bundle.js.png" alt="">
-					<p class="fragment fade-in">Une directive n'est qu'une fonction JS !</p>
-					<p class="fragment fade-in">L'attribut restrict définit le type Element</p>
-					<p class="fragment fade-in">Cette directive encapsule son propre scope</p>
-					<aside class="notes">
-						<p>Par défaut une directive utilise le scope du template parent...</p>
-						<p>sauf si on en définit un comme ici</p>
-						<p>le '=which' lie la valeur 'bundle' de ce scope à la valeur 'bundle' du scope parent</p>
-					</aside>
-				</section>
-				<section>
-					<p>Template de la directive</p>
-					<p><small>Le template de la directive est une sorte de partial view</small></p>
-					<img src="/img/ScreensCode/AngularJS/directive.bundle.template.html.jpg" alt="">
-					<p class="fragment fade-in">La notation double-brace permet d'afficher directement une valeur du scope</p>
-					<p class="fragment fade-in">On peut charger d'autres directives dans le template</p>
-				</section>
-			</section>
+
 			<section>
 				<h2>Fin de la présentation</h2>
 				<h4 class="fragment fade-in">Avez-vous des questions ?</h4>
