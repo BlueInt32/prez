@@ -47,15 +47,16 @@
 				<p>
 					<small>Simon BUDIN</small>
 				</p>
-
 			</section>
 			<section>
 				<h2>Sommaire</h2>
 				<p><br/></p>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 34%;left:8.5%;">Contexte du projet</h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 49%;left:2%;">Code First </h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 65%;left:0%;"/>Web Api</h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 6%;top: 78%;left:7%;">Angular JS </h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 29%;left:8.5%;">Contexte du projet</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 40%;left:2%;">Code First </h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 54%;left:0%;"/>Web Api</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 6%;top: 65%;left:7%;">Angular JS </h3>
+
+				<p class="fragment fade-in">Fonctionnel plutôt simple = bon prétexte pour essayer des nouvelles technos !</p>
 			</section>
 			<section>
 				<h1>Contexte du projet</h1>
@@ -120,7 +121,7 @@
 				<section><img src="/img/ScreensJeu/q3.png" /></section>
 				<section><img src="/img/ScreensJeu/q4.png" /></section>
 				<section><img src="/img/ScreensJeu/q5_form.png" /></section>
-				<section><img src="/img/ScreensJeu/result.png" /></section>
+				<section><img src="/img/ScreensJeu/result.png" /><br/><a href="http://legrandjeudesheroscanalplus.fr/" target="blank">Voir en vrai</a></section>
 
 				<aside class="notes">
 					<ul>
@@ -201,25 +202,20 @@
 				</section>
 			</section>
 			<section>
-				<h2>Comment c'est fait ?</h2>
-				<img src="img/illustrations/cambouis_s.png" />
-			</section>
-			<section>
 				<h2>Architecture</h2>
-				<img src="img/diagrammes/archi.png" />
+				<img src="img/diagrammes/archi.png" style="margin-top: -23px;" />
 				<ol>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:33%;" />
+						Entity Framework 6 - Code First
+					</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:57%;" />
+						ASP.Net - Web Api 2</li>
+					<li class="fragment fade-in">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:86%;" />
+						AngularJS</li>
 				</ol>
-				<aside class="notes">
-					On ne détaillera pas beaucoup la partie qui remplit les bundles : on considérera les bundles essentiellement en lecture.
-				</aside>
-			</section>
-			<section>
-				<h3>Fonctionnel simple</h3>
-				<br/>
-				<p class="fragment fade-in">Un bon prétexte pour tester des technos !</p>
 			</section>
 <!--
 	  /$$$$$$                  /$$                  /$$$$$$  /$$                       /$$
@@ -235,7 +231,7 @@
 			<section>
 				<h1>EF Code first</h1>
 				<p class="fragment fade-in"><img src="img/illustrations/csharptodb.png" /><br/>
-				Par opposition à "Model First" et "Database First"<br/>Méthodologie fondée sur le code</p>
+				Par opposition à "Model First" et "Database First"<br/>Méthodologie ORM fondée sur le code</p>
 				<p><br/></p>
 				<ol>
 					<li class="fragment fade-in">POCO</li>
@@ -276,7 +272,7 @@
 			</section>
 			<section>
 			<section>
-				<h3>DbContext</h3>
+				<h2>DbContext</h2>
 				<p>Brique de base d'EF</p>
 				<p>Représente une session d'accès à la base de données</p>
 
@@ -310,10 +306,10 @@
 				</section>
 			</section>
 			<section>
-				<section><h3>Workflow</h3></section>
 				<section>
-					<h3>Pour créer/modifier la base</h3>
-					<h3>On créé des migrations</h3>
+					<h2>Workflow</h2>
+					<p><br/></p>
+					<h3 class="fragment fade-in">Pour créer/modifier la base<br/>On créé des migrations</h5>
 				</section>
 				<section>
 					<p>Une migration décrit le différentiel dans la base de données par rapport à la migration précédente.</p>
@@ -323,15 +319,20 @@
 				</section>
 				<section>
 					<h3>En pratique...</h3>
-					<img class="stretch"  src="img/diagrammes/MigrationsWorflows.png">
-				</section>
-				<section>
-					<p>On utilise Package Manager Console</p>
 					<img src="img/screenscode/codefirst/package_manager_console.jpg">
 				</section>
-				<section><h3>Enable-Migrations</h3><img src="img/screenscode/codefirst/Enabling_Migrations_small.png">
-				<p><img src="img/screenscode/codefirst/Enable_migratoins.png"></p>
-				<p class="fragment fade-in">A ne faire qu'une fois</p>
+				<section>
+					<h3>3 commandes à connaître</h3>
+					<ol>
+						<li class="fragment fade-in">Enable-Migrations : installation</li>
+						<li class="fragment fade-in">Add-Migration &lt;Name&gt; : création d'une migration</li>
+						<li class="fragment fade-in">Update-Database : action effective sur la base de données</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Enable-Migrations</h3><img src="img/screenscode/codefirst/Enabling_Migrations_small.png">
+					<p><img src="img/screenscode/codefirst/Enable_migratoins.png"></p>
+					<p class="fragment fade-in">A ne faire qu'une fois</p>
 				</section>
 				<section>
 					<h4>Fichier Configuration.cs</h4>
@@ -348,35 +349,28 @@
 					<img src="img/screenscode/codefirst/DbMigrationGeneratedCode.jpg">
 				</section>
 				<section><h3>Update-Database</h3>
-					<img src="img/screenscode/codefirst/update_database.png" style="max-width:150%">
+					<img src="img/screenscode/codefirst/update_database.png">
 					<div class="fragment fade-in">
-						<p>Paramètres utiles
+						<p>Met à jour la base de données</p>
+						<p>Insert une entrée dans la table __MigrationHistory</p>
+					</div>
+				</section>
+				<section>
+						<p>Paramètres utiles de Update-Database<br/>
+						<img src="/img/ScreensCode/CodeFirst/update_database_params.png" alt="">
 						<ul>
 							<li>verbose - précisions sur actions effectuées</li>
 							<li>force - en cas de perte potentielle de données</li>
 							<li>script - prévisualisation du script généré</li>
 						</ul>
 						</p>
-					</div>
+				</section>
+				<section>
+					<h3>Migration automatique</h3>
+					<img src="/img/diagrammes/MigrationsWorflows.png" alt="" style="margin-top:-15px">
 				</section>
 			</section>
 			<section>
-				<section>
-					<img src="img/illustrations/warning.png"><h3>Connection Strings</h3>
-					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
-					<img src="img/screenscode/codefirst/collectContextConnectionString.png"></p>
-					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
-					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg"></p>
-				</section>
-				<section>
-					<img src="img/illustrations/warning.png"><h3>Connection Strings</h3>
-					<p class="fragment fade-in">
-						Pour éxécuter les commandes</p>
-						<p class="fragment fade-in">1. Projet de démarrage = celui contenant la connection string
-						<p class="fragment fade-in">2. 'Défault project' dans PMC
-						<img src="img/screenscode/codefirst/defaultproject.jpg"></p>
-					</p>
-				</section>
 				<section>
 					<img src="img/illustrations/warning.png"><h2>Pièges : Initializers</h2>
 					<p class="fragment fade-in">
@@ -384,6 +378,22 @@
 					</p>
 					</p>
 					<img class="fragment fade-in" src="img/screenscode/codefirst/CollecteContext_Config_init.png">
+				</section>
+				<section>
+					<h3>Connection Strings</h3>
+					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
+					<img src="img/screenscode/codefirst/collectContextConnectionString.png"></p>
+					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
+					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg"></p>
+				</section>
+				<section>
+					<h3>Projets de démarrage</h3>
+					<p class="fragment fade-in">
+						Pour éxécuter les commandes</p>
+						<p class="fragment fade-in">1. Projet de démarrage = celui contenant la connection string
+						<p class="fragment fade-in">2. 'Défault project' dans PMC
+						<img src="img/screenscode/codefirst/defaultproject.jpg"></p>
+					</p>
 				</section>
 			</section>
 			<section>
@@ -419,11 +429,18 @@
 
 			<section>
 				<h2>Architecture</h2>
-				<img src="img/diagrammes/archi.png" />
+				<img src="img/diagrammes/archi.png" style="margin-top: -23px;" />
 				<ol>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:33%;" />
+						Entity Framework 6 - Code First
+					</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:57%;" />
+						ASP.Net - Web Api 2</li>
+					<li class="fragment fade-in">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:86%;" />
+						AngularJS</li>
 				</ol>
 			</section>
 
@@ -446,17 +463,17 @@
 				Api RESTFul en .NET</p>
 				<p><br/></p>
 				<ol>
-					<li class="fragment fade-in">Routing</li>
+					<li class="fragment fade-in">Routing &amp; Actions</li>
 					<li class="fragment fade-in">Formatters</li>
 					<li class="fragment fade-in">Filtres d'action</li>
 				</ol>
 			</section>
 			<section>
 				<section>
-					<h2>Routing</h2>
+					<h2>Routing &amp; Actions</h2>
 				</section>
 				<section>
-					<h3>Fondé sur le verbe HTTP</h3>
+					<h3>Routing fondé sur le verbe HTTP</h3>
 					<ul>
 						<li>GET pour récupérer des données (liste ou élément)</li>
 						<li>POST : pour enregistrer un nouvel element</li>
@@ -471,18 +488,22 @@
 					<img src="/img/ScreensCode/WebAPI/routing_mapping.jpg">
 				</section>
 				<section>
-					<h3>Deux méthodes de routing</h3>
+					<h3>Deux méthodes de définition du routing</h3>
 				</section>
 				<section>
 					<p>1. Dans WebApiConfig (similaire à ASP.NET MVC)</p>
 					<img src="/img/ScreensCode/WebAPI/api_routing_1_default_routing.png">
-					<p>On ne spécifie pas l'action, qui est déduite par le moteur grâce au verbe HTTP</p>
+					<p>L'action est déduite par le moteur grâce au verbe HTTP</p>
 				</section>
 				<section>
 					<h3>Action GetAllBundles</h3>
 					<img src="/img/ScreensCode/WebAPI/api_action_getallbundles.jpg">
 					<p>Appelée avec <code>/api/bundles/</code></p>
 					<p>GET + pas de paramètre = action retournant un IEnumerable</p>
+				</section>
+				<section>
+					<p>GetAllBundles</p>
+					<img src="/img/ScreensCode/WebAPI/apiBundlesList3.png">
 				</section>
 				<section>
 					<p>2. Par attribut</p>
@@ -492,14 +513,15 @@
 					<p>Paramètre path de type "catch-all" mappant le filepath</p>
 				</section>
 				<section>
-					<p>Exemple</p>
+					<p>GetBundleFileContent</p>
 					<img src="/img/ScreensCode/WebAPI/api_filecontent.png">
 				</section>
 			</section>
 			<section>
 				<section>
 				<h2>Formatters</h2>
-				<p>Paramétrage des types Mime</p>
+				<p>Code First fournit permet de paramétrer les types Mime</p>
+				<p>On peut définir ses propres formats : par exemple csv</p>
 				</section>
 				<section>
 					<h3>XML ou Json ?</h3>
@@ -522,47 +544,53 @@
 				<section>
 					<p>On peut indenter le JSON (pas par défaut)</p>
 					<img src="/img/ScreensCode/WebAPI/api_config_indent.png">
-				</section>
-				<section>
-					<p>On passe de</p>
 					<img src="/img/ScreensCode/WebAPI/json_unformat.png">
-					<p>à </p>
-					<img src="/img/ScreensCode/WebAPI/json_small.png">
 				</section>
 			</section>
 			<section>
 				<section>
 				<h2>Filtres d'action</h2>
-				<p>Code transverse</p>
+				<p>Permettent d'éxécuter du code par nature transverse :</p>
+				<p>Logs, authentification, check de session, gestion des exceptions...</p>
 				</section>
 				<section>
 					<p>On peut appliquer des filtres comme dans ASP.NET MVC à plusieurs niveaux</p>
 					<ul>
 						<li class="fragment fade-in">Action - attribut au dessus de la méthode</li>
-						<li class="fragment fade-in">Controleur - attribut au dessus de la classe</li>
+						<li class="fragment fade-in">Contrôleur - attribut au dessus de la classe</li>
 						<li class="fragment fade-in">Application - à l'aide du singleton GlobalConfiguration</li>
 					</ul>
 				</section>
 				<section>
-					<p>Filtre Global d'authentification</p>
-					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png">
-				</section>
-				<section>
-					<p>Installation</p>
+					<p>Installation du filtre en global</p>
 					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_add.png">
-					<p><a href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com" data-preview-link>Test</a></p>
 					<aside class="notes">
 						rappMonitor / rBIu435E1aC581
 					</aside>
 				</section>
+				<section>
+					<p>Filtre Global d'authentification</p>
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png">
+					<p class="fragment fade-in">BasicAuthenticationFilter hérite de AuthorizationFilterAttribute (prédéfini)</p>
+					<p class="fragment fade-in">On override OnAuthorizeUser qui par défaut ne fait rien</p>
+					<p class="fragment fade-in">On y ajoute une authentification basique HTTP</p>
+					<p class="fragment fade-in"><a href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com" data-preview-link>Test</a></p>
+				</section>
 			</section>
 			<section>
 				<h2>Architecture</h2>
-				<img src="img/diagrammes/archi.png" />
+				<img src="img/diagrammes/archi.png" style="margin-top: -23px;" />
 				<ol>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:33%;" />Entity Framework 6 - Code First</li>
-					<li class="fragment current-visible"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:57%;" />ASP.Net - Web Api 2</li>
-					<li class="fragment fade-in"><img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:21%;left:86%;" />AngularJS</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:33%;" />
+						Entity Framework 6 - Code First
+					</li>
+					<li class="fragment current-visible">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:57%;" />
+						ASP.Net - Web Api 2</li>
+					<li class="fragment fade-in">
+						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:86%;" />
+						AngularJS</li>
 				</ol>
 			</section>
 <!--
@@ -586,10 +614,10 @@
 				<p><br></p>
 				<ol>
 					<li class="fragment fade-in">Hello World</li>
-					<li class="fragment fade-in">Structure simplifiée</li>
+					<li class="fragment fade-in">Vocabulaire</li>
 					<li class="fragment fade-in">Mise en application</li>
-					<li class="fragment fade-in">Le service Angular</li>
 					<li class="fragment fade-in">Les directives</li>
+					<li class="fragment fade-in">Le service Angular</li>
 				</ol>
 			</section>
 			<section>
@@ -608,8 +636,7 @@
 				</section>
 			</section>
 			<section>
-				<section>
-					<h3>Un peu de vocabulaire</h3>
+				<section><h3>Vocabulaire</h3>
 					<ol>
 						<li class="fragment fade-in">Modules : équivalents des assemblies .NET</li>
 						<li class="fragment fade-in">Views : pages html contenant de la syntaxe AngularJS</li>
@@ -623,15 +650,24 @@
 					<img src="/img/diagrammes/angular_basic_structure.png" alt="">
 				</section>
 				<section>
-					<h3>Précision</h3>
-					<p>Les éléments Controllers, Services, Directives sont des fonctions javascript qu'on ajoute à un module</p>
+					<h3>Tout est fonction</h3>
+					<p>Controllers, Services, Directives ne sont que des fonctions javascript qu'on ajoute à un module</p>
+					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/app.js.png" alt=""></p>
 					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.controller.png" alt=""></p>
 					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.service.png" alt=""></p>
 					<p class="fragment fade-in"><img src="/img/ScreensCode/AngularJS/signature.directive.png" alt=""></p>
-					<p class="fragment fade-in">Le scope est associé "sous le capot" par Angular.</p>
+					<p class="fragment fade-in">Tout est donc facilement testable</p>
 				</section>
 				<section>
-					<h3>Revenons à nos bundles</h3>
+					<h3>Le $scope</h3>
+					<p>L'objet $scope est géré par AngularJS : c'est une collection observable qu'on injecte dans le controleur</p>
+					<img src="/img/ScreensCode/AngularJS/controller.js.png" alt="">
+					<p>On ne manipule pas le DOM, uniquement le $scope</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Mise en application</h2>
 					<p>Nous allons avoir besoin de définir :</p>
 					<ul>
 						<li class="fragment fade-in">Un module contenant toute l'application</li>
@@ -653,9 +689,8 @@
 					<span  class="fragment fade-in">MVVM ?</span>
 					<span  class="fragment fade-in">MVW !</span></p>
 				</section>
-			</section>
-			<section>
-				<section><h2>Mise en application</h2>
+				<section>
+					<h3>Structure de fichiers</h3>
 					<img src="/img/ScreensCode/AngularJS/files.png">
 				</section>
 				<section>
@@ -665,7 +700,7 @@
 					<p class="fragment fade-in">Le controleur<br/>
 					<img src="/img/ScreensCode/AngularJS/controller.js.png"></p>
 					<p class="fragment fade-in">Dépendances à $scope et bundleService injectées</p>
-					<p class="fragment fade-in">Utilisation d'un objet "Promise"</p>
+					<p class="fragment fade-in">Le service renvoie un objet de type "promesse"</p>
 					<aside class="notes">
 						<ul>
 							<li>Contrairement au schéma simplifié, la liste des bundles est groupée par semaines</li>
@@ -713,7 +748,8 @@
 					<p>ng-repeat repète les éléments d'un tableau du $scope<br/>
 					<img src="/img/ScreensCode/AngularJS/directive.ngrepeat_3.png" alt=""></p>
 					<p class="fragment fade-in">On peut imbriquer les boucles</p>
-					<p class="fragment fade-in">On peut filtrer les valeurs sur un modèle à la volée</p>
+					<p class="fragment fade-in">Et filtrer une liste via une valeur du $scope à la volée</p>
+					<p class="fragment fade-in"><a target="_blank" href="http://monitoring.collecte.canalplus.clients.rappfrance.com/">Démo</a></p>
 				</section>
 				<section>
 					<h3>Et beaucoup d'autres !</h3>
