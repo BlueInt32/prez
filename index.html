@@ -51,12 +51,11 @@
 			<section>
 				<h2>Sommaire</h2>
 				<p><br/></p>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 29%;left:8.5%;">Contexte du projet</h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 40%;left:2%;">Code First </h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 54%;left:0%;"/>Web Api</h3>
-				<h3 class="fragment fade-in"><img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 6%;top: 65%;left:7%;">Angular JS </h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/marker_maps.png" style="position: absolute;max-width: 11%;top: 35%;left:8.5%;">Contexte du projet</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/csharptodb.png" style="position: absolute;max-width: 17%;top: 48%;left:2%;">Code First </h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/dbtojson.png" style="position: absolute;max-width: 20%;top: 64%;left:0%;"/>Web Api 2</h3>
+				<h3 class="fragment fade-in"><img src="/img/illustrations/angular_transp.png" style="position: absolute;max-width: 6%;top: 77%;left:7%;">Angular JS </h3>
 
-				<p class="fragment fade-in">Fonctionnel plutôt simple = bon prétexte pour essayer des nouvelles technos !</p>
 			</section>
 			<section>
 				<h1>Contexte du projet</h1>
@@ -211,10 +210,12 @@
 					</li>
 					<li class="fragment current-visible">
 						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:57%;" />
-						ASP.Net - Web Api 2</li>
+						ASP.Net - Web Api 2
+					</li>
 					<li class="fragment fade-in">
 						<img class="nobordernoshadow" src="img/diagrammes/arrow.png" style="width:4%;position:absolute; top:17%;left:86%;" />
-						AngularJS</li>
+						AngularJS
+					</li>
 				</ol>
 			</section>
 <!--
@@ -227,7 +228,6 @@
 	|  $$$$$$/|  $$$$$$/|  $$$$$$$|  $$$$$$$      | $$      | $$| $$       /$$$$$$$/  |  $$$$/
 	 \______/  \______/  \_______/ \_______/      |__/      |__/|__/      |_______/    \___/
 -->
-
 			<section>
 				<h1>EF Code first</h1>
 				<p class="fragment fade-in"><img src="img/illustrations/csharptodb.png" /><br/>
@@ -236,22 +236,17 @@
 				<ol>
 					<li class="fragment fade-in">POCO</li>
 					<li class="fragment fade-in">DbContext</li>
+					<li class="fragment fade-in">Conventions</li>
+					<li class="fragment fade-in">Implémentations</li>
 					<li class="fragment fade-in">Workflow</li>
-					<li class="fragment fade-in">Conventions &amp; Ajustements</li>
 				</ol>
 			</section>
 			<section>
 				<section>
 					<h2>POCO</h2>
 					<p class="fragment fade-in"><u>P</u>lain <u>O</u>ld <u>C</u>LR <u>O</u>bject</p>
-					<p class="fragment fade-in">Aucune référence à l'ORM</p>
+					<p class="fragment fade-in">Aucune référence à l'ORM (ou presque)</p>
 					<p><img class="nobordernoshadow fragment roll-in" src="img/illustrations/down_arrow.gif">
-					<aside class="notes">
-						<ul>
-							<li>Distinguer Propriétés Scalaires / Propriétés de navigation</li>
-							<li>mot clef Virtual sur prop navigation permet d'utiliser le lazy loading.</li>
-						</ul>
-					</aside>
 				</section>
 				<section>
 				<h3>Diagramme de classes</h3>
@@ -260,48 +255,83 @@
 				<section>
 					<h2>Bundle</h2>
 					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg">
-					</section>
-					<section>
-						<h2>BundleFile</h2>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
-					</section>
-					<section>
-					<h2>Enums</h2>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_Enums.jpg">
-					</section>
-			</section>
-			<section>
-			<section>
-				<h2>DbContext</h2>
-				<p>Brique de base d'EF</p>
-				<p>Représente une session d'accès à la base de données</p>
-
-				<aside class="notes">
-					<ul>
-						<li>Brique de base d'EF code first</li>
-						<li>Représente une session d'accès à la base de données</li>
-						<li></li>
-					</ul>
-				</aside>
 				</section>
 				<section>
-				<h3>CollectContext</h3>
+						<h2>BundleFile</h2>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
+				</section>
+				<section>
+					<h2>Enums</h2>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Enums.jpg">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>DbContext</h2>
+					<p>Brique de base d'EF</p>
+					<p>Représente une session d'accès à la base de données</p>
+					<p>On y définit les objets à persister et certains réglages</p>
+				</section>
+				<section>
+					<h3>CollectContext</h3>
 					<img class="nobordernoshadow"  src="img/screenscode/codefirst/CollecteContext_DbSets.jpg">
 
 					<p class="fragment fade-in">On hérite de DbContext</p>
 					<p class="fragment fade-in">Un DbSet par table</p>
 				</section>
+			</section>
+			<section>
 				<section>
-					Utilisation : Create Bundle
+					<h2>Conventions</h2>
+					<p>Code First détecte les clefs grace à des conventions de nommage par défaut</p>
+					<p>On peut modifier ces conventions si besoin</p>
+				</section>
+				<section>
+					<h3>Convention de clef primaire</h3>
+					<img src="img/screenscode/codefirst/bundleFileZoom.png">
+					<p>Propriété Int ou Guid de format "&lt;NomClasse&gt;Id"</p>
+				</section>
+				<section>
+					<h3>Convention de relations</h3>
+					<p>Il est conseillé de fournir la clef de l'entité liée en plus de la collection</p>
+					<p>Format : "&lt;NomClasseLiee&gt;Id"</p>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
+					<p><a href="http://msdn.microsoft.com/en-us/data/jj679962.aspx">Source msdn</a></p>
+				</section>
+				<section>
+					<h3>Deux moyens d'ajuster les propriétés du modele</h3>
+					<ol>
+						<li>Dans les POCO directement avec des attributs</li>
+						<li>Dans la définition du contexte, Fluent API</li>
+					</ol>
+				</section>
+				<section>
+					<p>Les attributs : Key, StringLength, NotMapped, Required</p>
+					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg">
+					<p>Il en existe d'autres</p>
+				</section>
+				<section>
+					<p>La fluent API : contraintes définies en redéfinissant OnModelCreating dans le contexte</p>
+					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png">
+					<p>Permet des modifications plus poussées</p>
+					<p>Permet également de ne pas trop "salir" les POCO</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Implémentations</h2>
+				</section>
+				<section>
+					<p>Create Bundle</p>
 					<img class="nobordernoshadow" src="img/screenscode/codefirst/Create_Bundle.jpg">
 				</section>
 				<section>
-					Utilisation : Get &amp; List Bundles
+					<p>Get &amp; List Bundles</p>
 					<img class="nobordernoshadow" src="img/screenscode/codefirst/Get_Bundle.jpg">
 					<img class="nobordernoshadow" src="img/screenscode/codefirst/List_Bundle.jpg">
 				</section>
 				<section>
-					Utilisation : Create Bundle Files
+					<p>Create Bundle Files</p>
 					<img class="nobordernoshadow" src="/img/ScreensCode/CodeFirst/Create_BundleFile.jpg">
 				</section>
 			</section>
@@ -369,22 +399,19 @@
 					<h3>Migration automatique</h3>
 					<img src="/img/diagrammes/MigrationsWorflows.png" alt="" style="margin-top:-15px">
 				</section>
-			</section>
-			<section>
-				<section>
-					<img src="img/illustrations/warning.png"><h2>Pièges : Initializers</h2>
-					<p class="fragment fade-in">
-						Désactiver l'initializer par défaut (sinon danger)
-					</p>
-					</p>
-					<img class="fragment fade-in" src="img/screenscode/codefirst/CollecteContext_Config_init.png">
-				</section>
 				<section>
 					<h3>Connection Strings</h3>
 					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
 					<img src="img/screenscode/codefirst/collectContextConnectionString.png"></p>
 					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
 					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg"></p>
+				</section>
+				<section>
+					<h3>Initializers et réglages</h3>
+					<img src="img/screenscode/codefirst/CollecteContext_Config_init.png">
+					<p>
+						Conseil : désactiver l'initializer par défaut (sinon danger)
+					</p>
 				</section>
 				<section>
 					<h3>Projets de démarrage</h3>
@@ -394,36 +421,6 @@
 						<p class="fragment fade-in">2. 'Défault project' dans PMC
 						<img src="img/screenscode/codefirst/defaultproject.jpg"></p>
 					</p>
-				</section>
-			</section>
-			<section>
-				<section>
-				<h3>Conventions &amp; Ajustements</h3></section>
-				<section>
-					<h3>Convention de clef primaire</h3>
-					<img src="img/screenscode/codefirst/bundleFileZoom.png">
-					<p>Propriété Int ou Guid terminant par Id ou ID, ou avec l'attribut Key</p>
-				</section>
-				<section>
-					<h3>Convention de relations</h3>
-					<p>Il est conseillé de fournir la clef de l'entité liée en plus de la collection</p>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_BundleFile.jpg">
-					<p><a href="http://msdn.microsoft.com/en-us/data/jj679962.aspx">Source msdn</a></p>
-				</section>
-				<section>
-					<h3>Deux moyens d'ajuster les propriétés du modele</h3>
-					<p class="fragment fade-in">Dans les POCO directement avec des attributs</p>
-					<p class="fragment fade-in">Dans la définition du contexte, Fluent API</p>
-				</section>
-				<section>
-					<p>Les attributs : Key, StringLength, NotMapped, Required</p>
-					<img src="img/screenscode/codefirst/CollecteContext_POCO_Bundle.jpg">
-					<p>Il en existe d'autres</p>
-				</section>
-				<section>
-					<p>La fluent API : contraintes définies en redéfinissant OnModelCreating dans le contexte</p>
-					<img src="img/screenscode/codefirst/CollecteContext_Config_onmodel.png">
-					<p>Permet des modifications plus poussées</p>
 				</section>
 			</section>
 
@@ -520,7 +517,7 @@
 			<section>
 				<section>
 				<h2>Formatters</h2>
-				<p>Code First fournit permet de paramétrer les types Mime</p>
+				<p>Web API fournit permet de paramétrer les types Mime</p>
 				<p>On peut définir ses propres formats : par exemple csv</p>
 				</section>
 				<section>
@@ -549,32 +546,33 @@
 			</section>
 			<section>
 				<section>
-				<h2>Filtres d'action</h2>
-				<p>Permettent d'éxécuter du code par nature transverse :</p>
-				<p>Logs, authentification, check de session, gestion des exceptions...</p>
+					<h2>Filtres d'action</h2>
+					<p>Permettent d'éxécuter du code par nature transverse :</p>
+					<p>Logs, authentification, check de session, gestion des exceptions...</p>
+				</section>
+				<section>
+					<p>Filtre d'autentification</p>
+					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png">
+					<p class="fragment fade-in">On hérite de BasicAuthenticationFilter qui hérite de AuthorizationFilterAttribute (prédéfini)</p>
+					<p class="fragment fade-in">Ce filtre scanne les headers HTTP à la recherche d'info d'authentification</p>
+					<p class="fragment fade-in"><a href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com" target="_blank">Test</a></p>
 				</section>
 				<section>
 					<p>On peut appliquer des filtres comme dans ASP.NET MVC à plusieurs niveaux</p>
 					<ul>
-						<li class="fragment fade-in">Action - attribut au dessus de la méthode</li>
-						<li class="fragment fade-in">Contrôleur - attribut au dessus de la classe</li>
+						<li class="fragment fade-in">Action - attribut au dessus de la méthode<br/>
+						<img src="/img/ScreensCode/WebAPI/filter.action.png" alt=""></li>
+						<li class="fragment fade-in">Contrôleur - attribut au dessus de la classe<br/>
+						<img src="/img/ScreensCode/WebAPI/filter.controller.png" alt=""></li>
 						<li class="fragment fade-in">Application - à l'aide du singleton GlobalConfiguration</li>
 					</ul>
 				</section>
 				<section>
-					<p>Installation du filtre en global</p>
+					<p>Filtre en global</p>
 					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_add.png">
 					<aside class="notes">
 						rappMonitor / rBIu435E1aC581
 					</aside>
-				</section>
-				<section>
-					<p>Filtre Global d'authentification</p>
-					<img src="/img/ScreensCode/WebAPI/Config_auth_filter_class.png">
-					<p class="fragment fade-in">BasicAuthenticationFilter hérite de AuthorizationFilterAttribute (prédéfini)</p>
-					<p class="fragment fade-in">On override OnAuthorizeUser qui par défaut ne fait rien</p>
-					<p class="fragment fade-in">On y ajoute une authentification basique HTTP</p>
-					<p class="fragment fade-in"><a href="http://rappMonitor@monitoring.collecte.canalplus.clients.rappfrance.com" data-preview-link>Test</a></p>
 				</section>
 			</section>
 			<section>
@@ -614,29 +612,14 @@
 				<p><br></p>
 				<ol>
 					<li class="fragment fade-in">Hello World</li>
-					<li class="fragment fade-in">Vocabulaire</li>
+					<li class="fragment fade-in">Vocabulaire et Concepts</li>
 					<li class="fragment fade-in">Mise en application</li>
 					<li class="fragment fade-in">Les directives</li>
-					<li class="fragment fade-in">Le service Angular</li>
+					<li class="fragment fade-in">Les services</li>
 				</ol>
 			</section>
 			<section>
-				<section>
-					<h2>Hello World</h2>
-				</section>
-				<section>
-					<p>Avec Jquery</p>
-					<p><img src="/img/ScreensCode/AngularJS/test_jquery_example.png" alt=""></p>
-					<p><a href="samples/test_jquery.html" data-preview-link>Test</a></p>
-				</section>
-				<section>
-					<p>Avec AngularJS</p>
-					<img src="/img/ScreensCode/AngularJS/test_angular_example.png" alt="">
-					<p><a href="samples/test_angular.html" data-preview-link>Test</a></p>
-				</section>
-			</section>
-			<section>
-				<section><h3>Vocabulaire</h3>
+				<section><h3>Vocabulaire et Concepts</h3>
 					<ol>
 						<li class="fragment fade-in">Modules : équivalents des assemblies .NET</li>
 						<li class="fragment fade-in">Views : pages html contenant de la syntaxe AngularJS</li>
@@ -736,13 +719,6 @@
 					<p>Elles permettent de paramétrer l'affichage d'éléments en fonction d'une valeur booléenne du $scope<br/>
 					<img src="/img/ScreensCode/AngularJS/index.zoomLoader.html.png" alt=""></p>
 				</section>
-
-				<section>
-					<h3>ng-model</h3>
-					<p>ng-model permet de binder la valeur d'un champ input dans le $scope<br/>
-					<img src="/img/ScreensCode/AngularJS/index.html.zoom.ngmodel.png" alt=""></p>
-					<p class="fragment fade-in">Pas besoin de déclarer cette valeur dans le controleur</p>
-				</section>
 				<section>
 					<h3>ng-repeat + filtre</h3>
 					<p>ng-repeat repète les éléments d'un tableau du $scope<br/>
@@ -791,7 +767,7 @@
 			</section>
 			<section>
 				<section>
-					<h2>Le service Angular</h2>
+					<h2>Le service</h2>
 					<p class="fragment fade-in">Il permet d'encapsuler les appels API</p>
 					<p class="fragment fade-in">C'est une bibliothèque réutilisable</p>
 				</section>
@@ -806,6 +782,11 @@
 					<p>Fonction GetBundles en détails</p>
 					<img src="/img/ScreensCode/AngularJS/%24http.apibundles.png">
 				</section>
+
+				<section>
+					<p>Fonction GetBundleFileContent</p>
+					<img src="/img/ScreensCode/AngularJS/%24http.apibundleFileContent.png">
+				</section>
 			</section>
 
 			<section>
@@ -819,6 +800,7 @@
 				<h3>Bibliographie</h3>
 				<h4>Code First</h4>
 				<p><a target="_blank" href="http://msdn.microsoft.com/en-us/data/jj193542.aspx">Code first to new Database @ Msdn.com</a></p>
+				<p><a target="_blank" href="http://www.entityframeworktutorial.net/">Entity Framework Tutorials</a></p>
 				<p><br/></p>
 				<h4>Web Api</h4>
 				<p><a href="http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api">Getting Started with Web Api 2</a></p>

@@ -939,10 +939,8 @@ var Reveal = (function(){
 	function enablePreviewLinks( selector ) {
 
 		var anchors = toArray( document.querySelectorAll( selector ? selector : 'a' ) );
-		console.log(anchors);
 		anchors.forEach( function( element ) {
 			//if( /^(http|www)/gi.test( element.getAttribute( 'href' ) ) ) {
-				console.log("coucou");
 				element.addEventListener( 'click', onPreviewLinkClicked, false );
 			//}
 		} );
