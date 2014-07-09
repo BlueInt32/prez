@@ -13,7 +13,7 @@ Send("Node{ENTER}")
 Send("^t")
 Send("cd " & $path & "{ENTER}")
 Sleep(200)
-Send("start chrome localhost:8000{ENTER}")
+Send("start chrome localhost:8000/index.html{ENTER}")
 
 
 

@@ -123,7 +123,23 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 38213,
+				"buffer_size": 38150,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Prog/Git/InitGitSSH.au3",
+			"settings":
+			{
+				"buffer_size": 147,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "____GoConsole.au3",
+			"settings":
+			{
+				"buffer_size": 1083,
 				"line_ending": "Windows"
 			}
 		},
@@ -262,6 +278,9 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Simon/Desktop/PlayWithVLC.reg",
+		"/D/Dropbox/Prog/Games/Monogame/Sk8/Notes.txt",
+		"/D/Dropbox/Prog/Games/Monogame/Sk8/README.txt",
 		"/D/Prog/Git/prez/css/reveal.css",
 		"/D/Prog/Git/prez/js/reveal.min.js",
 		"/D/Prog/Git/prez/img/ScreensCode/WebAPI/api_remove_formater.jpg",
@@ -386,10 +405,7 @@
 		"/D/prog/git/NodeJs/videoexplorer/bin/www",
 		"/D/Prog/Git/SuperSprint/app/assets/README.md",
 		"/D/prog/git/SuperSprint/.gitignore",
-		"/D/prog/git/SuperSprint/app/node_server.js",
-		"/D/prog/git/NodeJs/videoexplorer/app.js",
-		"/C/Users/Simon/AppData/Local/Temp/fz3temp-1/index.html",
-		"/D/Prog/Git/SuperSprint/app/js/libs/pixi.js/docs/files/src_pixi_filters_InvertFilter.js.html"
+		"/D/prog/git/SuperSprint/app/node_server.js"
 	],
 	"find":
 	{
@@ -408,6 +424,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/img/",
 			"ng-model",
 			"service Angular",
 			"Dans les POCO directement",
@@ -534,8 +551,7 @@
 			"keyboardData",
 			"stats",
 			"return",
-			"@drifting",
-			"this.drifting"
+			"@drifting"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -543,6 +559,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"img/",
 			"archi.png\" style=\"margin-top: -23px;\"",
 			"",
 			"_",
@@ -568,7 +585,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -577,15 +594,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 38213,
+						"buffer_size": 38150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26662,
-								26662
+								1837,
+								1837
 							]
 						],
 						"settings":
@@ -594,7 +611,63 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10850.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/Prog/Git/InitGitSSH.au3",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "____GoConsole.au3",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -603,11 +676,11 @@
 				{
 					"file": "img/ScreensCode/AngularJS/bundle.partial.html.png",
 					"semi_transient": false,
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "image"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "css/reveal.css",
 					"semi_transient": false,
 					"settings":
@@ -632,11 +705,11 @@
 						"translation.y": 9709.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "samples/test_angular.html",
 					"semi_transient": false,
 					"settings":
@@ -660,11 +733,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "js/reveal.js",
 					"semi_transient": false,
 					"settings":
@@ -689,11 +762,11 @@
 						"translation.y": 16721.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "css/reveal.min.css",
 					"semi_transient": false,
 					"settings":
@@ -717,11 +790,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "/C/Users/Simon/AppData/Roaming/Sublime Text 3/Packages/User/asidenode.sublime-snippet",
 					"semi_transient": false,
 					"settings":
@@ -746,11 +819,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "css/theme/sky.css",
 					"semi_transient": false,
 					"settings":
@@ -776,7 +849,7 @@
 						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1021,12 +1094,12 @@
 		"selected_items":
 		[
 			[
-				"prez",
-				"D:\\Prog\\Git\\prez\\prez.sublime-project"
+				"",
+				"D:\\Prog\\Git\\NodeJs\\video-explorer\\ve.sublime-project"
 			],
 			[
-				"",
-				"D:\\Prog\\Git\\SuperSprint\\app\\supersprint.sublime-project"
+				"prez",
+				"D:\\Prog\\Git\\prez\\prez.sublime-project"
 			]
 		],
 		"width": 380.0

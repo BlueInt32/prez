@@ -402,23 +402,24 @@
 				<section>
 					<h3>Connection Strings</h3>
 					<p class="fragment fade-in">La ConnectionString porte le nom du contexte<br/>
-					<img src="img/screenscode/codefirst/collectContextConnectionString.png"></p>
+					<img src="img/screenscode/codefirst/collectContextConnectionString.png"><br/>
+					Mais on peut modifier ça :
+					<img src="/img/ScreensCode/CodeFirst/Configuration_ContextName.png" /></p>
 					<p class="fragment fade-in">Si pas de ConnectionString valide trouvée -> LocalDb<br/>
 					<img src="img/screenscode/codefirst/ConnectionString_auto.jpg"></p>
 				</section>
 				<section>
 					<h3>Initializers et réglages</h3>
 					<img src="img/screenscode/codefirst/CollecteContext_Config_init.png">
-					<p>
-						Conseil : désactiver l'initializer par défaut (sinon danger)
-					</p>
+					<p>L'initializer peut être utile si on veut laisser le moteur créer la base au besoin...</p>
+					<p>On peut régler le lazyloading et la création de proxies.</p>
 				</section>
 				<section>
 					<h3>Projets de démarrage</h3>
 					<p class="fragment fade-in">
 						Pour éxécuter les commandes</p>
-						<p class="fragment fade-in">1. Projet de démarrage = celui contenant la connection string
-						<p class="fragment fade-in">2. 'Défault project' dans PMC
+						<p class="fragment fade-in">1. Projet de démarrage = avec connection string
+						<p class="fragment fade-in">2. 'Défault project' dans PMC = celui du DbContext
 						<img src="img/screenscode/codefirst/defaultproject.jpg"></p>
 					</p>
 				</section>
@@ -611,7 +612,6 @@
 				</blockquote>
 				<p><br></p>
 				<ol>
-					<li class="fragment fade-in">Hello World</li>
 					<li class="fragment fade-in">Vocabulaire et Concepts</li>
 					<li class="fragment fade-in">Mise en application</li>
 					<li class="fragment fade-in">Les directives</li>
@@ -625,7 +625,7 @@
 						<li class="fragment fade-in">Views : pages html contenant de la syntaxe AngularJS</li>
 						<li class="fragment fade-in">Controllers : établissent le lien entre le "modele" et les Views</li>
 						<li class="fragment fade-in">Scopes : contexte de données d'une ou plusieurs Views ayant des propriétés de data-binding bidirectionnel</li>
-						<li class="fragment fade-in">Directives : templates HTML (ou "partials") pouvant posséder leur propre scope.</li>
+						<li class="fragment fade-in">Directives : extensions HTML (partout !)</li>
 						<li class="fragment fade-in">Services : encapsulent des fonctionnalités, typiquement une API</li>
 					</ol>
 				</section>
@@ -643,9 +643,11 @@
 				</section>
 				<section>
 					<h3>Le $scope</h3>
-					<p>L'objet $scope est géré par AngularJS : c'est une collection observable qu'on injecte dans le controleur</p>
+					<p>L'objet $scope est géré par AngularJS : c'est une sorte de view-model, zone d'échange entre vues et controleurs</p>
 					<img src="img/ScreensCode/AngularJS/controller.js.png" alt="">
-					<p>On ne manipule pas le DOM, uniquement le $scope</p>
+
+					<p>On ne manipule pas le DOM hors de la vue, uniquement le $scope</p>
+
 				</section>
 			</section>
 			<section>
@@ -761,7 +763,7 @@
 				<section>
 					<p>Fichier bundle.partial.html</p>
 					<img src="img/ScreensCode/AngularJS/directive.bundle.template.html.jpg" alt="">
-					<p class="fragment fade-in">{{value}} affiche directement une valeur du scope local</p>
+					<p class="fragment fade-in">{{value}} est une 'expression', évaluée dans le scope courant</p>
 					<p class="fragment fade-in">On peut charger d'autres directives dans le template</p>
 				</section>
 			</section>
